@@ -1,0 +1,62 @@
+[
+  {
+    "time": "11:00-11:15",
+    "abstractId": 151,
+    "title": "QUADRATIC DIFFERENTIALS ASSOCIATED TO JACOBI AND LEMNISCATE ELLIPTIC FUNCTIONS",
+    "presenter": "Prasad Kumara",
+    "day": "Day 1",
+    "sessionId": 1,
+    "sessionChairs": ["Chairperson1"],
+    "category": "Mathematics"
+  },
+  {
+    "time": "11:15-11:30",
+    "abstractId": 188,
+    "title": "AN APPLICATION OF GRAPH THEORY IN ASYMMETRIC KEY CRYPTOGRAPHY",
+    "presenter": "Kaveesha Naduni Fernando",
+    "day": "Day 1",
+    "sessionId": 1,
+    "sessionChairs": ["Chairperson1"],
+    "category": "Computer Science"
+  },
+  {
+    "time": "11:30-11:45",
+    "abstractId": 193,
+    "title": "CHARACTERIZATION OF A CLASS OF INNER TORAL POLYNOMIALS VIA BLASCHKE PRODUCTS",
+    "presenter": "Prabash S.H Premarathna",
+    "day": "Day 1",
+    "sessionId": 1,
+    "sessionChairs": ["Chairperson1"],
+    "category": "Mathematics"
+  },
+  {
+    "time": "11:45-12:00",
+    "abstractId": 203,
+    "title": "RELATIONSHIP BETWEEN THE KAUFFMAN BRACKET POLYNOMIALS OF TORUS KNOTS: (T_(3,3n+1) ) AND (T_(3,3n+2))",
+    "presenter": "Wayani N Dissanyake",
+    "day": "Day 1",
+    "sessionId": 1,
+    "sessionChairs": ["Chairperson1"],
+    "category": "Mathematics"
+  },
+  {
+    "time": "12:00-12:15",
+    "abstractId": 204,
+    "title": "MAXIMAL EMBEDDING GENUS OF 3-EDGE CONNECTED HARARY GRAPHS",
+    "presenter": "Kavindu D.H Withanaarachchi",
+    "day": "Day 1",
+    "sessionId": 1,
+    "sessionChairs": ["Chairperson1"],
+    "category": "Computer Science"
+  },
+  {
+    "time": "12:15-12:30",
+    "abstractId": 205,
+    "title": "THE RAINBOW CONNECTION NUMBER OF THE EXTENDED VERSION OF SANDAT GRAPH",
+    "presenter": "Maheshi M.K. Dheerasinghe",
+    "day": "Day 1",
+    "sessionId": 1,
+    "sessionChairs": ["Chairperson1"],
+    "category": "Computer Science"
+  }
+]
