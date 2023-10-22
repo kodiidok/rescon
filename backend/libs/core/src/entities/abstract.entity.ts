@@ -1,29 +1,21 @@
-import { Entity, Column } from 'typeorm';
+import { Entity, Column, OneToOne } from 'typeorm';
 import { BaseEntity } from './base.entity';
+import { SessionItemEntity } from './session-item.entity';
 
 @Entity('abstracts')
 export class AbstractEntity extends BaseEntity {
-  @Column()
-  time: string;
-
   @Column()
   title: string;
 
   @Column()
   presenter: string;
 
-  @Column()
+  @Column({ type: 'int', name: 'abstract_id', unique: true })
   abstractId: number;
 
-  @Column()
-  day: string;
-
-  @Column()
-  sessionId: number;
-
-  @Column('simple-array')
-  sessionChairs: string[];
-
-  @Column()
-  category: string;
+  @OneToOne(
+    () => SessionItemEntity,
+    (entity: SessionItemEntity) => entity.abstract,
+  )
+  sessionItem: SessionItemEntity;
 }
