@@ -4,12 +4,14 @@ import {
   Column,
   Entity,
   JoinColumn,
+  ManyToMany,
   ManyToOne,
   OneToMany,
 } from 'typeorm';
 import * as bcrypt from 'bcrypt';
 import { VerificationCode } from './verification-codes.entity';
 import { BaseEntity } from './base.entity';
+import { SessionEntity } from './session.entity';
 
 @Entity('users')
 export class UserEntity extends BaseEntity {
@@ -35,6 +37,13 @@ export class UserEntity extends BaseEntity {
 
   @Column({ name: 'role_id', nullable: true })
   roleId?: string;
+
+  @ManyToMany(
+    () => SessionEntity,
+    (entity: SessionEntity) => entity.sessionChairs,
+    { nullable: true, onDelete: 'SET NULL', onUpdate: 'CASCADE' },
+  )
+  chairingSessions?: SessionEntity[];
 
   // @Column({ type: 'boolean', default: false })
   // verified?: boolean;

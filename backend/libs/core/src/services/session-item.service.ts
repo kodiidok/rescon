@@ -20,8 +20,9 @@ export class SessionItemService {
         skip: (page - 1) * pageSize,
       };
 
-      const data = await this.sessionItemRepository.find(options);
-      const count = data.length;
+      const [data, count] = await this.sessionItemRepository.findAndCount(
+        options,
+      );
 
       return {
         data,

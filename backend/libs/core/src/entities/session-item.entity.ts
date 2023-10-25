@@ -12,11 +12,11 @@ export class SessionItemEntity extends BaseEntity {
 
   @Column()
   title: string;
-  
+
   @Column()
   presenter: string;
 
-  @Column({ name: 'session_id' })
+  @Column({ name: 'session_id', nullable: true })
   sessionId: string;
 
   @Column({ type: 'int', name: 'abstract_id' })
@@ -25,6 +25,7 @@ export class SessionItemEntity extends BaseEntity {
   @ManyToOne(
     () => SessionEntity,
     (entity: SessionEntity) => entity.sessionItems,
+    { nullable: true, onDelete: 'SET NULL', onUpdate: 'CASCADE' },
   )
   @JoinColumn({ name: 'session_id', referencedColumnName: 'sessionId' })
   session: SessionEntity;

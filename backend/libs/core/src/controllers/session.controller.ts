@@ -11,7 +11,11 @@ import {
 import { ApiBody, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { SessionService } from '../services/session.service';
 import { SessionEntity } from '../entities/session.entity';
-import { CreateSessionDto, UpdateSessionDto } from '../dto/session.dto';
+import {
+  AddChairsToSessionDto,
+  CreateSessionDto,
+  UpdateSessionDto,
+} from '../dto/session.dto';
 
 @ApiTags('sessions')
 @Controller('sessions')
@@ -19,9 +23,17 @@ export class SessionController {
   constructor(private readonly sessionService: SessionService) {}
 
   @Get()
-  async findAll(): Promise<{ data: SessionEntity[]; count: number }> {
+  @ApiResponse({
+    status: 200,
+    description: 'List of session items with pagination information',
+    type: () => SessionEntity,
+  })
+  async findAll(
+    @Param('page') page: number = 1,
+    @Param('limit') limit: number = 10,
+  ): Promise<{ data: SessionEntity[]; count: number }> {
     try {
-      return await this.sessionService.findAll();
+      return await this.sessionService.findAll(page, limit);
     } catch (error) {
       throw new Error(error);
     }
@@ -70,9 +82,16 @@ export class SessionController {
   @Put(':id')
   async update(
     @Param('id') id: string,
-    @Body() updateSessionDto: UpdateSessionDto,
+    @Body() updateSessionDto: UpdateSessionDto | AddChairsToSessionDto,
   ): Promise<SessionEntity | undefined> {
     try {
+      if (updateSessionDto instanceof AddChairsToSessionDto) {
+        const updatedSession = await this.sessionService.addSessionChairs(
+          id,
+          updateSessionDto.userIds,
+        );
+        return updatedSession;
+      }
       return await this.sessionService.update(id, updateSessionDto);
     } catch (error) {
       throw new Error(error);

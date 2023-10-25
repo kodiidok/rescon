@@ -1,6 +1,7 @@
-import { Entity, Column, OneToMany } from 'typeorm';
+import { Entity, Column, OneToMany, ManyToMany, JoinTable } from 'typeorm';
 import { BaseEntity } from './base.entity';
 import { SessionItemEntity } from './session-item.entity';
+import { UserEntity } from './user.entity';
 
 @Entity('sessions')
 export class SessionEntity extends BaseEntity {
@@ -16,8 +17,20 @@ export class SessionEntity extends BaseEntity {
   @Column({ name: 'session_id', unique: true })
   sessionId: string;
 
-  @Column('simple-array', { name: 'session_chairs', nullable: true })
-  sessionChairs: string[];
+  @ManyToMany(
+    () => UserEntity,
+    (entity: UserEntity) => entity.chairingSessions,
+    { nullable: true, onDelete: 'SET NULL', onUpdate: 'CASCADE' },
+  )
+  @JoinTable({
+    name: 'session_chairs',
+    joinColumn: { name: 'session_id', referencedColumnName: 'sessionId' },
+    inverseJoinColumn: { name: 'session_chair_id', referencedColumnName: 'id' },
+  })
+  sessionChairs: UserEntity[];
+
+  @Column('simple-array', { name: 'session_chair_ids', nullable: true })
+  sessionChairIds: string[];
 
   @Column('simple-array', { name: 'session_item_ids', nullable: true })
   sessionItemIds: string[];

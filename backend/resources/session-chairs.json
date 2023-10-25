@@ -1,0 +1,110 @@
+[
+  {
+    "username": "gjaya1",
+    "email": "gejaya@sci.pdn.ac.lk",
+    "password": "P@ssw0rd",
+    "name": "Prof. Gehan Jayasooriya"
+  },
+  {
+    "username": "sru1",
+    "email": "srubasinghe@sci.pdn.ac.lk",
+    "password": "P@ssw0rd",
+    "name": "Prof. S.C.K. Rubasinghe"
+  },
+  {
+    "username": "rvand1",
+    "email": "vandercone@sci.pdn.ac.lk",
+    "password": "P@ssw0rd",
+    "name": "Dr. Rajnish Vandercone"
+  },
+  {
+    "username": "slokug1",
+    "email": "lokugs@vet.pdn.ac.lk",
+    "password": "P@ssw0rd",
+    "name": "Dr. Sampath Lokugalappatti"
+  },
+  {
+    "username": "skarun1",
+    "email": "shppk@sci.pdn.ac.lk",
+    "password": "P@ssw0rd",
+    "name": "Prof. S.H.P.P. Karunaratne"
+  },
+  {
+    "username": "rraja1",
+    "email": "rupika.rajakaruna@sci.pdn.ac.lk",
+    "password": "P@ssw0rd",
+    "name": "Prof. R.S. Rajakaruna"
+  },
+  {
+    "username": "tanup1",
+    "email": "thilinianupama@vet.pdn.ac.lk",
+    "password": "P@ssw0rd",
+    "name": "Dr. Thilini Anupama"
+  },
+  {
+    "username": "ifern1",
+    "email": "irushikawit@yahoo.com",
+    "password": "P@ssw0rd",
+    "name": "Dr. Irushika Fernando"
+  },
+  {
+    "username": "jdamu1",
+    "email": "jilushid@sci.pdn.ac.lk",
+    "password": "P@ssw0rd",
+    "name": "Prof. J.W. Damunupola"
+  },
+  {
+    "username": "carya1",
+    "email": "chandimaa@sci.pdn.ac.lk",
+    "password": "P@ssw0rd",
+    "name": "Dr. Chandima Ariyarathne"
+  },
+  {
+    "username": "sraj1",
+    "email": "sanathr@sci.pdn.ac.lk",
+    "password": "P@ssw0rd",
+    "name": "Prof. Sanath Rajapakse"
+  },
+  {
+    "username": "sgama1",
+    "email": "nalin@sci.pdn.ac.lk",
+    "password": "P@ssw0rd",
+    "name": "Dr. Suranjith Gama-arachchige"
+  },
+  {
+    "username": "ikaru1",
+    "email": "inokap@sci.pdn.ac.lk",
+    "password": "P@ssw0rd",
+    "name": "Prof. Inoka Karunaratne"
+  },
+  {
+    "username": "tweer1",
+    "email": "thiliniw@sci.pdn.ac.lk",
+    "password": "P@ssw0rd",
+    "name": "Dr. Thilini Weeraratne"
+  },
+  {
+    "username": "cabay1",
+    "email": "default@email.com",
+    "password": "P@ssw0rd",
+    "name": "Prof. Charmalie Abayasekara"
+  },
+  {
+    "username": "mdaun1",
+    "email": "malkanthid@sci.pdn.ac.lk",
+    "password": "P@ssw0rd",
+    "name": "Prof. Malkanthi Daundasekera"
+  },
+  {
+    "username": "psama1",
+    "email": "psam@sci.pdn.ac.lk",
+    "password": "P@ssw0rd",
+    "name": "Prof. Preminda Samaraweera"
+  },
+  {
+    "username": "cdana1",
+    "email": "chandimasd@sci.pdn.ac.lk",
+    "password": "P@ssw0rd",
+    "name": "Dr. Chandima Danapala"
+  }
+]

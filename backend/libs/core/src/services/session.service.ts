@@ -2,12 +2,15 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { FindManyOptions, Repository } from 'typeorm';
 import { SessionEntity } from '../entities/session.entity';
+import { UserService } from './user.service';
+import { AddChairsToSessionDto } from '../dto/session.dto';
 
 @Injectable()
 export class SessionService {
   constructor(
     @InjectRepository(SessionEntity)
     private sessionRepository: Repository<SessionEntity>,
+    private userService: UserService,
   ) {}
 
   async findAll(
@@ -22,6 +25,20 @@ export class SessionService {
 
       const [data, count] = await this.sessionRepository.findAndCount(options);
 
+      for (const session of data) {
+        if (session) {
+          // Check if session.sessionChairIds is defined and is an array
+          if (Array.isArray(session.sessionChairIds)) {
+            // Use Promise.all only if session.sessionChairIds is an array
+            session.sessionChairs = await Promise.all(
+              session.sessionChairIds.map(
+                async (userId: string) => await this.userService.findOne(userId),
+              ),
+            );
+          }
+        }
+      }
+
       return {
         data,
         count,
@@ -33,7 +50,23 @@ export class SessionService {
 
   async findOne(id: string): Promise<SessionEntity | undefined> {
     try {
-      return await this.sessionRepository.findOne({ where: { id } });
+      const session = await this.sessionRepository.findOne({
+        where: { sessionId: id },
+      });
+
+      if (session) {
+        // Check if session.sessionChairIds is defined and is an array
+        if (Array.isArray(session.sessionChairIds)) {
+          // Use Promise.all only if session.sessionChairIds is an array
+          session.sessionChairs = await Promise.all(
+            session.sessionChairIds.map(
+              async (userId: string) => await this.userService.findOne(userId),
+            ),
+          );
+        }
+      }
+
+      return session;
     } catch (error) {
       throw new Error(`Failed to fetch session: ${error}`);
     }
@@ -52,7 +85,7 @@ export class SessionService {
 
   async update(
     id: string,
-    updateSessionDto: Partial<SessionEntity>,
+    updateSessionDto: Partial<SessionEntity> | AddChairsToSessionDto,
   ): Promise<SessionEntity | undefined> {
     try {
       const session = await this.findOne(id);
@@ -69,5 +102,31 @@ export class SessionService {
     } catch (error) {
       throw new Error(`Failed to delete session: ${error}`);
     }
+  }
+
+  async addSessionChairs(
+    sessionId: string,
+    chairIds: string[],
+  ): Promise<SessionEntity> {
+    const session = await this.sessionRepository.findOneOrFail({
+      where: { sessionId },
+    });
+
+    const chairs = await Promise.all(
+      chairIds.map(async (chairId: string) => {
+        try {
+          return await this.userService.findOne(chairId);
+        } catch (error) {
+          // Handle the error, you might want to log it or take some other action
+          console.error(
+            `Error finding user with ID ${chairId}: ${error.message}`,
+          );
+          return null; // You might want to return some default value or handle it differently
+        }
+      }),
+    );
+
+    session.sessionChairs = chairs;
+    return await this.sessionRepository.save(session);
   }
 }
