@@ -1,7 +1,6 @@
 import { Entity, Column, ManyToOne, OneToOne, JoinColumn } from 'typeorm';
 import { BaseEntity } from './base.entity';
 import { SessionEntity } from './session.entity';
-import { AbstractEntity } from './abstract.entity';
 
 @Entity('session_items')
 export class SessionItemEntity extends BaseEntity {
@@ -10,6 +9,12 @@ export class SessionItemEntity extends BaseEntity {
 
   @Column({ type: 'time', name: 'end_time' })
   endTime: string;
+
+  @Column()
+  title: string;
+  
+  @Column()
+  presenter: string;
 
   @Column({ name: 'session_id' })
   sessionId: string;
@@ -23,11 +28,4 @@ export class SessionItemEntity extends BaseEntity {
   )
   @JoinColumn({ name: 'session_id', referencedColumnName: 'sessionId' })
   session: SessionEntity;
-
-  @OneToOne(
-    () => AbstractEntity,
-    (entity: AbstractEntity) => entity.sessionItem,
-  )
-  @JoinColumn({ name: 'abstract_id', referencedColumnName: 'abstractId' })
-  abstract: AbstractEntity;
 }

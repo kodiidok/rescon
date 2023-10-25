@@ -16,10 +16,10 @@ export class SessionEntity extends BaseEntity {
   @Column({ name: 'session_id', unique: true })
   sessionId: string;
 
-  @Column('simple-array', { name: 'session_chairs' })
+  @Column('simple-array', { name: 'session_chairs', nullable: true })
   sessionChairs: string[];
 
-  @Column('simple-array', { name: 'session_item_ids' })
+  @Column('simple-array', { name: 'session_item_ids', nullable: true })
   sessionItemIds: string[];
 
   @OneToMany(
@@ -33,10 +33,4 @@ export class SessionEntity extends BaseEntity {
 
   @Column()
   location: string;
-
-  @Column({ type: 'time', name: 'd_start_time' })
-  discussionStartTime: string;
-
-  @Column({ type: 'time', name: 'd_end_time' })
-  discussionEndTime: string;
 }

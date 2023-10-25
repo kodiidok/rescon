@@ -13,10 +13,10 @@ export class CreateSessionDto {
   @ApiProperty()
   sessionId: string;
 
-  @ApiProperty()
+  @ApiProperty({ nullable: true })
   sessionChairs: string[];
 
-  @ApiProperty()
+  @ApiProperty({ nullable: true })
   sessionItemIds: string[];
 
   @ApiProperty()
@@ -24,12 +24,6 @@ export class CreateSessionDto {
 
   @ApiProperty()
   location: string;
-
-  @ApiProperty()
-  discussionStartTime: string;
-
-  @ApiProperty()
-  discussionEndTime: string;
 }
 
 export class UpdateSessionDto {
@@ -56,10 +50,4 @@ export class UpdateSessionDto {
 
   @ApiProperty({ nullable: true })
   location: string;
-
-  @ApiProperty({ nullable: true })
-  discussionStartTime: string;
-
-  @ApiProperty({ nullable: true })
-  discussionEndTime: string;
 }

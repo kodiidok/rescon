@@ -20,7 +20,8 @@ export class SessionItemService {
         skip: (page - 1) * pageSize,
       };
 
-      const [data, count] = await this.sessionItemRepository.findAndCount(options);
+      const data = await this.sessionItemRepository.find(options);
+      const count = data.length;
 
       return {
         data,
@@ -43,7 +44,8 @@ export class SessionItemService {
     createSessionItemDto: Partial<SessionItemEntity>,
   ): Promise<SessionItemEntity> {
     try {
-      const newSessionItem = this.sessionItemRepository.create(createSessionItemDto);
+      const newSessionItem =
+        this.sessionItemRepository.create(createSessionItemDto);
       return await this.sessionItemRepository.save(newSessionItem);
     } catch (error) {
       throw new Error(`Failed to create session item: ${error}`);

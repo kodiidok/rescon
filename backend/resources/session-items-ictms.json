@@ -1,0 +1,202 @@
+[
+  {
+    "startTime": "11:00",
+    "endTime": "11:15",
+    "abstractId": 151,
+    "title": "QUADRATIC DIFFERENTIALS ASSOCIATED TO JACOBI AND LEMNISCATE ELLIPTIC FUNCTIONS",
+    "sessionId": "ICTMS1",
+    "presenter": "Prasad kumara"
+  },
+  {
+    "startTime": "11:15",
+    "endTime": "11:30",
+    "abstractId": 188,
+    "title": "AN APPLICATION OF GRAPH THEORY IN ASYMMETRIC KEY CRYPTOGRAPHY",
+    "sessionId": "ICTMS1",
+    "presenter": "Kaveesha Naduni Fernando"
+  },
+  {
+    "startTime": "11:30",
+    "endTime": "11:45",
+    "abstractId": 193,
+    "title": "CHARACTERIZATION OF A CLASS OF INNER TORAL POLYNOMIALS VIA BLASCHKE PRODUCTS",
+    "sessionId": "ICTMS1",
+    "presenter": "Prabash S.H Premarathna"
+  },
+  {
+    "startTime": "11:45",
+    "endTime": "12:00",
+    "abstractId": 203,
+    "title": "RELATIONSHIP BETWEEN THE KAUFFMAN BRACKET POLYNOMIALS OF TORUS KNOTS: (T_(3,3n+1) ) AND (T_(3,3n+2))",
+    "sessionId": "ICTMS1",
+    "presenter": "Wayani N Dissanyake"
+  },
+  {
+    "startTime": "12:00",
+    "endTime": "12:15",
+    "abstractId": 204,
+    "title": "MAXIMAL EMBEDDING GENUS OF 3-EDGE CONNECTED HARARY GRAPHS",
+    "sessionId": "ICTMS1",
+    "presenter": "Kavindu D.H Withanaarachchi"
+  },
+  {
+    "startTime": "14:00",
+    "endTime": "14:15",
+    "abstractId": 53,
+    "title": "EXPLICIT FINITE DIFFERENCE METHOD FOR THE VALUATION OF AMERICAN PUT OPTION USING LOGARITHMIC FRONT FIXING TRANSFORMATION",
+    "sessionId": "ICTMS2",
+    "presenter": "P. Selvarajah"
+  },
+  {
+    "startTime": "14:15",
+    "endTime": "14:30",
+    "abstractId": 140,
+    "title": "CONVERGENCE OF FINITE DIFFERENCE METHOD FOR AGE-STRUCTURED TWO-SEX POPULATION DYNAMICS MODEL FOR THALASSEMIA TRANSMISSION",
+    "sessionId": "ICTMS2",
+    "presenter": "AMP Chandrasiri"
+  },
+  {
+    "startTime": "14:30",
+    "endTime": "14:45",
+    "abstractId": 184,
+    "title": "ASYMPTOTIC DYNAMICS OF A PERIODIC TOXIN PRODUCING PHYTOPLANKTON MODEL",
+    "sessionId": "ICTMS2",
+    "presenter": "Piumi Dilshani"
+  },
+  {
+    "startTime": "14:45",
+    "endTime": "15:00",
+    "abstractId": 185,
+    "title": "MODELING THE IMAGE QUALITY ON THE RETINA WITH VARIABILITY OF WAVEFRONT MEASUREMENTS",
+    "sessionId": "ICTMS2",
+    "presenter": "Saroja Lakshmi"
+  },
+  {
+    "startTime": "15:00",
+    "endTime": "15:15",
+    "abstractId": 191,
+    "title": "A MATHEMATICAL MODEL FOR THE SPREAD OF COVID-19 IN SRI LANKA WITH THE ENVIRONMENTAL TRANSMISSION OF CORONAVIRUS",
+    "sessionId": "ICTMS2",
+    "presenter": "Nirosha Dissanayake"
+  },
+  {
+    "startTime": "08:00",
+    "endTime": "08:15",
+    "abstractId": 2,
+    "title": "ASSESSING AGREEMENT BETWEEN TWO MEASUREMENT SYSTEMS USING REPLICATED SCALE MIXTURES OF SKEW-NORMAL MEASUREMENT ERROR MODELS WITH VARYING DEGREES OF FREEDOM",
+    "sessionId": "ICTMS3",
+    "presenter": "Jeevana Duwarahan"
+  },
+  {
+    "startTime": "08:15",
+    "endTime": "08:30",
+    "abstractId": 47,
+    "title": "COMPARISON OF THE PREDICTIVE PERFORMANCE OF LIU BASED ESTIMATORS",
+    "sessionId": "ICTMS3",
+    "presenter": "Thayaparan Kayathiri"
+  },
+  {
+    "startTime": "08:30",
+    "endTime": "08:45",
+    "abstractId": 106,
+    "title": "GENERALIZED LAMBDA DISTRIBUTION BASED QUANTILE REGRESSION MODEL TO ANALYZE THE EXCHANGE RATE MOVEMENTS IN SRI LANKA",
+    "sessionId": "ICTMS3",
+    "presenter": "Pavithra M Basnayake"
+  },
+  {
+    "startTime": "08:45",
+    "endTime": "09:00",
+    "abstractId": 146,
+    "title": "AN ANALYSIS ON SELECTED VARIABLES INFLUENCING CESAREAN SECTION OF PREGNANT MOTHERS ADMITTED IN THE AMPARA GENERAL HOSPITAL",
+    "sessionId": "ICTMS3",
+    "presenter": "Garumuni I.C.L De Zoysa"
+  },
+  {
+    "startTime": "09:00",
+    "endTime": "09:15",
+    "abstractId": 156,
+    "title": "TIME SERIES ANALYSIS FOR MODELING AND FORECASTING TEA EXPORTS IN SRI LANKA",
+    "sessionId": "ICTMS3",
+    "presenter": "Thelum T Wickramasurendra"
+  },
+  {
+    "startTime": "11:15",
+    "endTime": "11:30",
+    "abstractId": 25,
+    "title": "ENSEMBLE LEARNING APPROACH FOR YOUTUBE VIDEOS CLASSIFICATION BASED ON THEIR QUALITY",
+    "sessionId": "ICTMS4",
+    "presenter": "N.H.T.M. De Siva"
+  },
+  {
+    "startTime": "11:30",
+    "endTime": "11:45",
+    "abstractId": 44,
+    "title": "DECISION TREE ALGORITHMS TO DETERMINE GCE ORDINARY LEVEL STUDENT PERFORMANCE FACTORS INFLUENCING ENGLISH AS A SUBJECT",
+    "sessionId": "ICTMS4",
+    "presenter": "Amila H.A.K.B Pinnawala"
+  },
+  {
+    "startTime": "11:45",
+    "endTime": "12:00",
+    "abstractId": 110,
+    "title": "COMBINING FASTTEXT EMBEDDINGS WITH NEURAL NETWORKS FOR SHORT TEXT CLASSIFICATION",
+    "sessionId": "ICTMS4",
+    "presenter": "Kithsrii JRKC jayakody"
+  },
+  {
+    "startTime": "12:00",
+    "endTime": "12:15",
+    "abstractId": 168,
+    "title": "CLASSIFICATION OF SINHALA NEWS USING MACHINE LEARNING APPROACHES",
+    "sessionId": "ICTMS4",
+    "presenter": "Deshan H Nawarathna"
+  },
+  {
+    "startTime": "13:30",
+    "endTime": "13:45",
+    "abstractId": 40,
+    "title": "STUDY ON h-FUNCTION OF A BOUNDED SIMPLY CONNECTED REGION: DISC WITH DELETED DOUBLE SLITS",
+    "sessionId": "ICTMS5",
+    "presenter": "Arunmaran Mahenthiram"
+  },
+  {
+    "startTime": "13:45",
+    "endTime": "14:00",
+    "abstractId": 12,
+    "title": "A MEMETIC ALGORITHM FOR THE VEHICLE ROUTING PROBLEM WITH MOVING SHIPMENTS AT THE CROSS-DOCKING WAREHOUSE",
+    "sessionId": "ICTMS5",
+    "presenter": "Reyalt Gnanapragasam"
+  },
+  {
+    "startTime": "14:00",
+    "endTime": "14:15",
+    "abstractId": 59,
+    "title": "Fuzzy Inference System to Identify Disaster Risk Levels in Sri Lanka",
+    "sessionId": "ICTMS5",
+    "presenter": "Sachini P Karunarathne"
+  },
+  {
+    "startTime": "14:15",
+    "endTime": "14:30",
+    "abstractId": 73,
+    "title": "MANUFACTURERS AND BUYERS INTEGRATED PRODUCTION INVENTORY MODEL WITH BETTER SYNCHRONIZATION",
+    "sessionId": "ICTMS5",
+    "presenter": "M.S.M Hisam"
+  },
+  {
+    "startTime": "14:30",
+    "endTime": "14:45",
+    "abstractId": 80,
+    "title": "THE ROLE OF BILINGUALISM IN THE REVIVAL OF A DEAD LANGUAGE: MANX IN ISLE OF MAN",
+    "sessionId": "ICTMS5",
+    "presenter": "Chami P Kariyapperuma"
+  },
+  {
+    "startTime": "14:45",
+    "endTime": "15:00",
+    "abstractId": 85,
+    "title": "A NEW METHOD USING THE GEOMETRIC MEAN TO SOLVE TETRAD FUZZY TRANSPORTATION PROBLEMS",
+    "sessionId": "ICTMS5",
+    "presenter": "Tharika D.K Ekanayake"
+  }
+]

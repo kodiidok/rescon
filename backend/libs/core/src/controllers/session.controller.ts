@@ -8,7 +8,7 @@ import {
   Delete,
 } from '@nestjs/common';
 
-import { ApiTags } from '@nestjs/swagger';
+import { ApiBody, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { SessionService } from '../services/session.service';
 import { SessionEntity } from '../entities/session.entity';
 import { CreateSessionDto, UpdateSessionDto } from '../dto/session.dto';
@@ -37,11 +37,31 @@ export class SessionController {
   }
 
   @Post()
+  @ApiBody({
+    type: [CreateSessionDto],
+    description: 'Array of session objects or a single session object',
+  })
+  @ApiResponse({
+    status: 201,
+    description: 'The created session(s)',
+    type: [SessionEntity],
+  })
   async create(
-    @Body() createSessionDto: CreateSessionDto,
-  ): Promise<SessionEntity> {
+    @Body() createSessionDto: CreateSessionDto | CreateSessionDto[],
+  ): Promise<SessionEntity | SessionEntity[]> {
     try {
-      return await this.sessionService.create(createSessionDto);
+      if (Array.isArray(createSessionDto)) {
+        // If an array is provided, create multiple entities
+        const createdSessions = await Promise.all(
+          createSessionDto.map((sessionDto) =>
+            this.sessionService.create(sessionDto),
+          ),
+        );
+        return createdSessions;
+      } else {
+        // If a single object is provided, create a single entity
+        return await this.sessionService.create(createSessionDto);
+      }
     } catch (error) {
       throw new Error(error);
     }

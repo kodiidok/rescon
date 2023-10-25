@@ -1,0 +1,272 @@
+[
+  {
+    "startTime": "11:00",
+    "endTime": "13:00",
+    "date": "2023-11-03",
+    "sessionId": "ICTMS1",
+    "sessionChairs": [],
+    "sessionItemIds": [],
+    "category": "ICT, Mathematics and Statistics",
+    "location": "A3.2"
+  },
+  {
+    "startTime": "14:00",
+    "endTime": "16:00",
+    "date": "2023-11-03",
+    "sessionId": "ICTMS2",
+    "sessionChairs": [],
+    "sessionItemIds": [],
+    "category": "ICT, Mathematics and Statistics",
+    "location": "A3.2"
+  },
+  {
+    "startTime": "8:00",
+    "endTime": "10:00",
+    "date": "2023-11-04",
+    "sessionId": "ICTMS3",
+    "sessionChairs": [],
+    "sessionItemIds": [],
+    "category": "ICT, Mathematics and Statistics",
+    "location": "A3.2"
+  },
+  {
+    "startTime": "10:30",
+    "endTime": "12:30",
+    "date": "2023-11-04",
+    "sessionId": "ICTMS4",
+    "sessionChairs": [],
+    "sessionItemIds": [],
+    "category": "ICT, Mathematics and Statistics",
+    "location": "A3.2"
+  },
+  {
+    "startTime": "13:30",
+    "endTime": "15:30",
+    "date": "2023-11-04",
+    "sessionId": "ICTMS5",
+    "sessionChairs": [],
+    "sessionItemIds": [],
+    "category": "ICT, Mathematics and Statistics",
+    "location": "A3.2"
+  },
+  {
+    "startTime": "10:30",
+    "endTime": "12:30",
+    "date": "2023-11-04",
+    "sessionId": "SE1",
+    "sessionChairs": [],
+    "sessionItemIds": [],
+    "category": "Science Education",
+    "location": "C2.2"
+  },
+  {
+    "startTime": "13:30",
+    "endTime": "15:30",
+    "date": "2023-11-04",
+    "sessionId": "SE2",
+    "sessionChairs": [],
+    "sessionItemIds": [],
+    "category": "Science Education",
+    "location": "C2.2"
+  },
+  {
+    "startTime": "11:00",
+    "endTime": "13:00",
+    "date": "2023-11-03",
+    "sessionId": "LS1",
+    "sessionChairs": [],
+    "sessionItemIds": [],
+    "category": "Life Sciences",
+    "location": "C2.4"
+  },
+  {
+    "startTime": "11:00",
+    "endTime": "13:00",
+    "date": "2023-11-03",
+    "sessionId": "LS2",
+    "sessionChairs": [],
+    "sessionItemIds": [],
+    "category": "Life Sciences",
+    "location": "Auditorium"
+  },
+  {
+    "startTime": "14:00",
+    "endTime": "16:00",
+    "date": "2023-11-03",
+    "sessionId": "LS3",
+    "sessionChairs": [],
+    "sessionItemIds": [],
+    "category": "Life Sciences",
+    "location": "C2.4"
+  },
+  {
+    "startTime": "14:00",
+    "endTime": "16:00",
+    "date": "2023-11-03",
+    "sessionId": "LS4",
+    "sessionChairs": [],
+    "sessionItemIds": [],
+    "category": "Life Sciences",
+    "location": "Auditorium"
+  },
+  {
+    "startTime": "8:00",
+    "endTime": "10:00",
+    "date": "2023-11-04",
+    "sessionId": "LS5",
+    "sessionChairs": [],
+    "sessionItemIds": [],
+    "category": "Life Sciences",
+    "location": "C2.4"
+  },
+  {
+    "startTime": "8:00",
+    "endTime": "10:00",
+    "date": "2023-11-04",
+    "sessionId": "LS6",
+    "sessionChairs": [],
+    "sessionItemIds": [],
+    "category": "Life Sciences",
+    "location": "Auditorium"
+  },
+  {
+    "startTime": "10:30",
+    "endTime": "12:30",
+    "date": "2023-11-04",
+    "sessionId": "LS7",
+    "sessionChairs": [],
+    "sessionItemIds": [],
+    "category": "Life Sciences",
+    "location": "C2.4"
+  },
+  {
+    "startTime": "10:30",
+    "endTime": "12:30",
+    "date": "2023-11-04",
+    "sessionId": "LS8",
+    "sessionChairs": [],
+    "sessionItemIds": [],
+    "category": "Life Sciences",
+    "location": "Auditorium"
+  },
+  {
+    "startTime": "13:30",
+    "endTime": "15:30",
+    "date": "2023-11-04",
+    "sessionId": "LS9",
+    "sessionChairs": [],
+    "sessionItemIds": [],
+    "category": "Life Sciences",
+    "location": "C2.4"
+  },
+  {
+    "startTime": "11:00",
+    "endTime": "13:15",
+    "date": "2023-11-03",
+    "sessionId": "PS1",
+    "sessionChairs": [],
+    "sessionItemIds": [],
+    "category": "Physical Sciences",
+    "location": "C2.5"
+  },
+  {
+    "startTime": "11:00",
+    "endTime": "13:00",
+    "date": "2023-11-03",
+    "sessionId": "PS2",
+    "sessionChairs": [],
+    "sessionItemIds": [],
+    "category": "Physical Sciences",
+    "location": "C2.6"
+  },
+  {
+    "startTime": "14:00",
+    "endTime": "16:00",
+    "date": "2023-11-03",
+    "sessionId": "PS3",
+    "sessionChairs": [],
+    "sessionItemIds": [],
+    "category": "Physical Sciences",
+    "location": "C2.5"
+  },
+  {
+    "startTime": "14:00",
+    "endTime": "16:00",
+    "date": "2023-11-03",
+    "sessionId": "PS4",
+    "sessionChairs": [],
+    "sessionItemIds": [],
+    "category": "Physical Sciences",
+    "location": "C2.6"
+  },
+  {
+    "startTime": "8:00",
+    "endTime": "10:15",
+    "date": "2023-11-04",
+    "sessionId": "PS5",
+    "sessionChairs": [],
+    "sessionItemIds": [],
+    "category": "Physical Sciences",
+    "location": "C2.5"
+  },
+  {
+    "startTime": "14:15",
+    "endTime": "15:30",
+    "date": "2023-11-03",
+    "sessionId": "PS6",
+    "sessionChairs": [],
+    "sessionItemIds": [],
+    "category": "Physical Sciences",
+    "location": "C2.5"
+  },
+  {
+    "startTime": "11:45",
+    "endTime": "13:00",
+    "date": "2023-11-03",
+    "sessionId": "EES1",
+    "sessionChairs": [],
+    "sessionItemIds": [],
+    "category": "Earth & Environmental Sciences",
+    "location": "A3.1"
+  },
+  {
+    "startTime": "14:00",
+    "endTime": "16:00",
+    "date": "2023-11-03",
+    "sessionId": "EES2",
+    "sessionChairs": [],
+    "sessionItemIds": [],
+    "category": "Earth & Environmental Sciences",
+    "location": "A3.1"
+  },
+  {
+    "startTime": "8:00",
+    "endTime": "10:00",
+    "date": "2023-11-04",
+    "sessionId": "EES3",
+    "sessionChairs": [],
+    "sessionItemIds": [],
+    "category": "Earth & Environmental Sciences",
+    "location": "A3.1"
+  },
+  {
+    "startTime": "10:00",
+    "endTime": "12:30",
+    "date": "2023-11-03",
+    "sessionId": "EES4",
+    "sessionChairs": [],
+    "sessionItemIds": [],
+    "category": "Earth & Environmental Sciences",
+    "location": "A3.1"
+  },
+  {
+    "startTime": "13:30",
+    "endTime": "15:00",
+    "date": "2023-11-03",
+    "sessionId": "EES5",
+    "sessionChairs": [],
+    "sessionItemIds": [],
+    "category": "Earth & Environmental Sciences",
+    "location": "A3.1"
+  }
+]

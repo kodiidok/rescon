@@ -1,9 +1,10 @@
 import { Module } from '@nestjs/common';
 import { CoreService } from './core.service';
-import { AbstractModule } from './modules/abstract.module';
+import { SessionItemModule } from './modules/session-item.module';
+import { SessionModule } from './modules/session.module';
 
 @Module({
-  imports: [AbstractModule],
+  imports: [SessionItemModule, SessionModule],
   providers: [CoreService],
   exports: [CoreService],
 })

@@ -8,12 +8,13 @@ import {
   Delete,
 } from '@nestjs/common';
 
-
-import { ApiTags } from '@nestjs/swagger';
+import { ApiBody, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { SessionItemService } from '../services/session-item.service';
 import { SessionItemEntity } from '../entities/session-item.entity';
-import { CreateSessionItemDto, UpdateSessionItemDto } from '../dto/sesssion-item.dto';
-
+import {
+  CreateSessionItemDto,
+  UpdateSessionItemDto,
+} from '../dto/sesssion-item.dto';
 
 @ApiTags('session-items')
 @Controller('session-items')
@@ -21,16 +22,30 @@ export class SessionItemController {
   constructor(private readonly sessionItemService: SessionItemService) {}
 
   @Get()
-  async findAll(): Promise<{ data: SessionItemEntity[]; count: number }> {
+  @ApiResponse({
+    status: 200,
+    description: 'List of session items with pagination information',
+    type: () => SessionItemEntity,
+  })
+  async findAll(
+    @Param('page') page: number = 1,
+    @Param('limit') limit: number = 10,
+  ): Promise<{ data: SessionItemEntity[]; count: number }> {
     try {
-      return await this.sessionItemService.findAll();
+      const result = await this.sessionItemService.findAll(page, limit);
+      return {
+        data: result.data,
+        count: result.count,
+      };
     } catch (error) {
       throw new Error(error);
     }
   }
 
   @Get(':id')
-  async findOne(@Param('id') id: string): Promise<SessionItemEntity | undefined> {
+  async findOne(
+    @Param('id') id: string,
+  ): Promise<SessionItemEntity | undefined> {
     try {
       return await this.sessionItemService.findOne(id);
     } catch (error) {
@@ -38,12 +53,33 @@ export class SessionItemController {
     }
   }
 
-  @Post()
-  async create(
-    @Body() createSessionItemDto: CreateSessionItemDto,
-  ): Promise<SessionItemEntity> {
+  @Post('items')
+  @ApiBody({
+    type: [CreateSessionItemDto],
+    description:
+      'Array of session item objects or a single session item object',
+  })
+  @ApiResponse({
+    status: 201,
+    description: 'The created session item(s)',
+    type: [SessionItemEntity],
+  })
+  async createItems(
+    @Body() createSessionItemDto: CreateSessionItemDto | CreateSessionItemDto[],
+  ): Promise<SessionItemEntity | SessionItemEntity[]> {
     try {
-      return await this.sessionItemService.create(createSessionItemDto);
+      if (Array.isArray(createSessionItemDto)) {
+        // If an array is provided, create multiple entities
+        const createdSessionItems = await Promise.all(
+          createSessionItemDto.map((sessionItemDto) =>
+            this.sessionItemService.create(sessionItemDto),
+          ),
+        );
+        return createdSessionItems;
+      } else {
+        // If a single object is provided, create a single entity
+        return await this.sessionItemService.create(createSessionItemDto);
+      }
     } catch (error) {
       throw new Error(error);
     }

@@ -2,21 +2,28 @@ import { Module } from '@nestjs/common';
 import { ServerController } from './server.controller';
 import { ServerService } from './server.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { AbstractModule } from '@core/core/modules/abstract.module';
 import dbConfig from '@config/config/db/config';
-import { AbstractEntity } from '@core/core/entities/abstract.entity';
 import { SessionItemModule } from '@core/core/modules/session-item.module';
 import { SessionModule } from '@core/core/modules/session.module';
 import { SessionEntity } from '@core/core/entities/session.entity';
 import { SessionItemEntity } from '@core/core/entities/session-item.entity';
+import { MailModule } from 'apps/mail/src/mail.module';
+import { UserModule } from '@core/core/modules/user.module';
+import { RoleModule } from '@core/core/modules/role.module';
+import { UserEntity } from '@core/core/entities/user.entity';
+import { RoleEntity } from '@core/core/entities/role.entity';
 
 @Module({
   imports: [
     TypeOrmModule.forRoot({
       ...dbConfig(),
-      entities: [AbstractEntity, SessionEntity, SessionItemEntity],
+      entities: [UserEntity, RoleEntity, SessionEntity, SessionItemEntity],
     }),
-    AbstractModule,
+
+    MailModule,
+
+    UserModule,
+    RoleModule,
     SessionItemModule,
     SessionModule,
   ],
