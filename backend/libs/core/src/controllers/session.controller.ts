@@ -13,7 +13,6 @@ import { ApiBody, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { SessionService } from '../services/session.service';
 import { SessionEntity } from '../entities/session.entity';
 import {
-  AddChairsToSessionDto,
   CreateSessionDto,
   UpdateSessionDto,
 } from '../dto/session.dto';
@@ -83,16 +82,9 @@ export class SessionController {
   @Put(':id')
   async update(
     @Param('id') id: string,
-    @Body() updateSessionDto: UpdateSessionDto | AddChairsToSessionDto,
+    @Body() updateSessionDto: UpdateSessionDto,
   ): Promise<SessionEntity | undefined> {
     try {
-      if (updateSessionDto instanceof AddChairsToSessionDto) {
-        const updatedSession = await this.sessionService.addSessionChairs(
-          id,
-          updateSessionDto.userIds,
-        );
-        return updatedSession;
-      }
       return await this.sessionService.update(id, updateSessionDto);
     } catch (error) {
       throw new Error(error);

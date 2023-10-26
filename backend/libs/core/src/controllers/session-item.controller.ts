@@ -54,6 +54,15 @@ export class SessionItemController {
     }
   }
 
+  @Get('abstract/:id')
+  async findByAbstractId(@Param('id') abstractId: number): Promise<SessionItemEntity[]> {
+    try {
+      return await this.sessionItemService.findByAbstractId(abstractId);
+    } catch (error) {
+      throw new Error(error);
+    }
+  }
+
   @Post('items')
   @ApiBody({
     type: [CreateSessionItemDto],

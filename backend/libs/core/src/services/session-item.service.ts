@@ -73,4 +73,14 @@ export class SessionItemService {
       throw new Error(`Failed to delete session item: ${error}`);
     }
   }
+
+  async findByAbstractId(abstractId: number): Promise<SessionItemEntity[]> {
+    try {
+      return await this.sessionItemRepository.find({
+        where: { abstractId },
+      });
+    } catch (error) {
+      throw new Error(`Failed to fetch session items: ${error}`);
+    }
+  }
 }

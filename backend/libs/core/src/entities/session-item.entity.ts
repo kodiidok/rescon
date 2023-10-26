@@ -19,7 +19,7 @@ export class SessionItemEntity extends BaseEntity {
   @Column({ name: 'session_id', nullable: true })
   sessionId: string;
 
-  @Column({ type: 'int', name: 'abstract_id' })
+  @Column({ type: 'int', name: 'abstract_id'})
   abstractId: number;
 
   @ManyToOne(

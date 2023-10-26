@@ -3,7 +3,6 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { FindManyOptions, Repository } from 'typeorm';
 import { SessionEntity } from '../entities/session.entity';
 import { UserService } from './user.service';
-import { AddChairsToSessionDto } from '../dto/session.dto';
 
 @Injectable()
 export class SessionService {
@@ -86,12 +85,40 @@ export class SessionService {
 
   async update(
     id: string,
-    updateSessionDto: Partial<SessionEntity> | AddChairsToSessionDto,
+    updateSessionDto: Partial<SessionEntity>,
   ): Promise<SessionEntity | undefined> {
     try {
       const session = await this.findOne(id);
-      Object.assign(session, updateSessionDto);
-      return await this.sessionRepository.save(session);
+
+      // check if the session ids are given as an array
+      if (
+        updateSessionDto.sessionChairIds &&
+        Array.isArray(updateSessionDto.sessionChairIds)
+      ) {
+        if (!Array.isArray(session.sessionChairs)) {
+          session.sessionChairs = [];
+        }
+
+        // find all the users who match the chairperson ids
+        const chairsToAdd = await Promise.all(
+          updateSessionDto.sessionChairIds.map(async (chairId) => {
+            return await this.userService.findOne(chairId);
+          }),
+        );
+
+        // Check if chair IDs in chairsToAdd are not already in the sessionChairs array
+        const uniqueChairsToAdd = chairsToAdd.filter((chair) => {
+          return !session.sessionChairs.some(
+            (existingChair) => existingChair.id === chair.id,
+          );
+        });
+
+        // Add unique chairs to the session
+        session.sessionChairs.push(...uniqueChairsToAdd);
+
+        Object.assign(session, updateSessionDto);
+        return await this.sessionRepository.save(session);
+      }
     } catch (error) {
       throw new Error(`Failed to update session: ${error}`);
     }
@@ -103,31 +130,5 @@ export class SessionService {
     } catch (error) {
       throw new Error(`Failed to delete session: ${error}`);
     }
-  }
-
-  async addSessionChairs(
-    sessionId: string,
-    chairIds: string[],
-  ): Promise<SessionEntity> {
-    const session = await this.sessionRepository.findOneOrFail({
-      where: { sessionId },
-    });
-
-    const chairs = await Promise.all(
-      chairIds.map(async (chairId: string) => {
-        try {
-          return await this.userService.findOne(chairId);
-        } catch (error) {
-          // Handle the error, you might want to log it or take some other action
-          console.error(
-            `Error finding user with ID ${chairId}: ${error.message}`,
-          );
-          return null; // You might want to return some default value or handle it differently
-        }
-      }),
-    );
-
-    session.sessionChairs = chairs;
-    return await this.sessionRepository.save(session);
   }
 }

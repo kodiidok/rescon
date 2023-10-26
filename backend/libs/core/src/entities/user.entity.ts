@@ -1,6 +1,7 @@
 import { RoleEntity } from './role.entity';
 import {
   BeforeInsert,
+  BeforeUpdate,
   Column,
   Entity,
   JoinColumn,
@@ -44,6 +45,18 @@ export class UserEntity extends BaseEntity {
     { nullable: true, onDelete: 'SET NULL', onUpdate: 'CASCADE' },
   )
   chairingSessions?: SessionEntity[];
+
+  @BeforeUpdate()
+  updateSessions() {
+    // This is called before updating the user entity
+    // Update the related sessions in the join table
+    if (this.chairingSessions) {
+      this.chairingSessions.forEach((session: SessionEntity) => {
+        // Update any additional details in the join table
+        // For example, you might want to update timestamps
+      });
+    }
+  }
 
   // @Column({ type: 'boolean', default: false })
   // verified?: boolean;

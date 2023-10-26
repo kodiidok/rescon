@@ -17,6 +17,9 @@ export class CreateSessionDto {
   @ApiProperty({ nullable: true })
   sessionItemIds: string[];
 
+  @ApiProperty({ nullable: true })
+  sessionChairIds: string[];
+
   @ApiProperty()
   category: string;
 
@@ -41,20 +44,13 @@ export class UpdateSessionDto {
   sessionItemIds: string[];
 
   @ApiProperty({ nullable: true })
+  sessionChairIds: string[];
+
+  @ApiProperty({ nullable: true })
   category: string;
 
   @ApiProperty({ nullable: true })
   location: string;
-}
-
-export class AddChairToSessionDto {
-  @ApiProperty()
-  userId: string;
-}
-
-export class AddChairsToSessionDto {
-  @ApiProperty()
-  userIds: string[];
 }
 
 export class ResponseDto {
