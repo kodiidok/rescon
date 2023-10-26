@@ -6,6 +6,7 @@ import {
   Param,
   Put,
   Delete,
+  Query,
 } from '@nestjs/common';
 
 import { ApiBody, ApiResponse, ApiTags } from '@nestjs/swagger';
@@ -19,9 +20,17 @@ export class UserController {
   constructor(private readonly userService: UserService) {}
 
   @Get()
-  async findAll(): Promise<{ data: UserEntity[]; count: number }> {
+  @ApiResponse({
+    status: 200,
+    description: 'List of session items with pagination information',
+    type: () => UserEntity,
+  })
+  async findAll(
+    @Query('page') page: number = 1,
+    @Query('limit') limit: number = 10,
+  ): Promise<{ data: UserEntity[]; count: number }> {
     try {
-      return await this.userService.findAll();
+      return await this.userService.findAll(page, limit);
     } catch (error) {
       throw new Error(error);
     }

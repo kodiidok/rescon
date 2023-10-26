@@ -6,6 +6,7 @@ import {
   Param,
   Put,
   Delete,
+  Query,
 } from '@nestjs/common';
 
 import { ApiBody, ApiResponse, ApiTags } from '@nestjs/swagger';
@@ -19,9 +20,17 @@ export class RoleController {
   constructor(private readonly roleService: RoleService) {}
 
   @Get()
-  async findAll(): Promise<{ data: RoleEntity[]; count: number }> {
+  @ApiResponse({
+    status: 200,
+    description: 'List of session items with pagination information',
+    type: () => RoleEntity,
+  })
+  async findAll(
+    @Query('page') page: number = 1,
+    @Query('limit') limit: number = 10,
+  ): Promise<{ data: RoleEntity[]; count: number }> {
     try {
-      return await this.roleService.findAll();
+      return await this.roleService.findAll(page, limit);
     } catch (error) {
       throw new Error(error);
     }

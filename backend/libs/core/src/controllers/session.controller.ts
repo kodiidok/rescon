@@ -6,6 +6,7 @@ import {
   Param,
   Put,
   Delete,
+  Query,
 } from '@nestjs/common';
 
 import { ApiBody, ApiResponse, ApiTags } from '@nestjs/swagger';
@@ -29,8 +30,8 @@ export class SessionController {
     type: () => SessionEntity,
   })
   async findAll(
-    @Param('page') page: number = 1,
-    @Param('limit') limit: number = 10,
+    @Query('page') page: number = 1,
+    @Query('limit') limit: number = 10,
   ): Promise<{ data: SessionEntity[]; count: number }> {
     try {
       return await this.sessionService.findAll(page, limit);

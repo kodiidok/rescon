@@ -32,7 +32,8 @@ export class SessionService {
             // Use Promise.all only if session.sessionChairIds is an array
             session.sessionChairs = await Promise.all(
               session.sessionChairIds.map(
-                async (userId: string) => await this.userService.findOne(userId),
+                async (userId: string) =>
+                  await this.userService.findOne(userId),
               ),
             );
           }
