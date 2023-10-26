@@ -43,6 +43,11 @@ export class SessionItemController {
     }
   }
 
+  @Get('search')
+  async searchSessions(@Query('q') query: string) {
+    return this.sessionItemService.searchSessionItems(query);
+  }
+
   @Get(':id')
   async findOne(
     @Param('id') id: string,

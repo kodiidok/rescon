@@ -3,6 +3,7 @@ import { ServerService } from './server.service';
 
 @Controller()
 export class ServerController {
+  sessionService: any;
   constructor(private readonly serverService: ServerService) {}
 
   @Get()

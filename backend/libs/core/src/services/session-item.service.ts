@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { FindManyOptions, Repository } from 'typeorm';
+import { Brackets, FindManyOptions, Repository } from 'typeorm';
 import { SessionItemEntity } from '../entities/session-item.entity';
 
 @Injectable()
@@ -82,5 +82,33 @@ export class SessionItemService {
     } catch (error) {
       throw new Error(`Failed to fetch session items: ${error}`);
     }
+  }
+
+  async searchSessionItems(query: string): Promise<SessionItemEntity[]> {
+    const words = query.split(' ');
+
+    const queryBuilder =
+      this.sessionItemRepository.createQueryBuilder('sessions');
+
+    if (words.length > 0) {
+      queryBuilder.where(
+        words
+          .map(
+            (word, index) =>
+              `(LOWER(sessions.title) LIKE LOWER(:word${index}) OR LOWER(sessions.presenter) LIKE LOWER(:word${index}) OR LOWER(CAST(sessions.session_id AS TEXT)) LIKE LOWER(:word${index}))`,
+          )
+          .join(' OR '), // Use OR between the conditions
+        words.reduce(
+          (params, word, index) => ({
+            ...params,
+            [`word${index}`]: `%${word}%`,
+          }),
+          {},
+        ),
+      );
+    }
+
+    const results = await queryBuilder.getMany();
+    return results;
   }
 }
