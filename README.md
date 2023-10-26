@@ -3,6 +3,11 @@ A utility application for session managements in events. Primarily being develop
 
 ## Setting up the development server
 
+**Prerequisites**
+- Node.js (14+)
+- pnpm
+- postgres or mysql
+
 ### Install dependencies
 ```
 # clone the repo
@@ -21,7 +26,7 @@ pnpm install
 ### Configure database
 Change the database configuration file in `backend\libs\config\src\db\config.ts` to connect your database.  
 
-![databse config](assets/db-config.png)
+![database config](assets/db-config.png)
 
 If you prefer to use docker, a postgres database is already initialized with the current server. User the `docker-compose.yml` file to connect to it.
 
@@ -39,6 +44,11 @@ The docker database should start as follows.
 
 ![docker pg container](assets/docker-pg-container.png)
 
+To access the docker postgres database, use psql
+```
+psql -h localhost -p port -U username -d database
+```
+
 ### Test the server in localhost
 
 ```
@@ -52,7 +62,7 @@ pnpm start:dev
 If the backend server doesn't connect to the database even with the correct credentials, provide the details of the database as environment variables when starting the app.
 
 ```
-DB_HOST=localhost DB_PORT=port DB_USER=user DB_PASSWORD=password DB_NAME=rescon yarn start:dev
+DB_HOST=localhost DB_PORT=port DB_USER=user DB_PASSWORD=password DB_NAME=rescon pnpm start:dev
 ```
 
 Assuming the frontend port is 3000 and the backend port is 3333,

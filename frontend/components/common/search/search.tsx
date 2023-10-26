@@ -79,7 +79,7 @@ export const Search = () => {
   }, [showNoResults]);
 
   return (
-    <div>
+    <div className="flex flex-col gap-3">
       <Input
         placeholder="Search by title, abstract id, or presenter"
         value={searchQuery}

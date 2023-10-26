@@ -1,0 +1,3 @@
+DB_HOST=localhost DB_PORT=3003 DB_USER=rescon DB_PASSWORD=rescon DB_NAME=rescon pnpm start:dev
+
+psql -h localhost -p 3003 -U rescon -d rescon

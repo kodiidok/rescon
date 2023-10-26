@@ -6,6 +6,10 @@ async function bootstrap() {
   const port = process.env['PORT'] ?? 3333;
   const app = await NestFactory.create(ServerModule);
 
+  app.enableCors({
+    origin: ['http://localhost:3000/'],
+  });
+
   const config = new DocumentBuilder()
     .setTitle('Rescon')
     .setVersion('1.0')
