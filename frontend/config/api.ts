@@ -1,7 +1,7 @@
 
 
 /** url of the backend server */
-export const server = "http://localhost:3333";
+export const server = process.env.SERVER ?? "http://localhost:3333";
 
 /** api hanlders to get paginated data */
 
@@ -136,3 +136,16 @@ export async function postSessionData(data: any) {
 
 
 /** delete request handlers */
+
+
+/** search handler */
+export async function searchSessionItems(query: string) {
+  const queryString = encodeURIComponent(query);
+  const res = await fetch(
+    `${server}/session-items/search?q=${queryString}`
+  );
+  if (!res.ok) {
+    throw new Error("Failed to search session item data");
+  }
+  return res.json();
+}

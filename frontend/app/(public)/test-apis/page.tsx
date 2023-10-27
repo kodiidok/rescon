@@ -1,10 +1,12 @@
-import {  } from "@/config/api";
+import { searchSessionItems } from "@/config/api";
 
 export default async function Page() {
 
-  const data = {
-    hint: 'import an api handler from @/config/api and test the api integration to view response data.'
-  };
+  // const data = {
+  //   hint: 'import an api handler from @/config/api and test the api integration to view response data.'
+  // };
+
+  const data = await searchSessionItems('plastic energy');
 
   return (
     <div>

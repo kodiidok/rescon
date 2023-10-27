@@ -1,11 +1,14 @@
 'use client'
 
 import { Input } from "@nextui-org/input";
-import mockdata from '@/components/mock/abstracts.json';
 import { useState, useEffect } from "react";
 import { Button } from "@nextui-org/button";
+import { searchSessionItems } from "@/config/api";
+
+// import mockdata from '@/components/mock/abstracts.json';
 
 interface SearchResult {
+  id?: string;
   time: string;
   abstractId: number;
   title: string;
@@ -23,12 +26,17 @@ export const Search = () => {
   let debounceTimer: NodeJS.Timeout;
 
   const handleSearch = () => {
+    /**
+     * This is a search component with a 
+     * full text search algorithm
+     */
     clearTimeout(debounceTimer);
 
-    debounceTimer = setTimeout(() => {
+    debounceTimer = setTimeout(async () => {
       if (searchQuery) {
-        const filteredResults = mockdata.filter(
-          (item) => {
+        const results = await searchSessionItems(searchQuery);
+        const filteredResults = results.filter(
+          (item: any) => {
             const lowerSearchQuery = searchQuery.toLowerCase();
 
             // Function to check if a word is included in another word
@@ -58,14 +66,14 @@ export const Search = () => {
           setShowNoResults(true);
         }, 20000);
       }
-    }, 300); // Debounce time set to 300 milliseconds
+    }, 2000); // Debounce time set to 1000 milliseconds
   };
 
   useEffect(() => {
     if (!searchQuery || searchQuery === " ") {
       setSearchResults([]);
     } else {
-      handleSearch();
+      // handleSearch();
     }
   }, [searchQuery]);
 
@@ -85,7 +93,7 @@ export const Search = () => {
         value={searchQuery}
         onChange={(e) => {
           setSearchQuery(e.target.value);
-          handleSearch();
+          // handleSearch();
         }}
       />
       <Button onClick={handleSearch}>Search</Button>
@@ -93,7 +101,7 @@ export const Search = () => {
       {/* Display search results or a message if no results */}
       {searchQuery && searchResults.length > 0 ? (
         searchResults.map((result) => (
-          <div key={result.abstractId}>
+          <div key={result.id}>
             <p>Title: {result.title}</p>
             <p>Abstract ID: {result.abstractId}</p>
             <p>Presenter: {result.presenter}</p>

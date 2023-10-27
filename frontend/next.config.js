@@ -1,5 +1,5 @@
 /** @type {import('next').NextConfig} */
-const customServer = "http://localhost:3333";
+const customServer = process.env.SERVER ?? "http://localhost:3333";
 
 const nextConfig = {
   async rewrites() {
