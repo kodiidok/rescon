@@ -12,7 +12,7 @@ const SearchCard = ({
   index: number;
 }) => {
   const colors = ["red", "green", "yellow"];
-  const right_color = colors[index % 5];
+  const right_color = "style."+colors[index % 5];
 
   return (
     <div className={styles.container} key={result.id}>
@@ -20,7 +20,7 @@ const SearchCard = ({
         <p className={styles.presenter}>{result.presenter}</p>
         <p>{result.title}</p>
       </div>
-      <div className={styles.right}>
+      <div className={right_color}>
         <p>{result.abstractId}</p>
         <p>{result.sessionId}</p>
         <p className={styles.time}>{result.time}</p>
