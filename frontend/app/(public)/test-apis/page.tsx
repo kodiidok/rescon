@@ -1,4 +1,4 @@
-import { getSessionItemBySessionId, searchSessionItems } from "@/config/api";
+import { getSessionByCategory, getSessionItemBySessionId, searchSessionItems } from "@/config/api";
 
 export default async function Page() {
 
@@ -6,7 +6,7 @@ export default async function Page() {
   //   hint: 'import an api handler from @/config/api and test the api integration to view response data.'
   // };
 
-  const data = await getSessionItemBySessionId('LS1');
+  const data = await getSessionByCategory('Life Sciences');
 
   return (
     <div>

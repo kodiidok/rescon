@@ -99,4 +99,13 @@ export class SessionController {
       throw new Error(error);
     }
   }
+
+  @Get('category/:name')
+  async findBySessionId(@Param('name') category: string): Promise<SessionEntity[]> {
+    try {
+      return await this.sessionService.findByCategory(category);
+    } catch (error) {
+      throw new Error(error);
+    }
+  }
 }
