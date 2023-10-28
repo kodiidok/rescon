@@ -84,6 +84,16 @@ export class SessionItemService {
     }
   }
 
+  async findBySessionId(sessionId: string): Promise<SessionItemEntity[]> {
+    try {
+      return await this.sessionItemRepository.find({
+        where: { sessionId },
+      });
+    } catch (error) {
+      throw new Error(`Failed to fetch session items: ${error}`);
+    }
+  }
+
   async searchSessionItems(query: string): Promise<SessionItemEntity[]> {
     const words = query.split(' ');
 

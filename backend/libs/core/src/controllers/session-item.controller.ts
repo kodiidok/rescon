@@ -68,6 +68,15 @@ export class SessionItemController {
     }
   }
 
+  @Get('session/:id')
+  async findBySessionId(@Param('id') sessionId: string): Promise<SessionItemEntity[]> {
+    try {
+      return await this.sessionItemService.findBySessionId(sessionId);
+    } catch (error) {
+      throw new Error(error);
+    }
+  }
+
   @Post('items')
   @ApiBody({
     type: [CreateSessionItemDto],
