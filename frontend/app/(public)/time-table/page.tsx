@@ -1,18 +1,7 @@
-import React from 'react'
-
+import React from "react";
+import Table from "@/components/common/table/table";
 const page = () => {
-  return (
-    <div>
-      <p>this is time table</p>
-    </div>
-  )
-}
+  return <Table />;
+};
 
-export default page
-
-
-
-
-
-
-   
+export default page;
