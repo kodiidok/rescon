@@ -1,13 +1,13 @@
-'use client'
+"use client";
 
 import { Input } from "@nextui-org/input";
 import { useState, useEffect } from "react";
 import { Button } from "@nextui-org/button";
-import { searchSessionItems } from "@/config/api";
+// import { searchSessionItems } from "@/config/api";
+import SearchCard from "./search-card";
+import mockdata from "@/components/mock/abstracts.json";
 
-// import mockdata from '@/components/mock/abstracts.json';
-
-interface SearchResult {
+export interface SearchResult {
   id?: string;
   time: string;
   abstractId: number;
@@ -27,36 +27,35 @@ export const Search = () => {
 
   const handleSearch = () => {
     /**
-     * This is a search component with a 
+     * This is a search component with a
      * full text search algorithm
      */
     clearTimeout(debounceTimer);
 
     debounceTimer = setTimeout(async () => {
       if (searchQuery) {
-        const results = await searchSessionItems(searchQuery);
-        const filteredResults = results.filter(
-          (item: any) => {
-            const lowerSearchQuery = searchQuery.toLowerCase();
+        // const results = await searchSessionItems(searchQuery);
+        const results = mockdata;
+        const filteredResults = results.filter((item: any) => {
+          const lowerSearchQuery = searchQuery.toLowerCase();
 
-            // Function to check if a word is included in another word
-            const isWordIncluded = (fullWord: string, partialWord: string) =>
-              fullWord.toLowerCase().includes(partialWord.toLowerCase());
+          // Function to check if a word is included in another word
+          const isWordIncluded = (fullWord: string, partialWord: string) =>
+            fullWord.toLowerCase().includes(partialWord.toLowerCase());
 
-            // Check if searchQuery is included in title, presenter, or abstractId
-            const isMatch =
-              isWordIncluded(item.title, lowerSearchQuery) ||
-              isWordIncluded(String(item.abstractId), lowerSearchQuery) ||
-              isWordIncluded(item.presenter, lowerSearchQuery);
+          // Check if searchQuery is included in title, presenter, or abstractId
+          const isMatch =
+            isWordIncluded(item.title, lowerSearchQuery) ||
+            isWordIncluded(String(item.abstractId), lowerSearchQuery) ||
+            isWordIncluded(item.presenter, lowerSearchQuery);
 
-            // If searchQuery is a number, check if it's included in abstractId
-            const isNumberMatch =
-              !isNaN(Number(lowerSearchQuery)) &&
-              String(item.abstractId).includes(lowerSearchQuery);
+          // If searchQuery is a number, check if it's included in abstractId
+          const isNumberMatch =
+            !isNaN(Number(lowerSearchQuery)) &&
+            String(item.abstractId).includes(lowerSearchQuery);
 
-            return isMatch || isNumberMatch;
-          }
-        );
+          return isMatch || isNumberMatch;
+        });
 
         setSearchResults(filteredResults);
         setShowNoResults(false);
@@ -99,19 +98,9 @@ export const Search = () => {
       <Button onClick={handleSearch}>Search</Button>
 
       {/* Display search results or a message if no results */}
-      {searchQuery && searchResults.length > 0 ? (
-        searchResults.map((result) => (
-          <div key={result.id}>
-            <p>Title: {result.title}</p>
-            <p>Abstract ID: {result.abstractId}</p>
-            <p>Presenter: {result.presenter}</p>
-            {/* Display other relevant information */}
-          </div>
-        ))
-      ) : (
-        showNoResults && <p>No search results found.</p>
-      )}
+      {searchQuery && searchResults.length > 0
+        ? searchResults.map((result) => <SearchCard result={result} />)
+        : showNoResults && <p>No search results found.</p>}
     </div>
   );
 };
-

@@ -141,6 +141,8 @@ export async function postSessionData(data: any) {
 /** search handler */
 export async function searchSessionItems(query: string) {
   const queryString = encodeURIComponent(query);
+
+  
   const res = await fetch(
     `${server}/session-items/search?q=${queryString}`
   );
