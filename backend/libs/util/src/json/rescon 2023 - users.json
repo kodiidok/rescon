@@ -1,0 +1,380 @@
+[
+  {
+    "username": "APc6624a",
+    "email": "default@email.com",
+    "password": "P@ssw0rd",
+    "roleName": "session_chair",
+    "name": "Prof. AAI Perera"
+  },
+  {
+    "username": "PR578fd8",
+    "email": "default@email.com",
+    "password": "P@ssw0rd",
+    "roleName": "session_chair",
+    "name": "Dr. PGRS Ranasinghe"
+  },
+  {
+    "username": "GWRMRPedf12a",
+    "email": "default@email.com",
+    "password": "P@ssw0rd",
+    "roleName": "session_chair",
+    "name": "Dr. G. W. R. M. R. Palamakumbura"
+  },
+  {
+    "username": "WR25f55d",
+    "email": "default@email.com",
+    "password": "P@ssw0rd",
+    "roleName": "session_chair",
+    "name": "Dr. WNP Rodrigo"
+  },
+  {
+    "username": "RY459ed9",
+    "email": "default@email.com",
+    "password": "P@ssw0rd",
+    "roleName": "session_chair",
+    "name": "Prof. RD Yapa"
+  },
+  {
+    "username": "SAf94607",
+    "email": "default@email.com",
+    "password": "P@ssw0rd",
+    "roleName": "session_chair",
+    "name": "Dr. SP Abeysundara"
+  },
+  {
+    "username": "HU4457b2",
+    "email": "default@email.com",
+    "password": "P@ssw0rd",
+    "roleName": "session_chair",
+    "name": "Dr. Hakim Usoof"
+  },
+  {
+    "username": "RN0aaf36",
+    "email": "default@email.com",
+    "password": "P@ssw0rd",
+    "roleName": "session_chair",
+    "name": "Dr. RD Nawarathna"
+  },
+  {
+    "username": "ALARRT18dcaa",
+    "email": "default@email.com",
+    "password": "P@ssw0rd",
+    "roleName": "session_chair",
+    "name": "Dr. A.L.A. Romesh  R  Thanuja"
+  },
+  {
+    "username": "MDf9772b",
+    "email": "default@email.com",
+    "password": "P@ssw0rd",
+    "roleName": "session_chair",
+    "name": "Dr. MTM Dewasurendra"
+  },
+  {
+    "username": "GJaf2822",
+    "email": "gejaya@sci.pdn.ac.lk",
+    "password": "P@ssw0rd",
+    "roleName": "session_chair",
+    "name": "Prof. Gehan Jayasooriya"
+  },
+  {
+    "username": "SCKR8fd29a",
+    "email": "srubasinghe@sci.pdn.ac.lk",
+    "password": "P@ssw0rd",
+    "roleName": "session_chair",
+    "name": "Prof. S.C.K. Rubasinghe"
+  },
+  {
+    "username": "CWfb79d1",
+    "email": "default@email.com",
+    "password": "P@ssw0rd",
+    "roleName": "session_chair",
+    "name": "Dr. Chaminda Wijesundara"
+  },
+  {
+    "username": "SLf96a2f",
+    "email": "lokugs@vet.pdn.ac.lk",
+    "password": "P@ssw0rd",
+    "roleName": "session_chair",
+    "name": "Dr. Sampath Lokugalappatti"
+  },
+  {
+    "username": "SHPPKcf30b9",
+    "email": "shppk@sci.pdn.ac.lk",
+    "password": "P@ssw0rd",
+    "roleName": "session_chair",
+    "name": "Prof. S.H.P.P. Karunaratne"
+  },
+  {
+    "username": "RSRd1442d",
+    "email": "rupika.rajakaruna@sci.pdn.ac.lk",
+    "password": "P@ssw0rd",
+    "roleName": "session_chair",
+    "name": "Prof. R.S. Rajakaruna"
+  },
+  {
+    "username": "TAd797d7",
+    "email": "thilinianupama@vet.pdn.ac.lk",
+    "password": "P@ssw0rd",
+    "roleName": "session_chair",
+    "name": "Dr. Thilini Anupama"
+  },
+  {
+    "username": "IFe03d9b",
+    "email": "irushikawit@yahoo.com",
+    "password": "P@ssw0rd",
+    "roleName": "session_chair",
+    "name": "Dr. Irushika Fernando"
+  },
+  {
+    "username": "JWDabc691",
+    "email": "jilushid@sci.pdn.ac.lk",
+    "password": "P@ssw0rd",
+    "roleName": "session_chair",
+    "name": "Prof. J.W. Damunupola"
+  },
+  {
+    "username": "CAf73bb2",
+    "email": "chandimaa@sci.pdn.ac.lk",
+    "password": "P@ssw0rd",
+    "roleName": "session_chair",
+    "name": "Dr. Chandima Ariyarathne"
+  },
+  {
+    "username": "SR96acf1",
+    "email": "sanathr@sci.pdn.ac.lk",
+    "password": "P@ssw0rd",
+    "roleName": "session_chair",
+    "name": "Prof. Sanath Rajapakse"
+  },
+  {
+    "username": "SG67d2f0",
+    "email": "nalin@sci.pdn.ac.lk",
+    "password": "P@ssw0rd",
+    "roleName": "session_chair",
+    "name": "Dr. Suranjith Gama-arachchige"
+  },
+  {
+    "username": "IKbe7b5b",
+    "email": "inokap@sci.pdn.ac.lk",
+    "password": "P@ssw0rd",
+    "roleName": "session_chair",
+    "name": "Prof. Inoka Karunaratne"
+  },
+  {
+    "username": "NUPe4bf3f",
+    "email": "default@email.com",
+    "password": "P@ssw0rd",
+    "roleName": "session_chair",
+    "name": "Dr. Nuwandi U. Pathirana"
+  },
+  {
+    "username": "CA619f9b",
+    "email": "default@email.com",
+    "password": "P@ssw0rd",
+    "roleName": "session_chair",
+    "name": "Prof. Charmalie Abayasekara"
+  },
+  {
+    "username": "MD0ea140",
+    "email": "malkanthid@sci.pdn.ac.lk",
+    "password": "P@ssw0rd",
+    "roleName": "session_chair",
+    "name": "Prof. Malkanthi Daundasekera"
+  },
+  {
+    "username": "PSbbebc2",
+    "email": "psam@sci.pdn.ac.lk",
+    "password": "P@ssw0rd",
+    "roleName": "session_chair",
+    "name": "Prof. Preminda Samaraweera"
+  },
+  {
+    "username": "CD4119c9",
+    "email": "chandimasd@sci.pdn.ac.lk",
+    "password": "P@ssw0rd",
+    "roleName": "session_chair",
+    "name": "Dr. Chandima Danapala"
+  },
+  {
+    "username": "MYUGf64cae",
+    "email": "default@email.com",
+    "password": "P@ssw0rd",
+    "roleName": "session_chair",
+    "name": "Prof. Manawadevi. Y. U. Ganehenege"
+  },
+  {
+    "username": "RJKUR09730d",
+    "email": "default@email.com",
+    "password": "P@ssw0rd",
+    "roleName": "session_chair",
+    "name": "Dr. R. J. K. Udayana Ranatunga"
+  },
+  {
+    "username": "JPL7fe4ba",
+    "email": "default@email.com",
+    "password": "P@ssw0rd",
+    "roleName": "session_chair",
+    "name": "Dr. J.P. Liyanage"
+  },
+  {
+    "username": "JPLda4fe4",
+    "email": "default@email.com",
+    "password": "P@ssw0rd",
+    "roleName": "session_chair",
+    "name": "Dr. J.P. Liyanage"
+  },
+  {
+    "username": "KMSW16a161",
+    "email": "default@email.com",
+    "password": "P@ssw0rd",
+    "roleName": "session_chair",
+    "name": "Prof. K. M. S. Wimalasiri"
+  },
+  {
+    "username": "JMSJb05ce7",
+    "email": "default@email.com",
+    "password": "P@ssw0rd",
+    "roleName": "session_chair",
+    "name": "Dr. J. M. Susanthi Jayasinghe"
+  },
+  {
+    "username": "AW9301d1",
+    "email": "default@email.com",
+    "password": "P@ssw0rd",
+    "roleName": "session_chair",
+    "name": "Prof. Anura Wickramasinghe"
+  },
+  {
+    "username": "WRPWfdb61c",
+    "email": "default@email.com",
+    "password": "P@ssw0rd",
+    "roleName": "session_chair",
+    "name": "Dr. W. R. Priyanga Wijesinghe"
+  },
+  {
+    "username": "BSBK5f0653",
+    "email": "default@email.com",
+    "password": "P@ssw0rd",
+    "roleName": "session_chair",
+    "name": "Prof. B. S. B. Karunaratne"
+  },
+  {
+    "username": "BSD1511d4",
+    "email": "default@email.com",
+    "password": "P@ssw0rd",
+    "roleName": "session_chair",
+    "name": "Dr. B. S. Dassanayake"
+  },
+  {
+    "username": "RMGR1349f0",
+    "email": "default@email.com",
+    "password": "P@ssw0rd",
+    "roleName": "session_chair",
+    "name": "Prof. R.M. Gamini Rajapakse"
+  },
+  {
+    "username": "TMWJBe8427b",
+    "email": "default@email.com",
+    "password": "P@ssw0rd",
+    "roleName": "session_chair",
+    "name": "Prof. T. M. W. J. Bandara"
+  },
+  {
+    "username": "TH435838",
+    "email": "hewawasamtilak@gmail.com",
+    "password": "P@ssw0rd",
+    "roleName": "session_chair",
+    "name": "Prof. Tilak Hewawasam"
+  },
+  {
+    "username": "PK76f748",
+    "email": "dpkaru@sci.pdn.ac.lk",
+    "password": "P@ssw0rd",
+    "roleName": "session_chair",
+    "name": "Prof. Parakrama Karunarathne"
+  },
+  {
+    "username": "SJ986994",
+    "email": "shamj@eng.pdn.ac.lk",
+    "password": "P@ssw0rd",
+    "roleName": "session_chair",
+    "name": "Prof. Shameen Jinadasa"
+  },
+  {
+    "username": "NK02db49",
+    "email": "nadeeshak@sci.pdn.ac.lk",
+    "password": "P@ssw0rd",
+    "roleName": "session_chair",
+    "name": "Dr. Nadeesha Koralegedara"
+  },
+  {
+    "username": "SBdbf74e",
+    "email": "suyamam@sci.pdn.ac.lk",
+    "password": "P@ssw0rd",
+    "roleName": "session_chair",
+    "name": "Prof. Suyama Boyagoda"
+  },
+  {
+    "username": "TG9b8cbd",
+    "email": "thilanka.gunaratne@sci.pdn.ac.lk",
+    "password": "P@ssw0rd",
+    "roleName": "session_chair",
+    "name": "Prof. Thilanka Gunarathne"
+  },
+  {
+    "username": "NB179ae6",
+    "email": "nanda.balasooriya@sci.pdn.ac.lk",
+    "password": "P@ssw0rd",
+    "roleName": "session_chair",
+    "name": "Prof. Nanda Balasooriya"
+  },
+  {
+    "username": "LRf3fc42",
+    "email": "laliwr@appsc.sab.ac.lk",
+    "password": "P@ssw0rd",
+    "roleName": "session_chair",
+    "name": "Dr. Lalindra Ranaweera"
+  },
+  {
+    "username": "BA2813a3",
+    "email": "default@email.com",
+    "password": "P@ssw0rd",
+    "roleName": "session_chair",
+    "name": "Dr. Bhathiya Athurupana"
+  },
+  {
+    "username": "MW7df3b9",
+    "email": "manjulaw@sci.pdn.ac.lk",
+    "password": "P@ssw0rd",
+    "roleName": "session_chair",
+    "name": "Dr. Manjula Wijesinghe"
+  },
+  {
+    "username": "HMd83ae4",
+    "email": "default@email.com",
+    "password": "P@ssw0rd",
+    "roleName": "session_chair",
+    "name": "Prof. HMSP Madawala"
+  },
+  {
+    "username": "PV565f6e",
+    "email": "default@email.com",
+    "password": "P@ssw0rd",
+    "roleName": "session_chair",
+    "name": "Prof. Pushpa Vitharana"
+  },
+  {
+    "username": "SYdcaf87",
+    "email": "default@email.com",
+    "password": "P@ssw0rd",
+    "roleName": "session_chair",
+    "name": "Prof. S. Yatigammana"
+  },
+  {
+    "username": "ABe70ec7",
+    "email": "default@email.com",
+    "password": "P@ssw0rd",
+    "roleName": "session_chair",
+    "name": "Mr. AMRS Bandara"
+  }
+]

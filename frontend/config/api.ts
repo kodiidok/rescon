@@ -73,6 +73,30 @@ export async function getSessionItemById(id: string) {
   return res.json();
 }
 
+export async function getSessionItemByAbstractId(id: number) {
+  const res = await fetch(`${server}/session-items/abstract/${id}`);
+  if (!res.ok) {
+    throw new Error("Failed to fetch session-item data");
+  }
+  return res.json();
+}
+
+export async function getSessionItemBySessionId(id: string) {
+  const res = await fetch(`${server}/session-items/session/${id}`);
+  if (!res.ok) {
+    throw new Error("Failed to fetch session-item data");
+  }
+  return res.json();
+}
+
+export async function getSessionByCategory(category: string) {
+  const res = await fetch(`${server}/sessions/category/${category}`);
+  if (!res.ok) {
+    throw new Error("Failed to fetch session data");
+  }
+  return res.json();
+}
+
 /** post request handlers */
 
 export async function postUserData(data: any) {

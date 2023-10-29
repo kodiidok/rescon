@@ -1,0 +1,28 @@
+SESSION ID,CHAIR 1,EMAIL 1,CHAIR 2,EMAIL 2,DATE,TIME,LOCATION,THEME
+ICTMS1,Prof. AAI Perera,,Dr. PGRS Ranasinghe,,11/3/2023,11:00-1:00,A3.2,ICT, Mathematics and Statistics
+ICTMS2,Dr. G. W. R. M. R. Palamakumbura,,Dr. WNP Rodrigo,,11/3/2023,2:00-4:00,A3.2,ICT, Mathematics and Statistics
+ICTMS3,Prof. RD Yapa,,Dr. SP Abeysundara,,11/4/2023,8:00-10:00,A3.2,ICT, Mathematics and Statistics
+ICTMS4,Dr. Hakim Usoof,,Dr. RD Nawarathna,,11/4/2023,10:30-12:30,A3.2,ICT, Mathematics and Statistics
+ICTMS5,Dr. A.L.A. Romesh  R  Thanuja,,Dr. MTM Dewasurendra,,11/4/2023,1:30-3:30,A3.2,ICT, Mathematics and Statistics
+LS1,Prof. Gehan Jayasooriya,gejaya@sci.pdn.ac.lk,Prof. S.C.K. Rubasinghe,srubasinghe@sci.pdn.ac.lk,11/3/2023,11:00-1:00,C2.4,Life Sciences
+LS2,Dr. Chaminda Wijesundara,,Dr. Sampath Lokugalappatti,lokugs@vet.pdn.ac.lk,11/3/2023,11:00-1:00,A1.1,Life Sciences
+LS3,Prof. S.H.P.P. Karunaratne,shppk@sci.pdn.ac.lk,Prof. R.S. Rajakaruna,rupika.rajakaruna@sci.pdn.ac.lk,11/3/2023,2:00-4:00,C2.4,Life Sciences
+LS4,Dr. Thilini Anupama,thilinianupama@vet.pdn.ac.lk,Dr. Irushika Fernando,irushikawit@yahoo.com,11/3/2023,2:00-4:00,A1.1,Life Sciences
+LS5,Prof. J.W. Damunupola,jilushid@sci.pdn.ac.lk,Dr. Chandima Ariyarathne,chandimaa@sci.pdn.ac.lk,11/4/2023,8:00-10:00,C2.4,Life Sciences
+LS6,Prof. Sanath Rajapakse,sanathr@sci.pdn.ac.lk,Dr. Suranjith Gama-arachchige,nalin@sci.pdn.ac.lk,11/4/2023,8:00-10:00,Auditorium,Life Sciences
+LS7,Prof. Inoka Karunaratne,inokap@sci.pdn.ac.lk,Dr. Nuwandi U. Pathirana,,11/4/2023,10:30-12:30,C2.4,Life Sciences
+LS8,Prof. Charmalie Abayasekara,,Prof. Malkanthi Daundasekera,malkanthid@sci.pdn.ac.lk,11/4/2023,10:30-12:30,Auditorium,Life Sciences
+LS9,Prof. Preminda Samaraweera,psam@sci.pdn.ac.lk,Dr. Chandima Danapala,chandimasd@sci.pdn.ac.lk,11/4/2023,1:30-3:30,C2.4,Life Sciences
+PS1,Prof. Manawadevi. Y. U. Ganehenege,,Dr. R. J. K. Udayana Ranatunga,,11/3/2023,11:00-1:15,C2.6,Physical Sciences
+PS2,Dr. J.P. Liyanage,,Dr. J.P. Liyanage,,11/3/2023,11:00-1:00,C2.5,Physical Sciences
+PS3,Prof. K. M. S. Wimalasiri,,Dr. J. M. Susanthi Jayasinghe,,11/3/2023,2:00-4:15,C2.5,Physical Sciences
+PS4,Prof. Anura Wickramasinghe,,Dr. W. R. Priyanga Wijesinghe,,11/3/2023,2:00-4:00,C2.6,Physical Sciences
+PS5,Prof. B. S. B. Karunaratne,,Dr. B. S. Dassanayake,,11/4/2023,8:00-10:15,C2.5,Physical Sciences
+PS6,Prof. R.M. Gamini Rajapakse,,Prof. T. M. W. J. Bandara,,11/4/2023,2:15-3:30,C2.5,Physical Sciences
+EES1,Prof. Tilak Hewawasam,hewawasamtilak@gmail.com,Prof. Parakrama Karunarathne,dpkaru@sci.pdn.ac.lk,11/3/2023,11:45-1:00,A3.1,Earth & Environmental Sciences
+EES2,Prof. Shameen Jinadasa,shamj@eng.pdn.ac.lk,Dr. Nadeesha Koralegedara,nadeeshak@sci.pdn.ac.lk,11/3/2023,2:00-4:00,A3.1,Earth & Environmental Sciences
+EES3,Prof. Suyama Boyagoda,suyamam@sci.pdn.ac.lk,Prof. Thilanka Gunarathne,thilanka.gunaratne@sci.pdn.ac.lk,11/4/2023,8:00-10:00,A3.1,Earth & Environmental Sciences
+EES4,Prof. Nanda Balasooriya,nanda.balasooriya@sci.pdn.ac.lk,Dr. Lalindra Ranaweera,laliwr@appsc.sab.ac.lk,11/4/2023,10:30-12:30,A3.1,Earth & Environmental Sciences
+EES5,Dr. Bhathiya Athurupana,,Dr. Manjula Wijesinghe,manjulaw@sci.pdn.ac.lk,11/4/2023,1:30-3:30,A3.1,Earth & Environmental Sciences
+SE1,Prof. HMSP Madawala,,Prof. Pushpa Vitharana,,11/4/2023,10:30-12:30,C2.6,Science Education
+SE2,Prof. S. Yatigammana,,Mr. AMRS Bandara,,11/4/2023,1:30-3:30,C2.6,Science Education

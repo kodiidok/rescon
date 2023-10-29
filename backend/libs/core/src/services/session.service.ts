@@ -131,4 +131,14 @@ export class SessionService {
       throw new Error(`Failed to delete session: ${error}`);
     }
   }
+
+  async findByCategory(category: string): Promise<SessionEntity[]> {
+    try {
+      return await this.sessionRepository.find({
+        where: { category },
+      });
+    } catch (error) {
+      throw new Error(`Failed to fetch session: ${error}`);
+    }
+  }
 }
