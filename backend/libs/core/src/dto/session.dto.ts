@@ -51,6 +51,9 @@ export class UpdateSessionDto {
 
   @ApiProperty({ nullable: true })
   location: string;
+
+  @ApiProperty({nullable: true})
+  panalDiscussionIds: string[];
 }
 
 export class ResponseDto {

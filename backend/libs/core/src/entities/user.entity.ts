@@ -39,6 +39,9 @@ export class UserEntity extends BaseEntity {
   @Column({ name: 'role_name', nullable: true })
   roleName?: string;
 
+  @Column({ type: 'simple-array', nullable: true })
+  chairingSessionIds?: string[];
+
   @ManyToMany(
     () => SessionEntity,
     (entity: SessionEntity) => entity.sessionChairs,
@@ -46,17 +49,17 @@ export class UserEntity extends BaseEntity {
   )
   chairingSessions?: SessionEntity[];
 
-  @BeforeUpdate()
-  updateSessions() {
-    // This is called before updating the user entity
-    // Update the related sessions in the join table
-    if (this.chairingSessions) {
-      this.chairingSessions.forEach((session: SessionEntity) => {
-        // Update any additional details in the join table
-        // For example, you might want to update timestamps
-      });
-    }
-  }
+  // @BeforeUpdate()
+  // updateSessions() {
+  //   // This is called before updating the user entity
+  //   // Update the related sessions in the join table
+  //   if (this.chairingSessions) {
+  //     this.chairingSessions.forEach((session: SessionEntity) => {
+  //       // Update any additional details in the join table
+  //       // For example, you might want to update timestamps
+  //     });
+  //   }
+  // }
 
   // @Column({ type: 'boolean', default: false })
   // verified?: boolean;

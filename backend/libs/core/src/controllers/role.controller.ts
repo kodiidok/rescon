@@ -23,7 +23,7 @@ export class RoleController {
   @Get()
   @ApiResponse({
     status: 200,
-    description: 'List of session items with pagination information',
+    description: 'List of roles with pagination information',
     type: () => RoleEntity,
   })
   async findAll(

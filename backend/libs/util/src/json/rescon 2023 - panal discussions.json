@@ -1,0 +1,137 @@
+[
+  {
+    "sessionId": "ICTMS1",
+    "startTime": "12:15:00",
+    "endTime": "12:30:00"
+  },
+  {
+    "sessionId": "ICTMS2",
+    "startTime": "15:15:00",
+    "endTime": "15:30:00"
+  },
+  {
+    "sessionId": "ICTMS3",
+    "startTime": "09:15:00",
+    "endTime": "09:30:00"
+  },
+  {
+    "sessionId": "ICTMS4",
+    "startTime": "12:15:00",
+    "endTime": "12:30:00"
+  },
+  {
+    "sessionId": "ICTMS5",
+    "startTime": "15:00:00",
+    "endTime": "15:15:00"
+  },
+  {
+    "sessionId": "LS1",
+    "startTime": "12:45:00",
+    "endTime": "01:00:00"
+  },
+  {
+    "sessionId": "LS2",
+    "startTime": "12:30:00",
+    "endTime": "01:00:00"
+  },
+  {
+    "sessionId": "LS3",
+    "startTime": "15:45:00",
+    "endTime": "16:00:00"
+  },
+  {
+    "sessionId": "LS4",
+    "startTime": "15:45:00",
+    "endTime": "16:00:00"
+  },
+  {
+    "sessionId": "LS5",
+    "startTime": "09:45:00",
+    "endTime": "10:00:00"
+  },
+  {
+    "sessionId": "LS6",
+    "startTime": "09:45:00",
+    "endTime": "10:00:00"
+  },
+  {
+    "sessionId": "LS7",
+    "startTime": "12:15:00",
+    "endTime": "12:30:00"
+  },
+  {
+    "sessionId": "LS8",
+    "startTime": "12:15:00",
+    "endTime": "12:30:00"
+  },
+  {
+    "sessionId": "LS9",
+    "startTime": "15:15:00",
+    "endTime": "15:30:00"
+  },
+  {
+    "sessionId": "PS1",
+    "startTime": "13:00:00",
+    "endTime": "13:15:00"
+  },
+  {
+    "sessionId": "PS2",
+    "startTime": "13:00:00",
+    "endTime": "13:15:00"
+  },
+  {
+    "sessionId": "PS3",
+    "startTime": "15:45:00",
+    "endTime": "16:00:00"
+  },
+  {
+    "sessionId": "PS4",
+    "startTime": "15:30:00",
+    "endTime": "15:45:00"
+  },
+  {
+    "sessionId": "PS5",
+    "startTime": "10:00:00",
+    "endTime": "01:15:00"
+  },
+  {
+    "sessionId": "PS6",
+    "startTime": "15:45:00",
+    "endTime": "16:00:00"
+  },
+  {
+    "sessionId": "EES1",
+    "startTime": "13:00:00",
+    "endTime": "13:15:00"
+  },
+  {
+    "sessionId": "EES2",
+    "startTime": "15:45:00",
+    "endTime": "16:00:00"
+  },
+  {
+    "sessionId": "EES3",
+    "startTime": "09:45:00",
+    "endTime": "10:00:00"
+  },
+  {
+    "sessionId": "EES4",
+    "startTime": "11:45:00",
+    "endTime": "12:00:00"
+  },
+  {
+    "sessionId": "EES5",
+    "startTime": "15:30:00",
+    "endTime": "15:45:00"
+  },
+  {
+    "sessionId": "SE1",
+    "startTime": "12:15:00",
+    "endTime": "12:30:00"
+  },
+  {
+    "sessionId": "SE2",
+    "startTime": "15:15:00",
+    "endTime": "15:30:00"
+  }
+]

@@ -97,6 +97,14 @@ export async function getSessionByCategory(category: string) {
   return res.json();
 }
 
+export async function getSessionByDate(date: string) {
+  const res = await fetch(`${server}/sessions/date/${date}`);
+  if (!res.ok) {
+    throw new Error("Failed to fetch session data");
+  }
+  return res.json();
+}
+
 /** post request handlers */
 
 export async function postUserData(data: any) {

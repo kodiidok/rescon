@@ -16,6 +16,9 @@ export class CreateUserDto {
 
   @ApiProperty({ nullable: true })
   roleName?: UserRoles;
+
+  @ApiProperty({ nullable: true })
+  chairingSessionIds?: string[];
 }
 
 export class UpdateUserDto {
@@ -33,4 +36,7 @@ export class UpdateUserDto {
 
   @ApiProperty({ nullable: true })
   roleName?: UserRoles;
+
+  @ApiProperty({ nullable: true })
+  chairingSessionIds?: string[];
 }
