@@ -4,7 +4,7 @@ import { Input } from "@nextui-org/input";
 import { useState, useEffect } from "react";
 import { Button } from "@nextui-org/button";
 import { searchSessionItems } from "@/config/api";
-import SearchCard from "./search-card";
+import SearchCard from "./searchCard";
 // import mockdata from "@/components/mock/abstracts.json";
 
 export interface SearchResult {
