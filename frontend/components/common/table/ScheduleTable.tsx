@@ -54,7 +54,6 @@ export default function ScheduleTable() {
           .filter((session: Session) => session.category === category)
           .map((session: Session) => session.sessionItems);
 
-        console.log(sessionItems);
         setSessionResults(sessionItems);
         setShowNoResults(false);
       } else {
@@ -63,27 +62,35 @@ export default function ScheduleTable() {
           setShowNoResults(true);
         }, 20000);
       }
-    }, 2000);
+    }, 1000);
   };
 
-  // useEffect(() => {
-  //   const timeoutId = setTimeout(() => {
-  //     setShowNoResults(false);
-  //   }, 20000);
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      setShowNoResults(false);
+    }, 20000);
 
-  //   return () => clearTimeout(timeoutId);
-  // }, [showNoResults]);
+    return () => clearTimeout(timeoutId);
+  }, [showNoResults]);
+
+  useEffect(() => {
+    console.log(sessionResults);
+  }, [sessionResults]);
 
   return (
     <div className="w-4/5 mx-auto">
       <Button onClick={handleCategorySelect}>Click</Button>
 
       {sessionResults.length > 0
-        ? sessionResults.map((result) => (
-            <div>
-              <p>{result.abstractId}</p>
-            </div>
-          ))
+        ? sessionResults.map((result: any, index: number) => (
+          <div key={index}>
+            {result.map((sessionItem: any, sessionItemIndex: number) => (
+              <div style={{ margin: '10px' }} key={sessionItemIndex} className="sessionItem-item">
+                {JSON.stringify(sessionItem)}
+              </div>
+            ))}
+          </div>
+        ))
         : showNoResults && <p>No search results found.</p>}
 
       {/* <button onClick={handleCategorySelect}>Click</button>
