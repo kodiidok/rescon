@@ -8,5 +8,11 @@
   },
   "keywords": [],
   "author": "Sahan Kodituwakku",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "csv-parser": "^3.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.8.9"
+  }
 }
