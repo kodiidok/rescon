@@ -3,9 +3,9 @@
 import { Input } from "@nextui-org/input";
 import { useState, useEffect } from "react";
 import { Button } from "@nextui-org/button";
-// import { searchSessionItems } from "@/config/api";
+import { searchSessionItems } from "@/config/api";
 import SearchCard from "./search-card";
-import mockdata from "@/components/mock/abstracts.json";
+// import mockdata from "@/components/mock/abstracts.json";
 
 export interface SearchResult {
   id?: string;
@@ -34,8 +34,8 @@ export const Search = () => {
 
     debounceTimer = setTimeout(async () => {
       if (searchQuery) {
-        // const results = await searchSessionItems(searchQuery);
-        const results = mockdata;
+        const results = await searchSessionItems(searchQuery);
+        // const results = mockdata;
         const filteredResults = results.filter((item: any) => {
           const lowerSearchQuery = searchQuery.toLowerCase();
 
