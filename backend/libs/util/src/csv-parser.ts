@@ -1,7 +1,12 @@
 import * as fs from 'fs';
-import { convertTimeRange, mapChairPersonData, mapSessionData } from './mapper';
-import { Session } from './interfaces';
-import { csv_sessions } from './filepaths';
+import {
+  convertTimeRange,
+  mapChairPersonData,
+  mapSessionData,
+  mapSessionItemData,
+  splitZoom,
+} from './mapper';
+import { csv_sessionitems, csv_sessions } from './filepaths';
 
 export function readFile<T>(
   filepath: string,
@@ -33,9 +38,6 @@ readFile(csv_sessions, (lines) => {
   return dataLines;
 })
   .then((dataLines) => {
-    const sesssion: Session = {};
-    const sessionArray: Session[] = [];
-
     for (const line of dataLines) {
       let [
         id,
@@ -59,14 +61,42 @@ readFile(csv_sessions, (lines) => {
       // map data and save to json file
       // mapChairPersonData({ email: email1, name: chair1 });
       // mapChairPersonData({ email: email2, name: chair2 });
-      mapSessionData({
-        sessionId: id,
-        category: theme.replace(/\r/g, ''),
-        location: location,
-        date: date,
-        startTime: startTime,
-        endTime: endTime,
-      });
+      // mapSessionData({
+      //   sessionId: id,
+      //   category: theme.replace(/\r/g, ''),
+      //   location: location,
+      //   date: date,
+      //   startTime: startTime,
+      //   endTime: endTime,
+      // });
+    }
+  })
+  .catch((error) => {
+    console.error('Error reading the file:', error.message);
+  });
+
+/** read session-items.csv file and parse data */
+readFile(csv_sessionitems, (lines) => {
+  const dataLines = lines.slice(1);
+  return dataLines;
+})
+  .then((dataLines) => {
+    for (const line of dataLines) {
+      let [sessionId, time, abstractId, ...rest] = line.split(',');
+
+      const [startTime, endTime] = convertTimeRange(time, new Date());
+      const [title, presenter, via] = splitZoom(rest);
+
+      // map data and save to json file
+      // mapSessionItemData({
+      //   sessionId,
+      //   endTime,
+      //   startTime,
+      //   abstractId: parseInt(abstractId, 10),
+      //   title,
+      //   presenter,
+      //   via,
+      // });
     }
   })
   .catch((error) => {

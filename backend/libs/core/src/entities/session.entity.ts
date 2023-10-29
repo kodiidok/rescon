@@ -2,6 +2,7 @@ import { Entity, Column, OneToMany, ManyToMany, JoinTable } from 'typeorm';
 import { BaseEntity } from './base.entity';
 import { SessionItemEntity } from './session-item.entity';
 import { UserEntity } from './user.entity';
+import { PanalDiscussionEntity } from './panal-discussion.entity';
 
 @Entity('sessions')
 export class SessionEntity extends BaseEntity {
@@ -41,9 +42,21 @@ export class SessionEntity extends BaseEntity {
   )
   sessionItems: SessionItemEntity[];
 
+  @Column('simple-array', { name: 'panal_discussion_ids', nullable: true })
+  panalDiscussionIds: string[];
+
+  @OneToMany(
+    () => PanalDiscussionEntity,
+    (entity: PanalDiscussionEntity) => entity.session,
+  )
+  panalDiscussions: PanalDiscussionEntity[];
+
   @Column()
   category: string;
 
-  @Column()
+  @Column({ nullable: true })
   location: string;
+
+  @Column({ nullable: true })
+  plenaryTalklocation: string;
 }

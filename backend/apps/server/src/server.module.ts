@@ -12,12 +12,20 @@ import { UserModule } from '@core/core/modules/user.module';
 import { RoleModule } from '@core/core/modules/role.module';
 import { UserEntity } from '@core/core/entities/user.entity';
 import { RoleEntity } from '@core/core/entities/role.entity';
+import { PanalDiscussionEntity } from '@core/core/entities/panal-discussion.entity';
+import { PanalDiscussionModule } from '@core/core/modules/panal-discussion.module';
 
 @Module({
   imports: [
     TypeOrmModule.forRoot({
       ...dbConfig(),
-      entities: [UserEntity, RoleEntity, SessionEntity, SessionItemEntity],
+      entities: [
+        UserEntity,
+        RoleEntity,
+        SessionEntity,
+        SessionItemEntity,
+        PanalDiscussionEntity,
+      ],
     }),
 
     MailModule,
@@ -26,6 +34,7 @@ import { RoleEntity } from '@core/core/entities/role.entity';
     RoleModule,
     SessionItemModule,
     SessionModule,
+    PanalDiscussionModule,
   ],
   controllers: [ServerController],
   providers: [ServerService],

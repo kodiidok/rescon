@@ -1,7 +1,7 @@
-import { ChairPerson, Session } from './interfaces';
+import { ChairPerson, Session, SessionItem } from './interfaces';
 import * as crypto from 'crypto';
 import * as fs from 'fs';
-import { json_users, json_sessions } from './filepaths';
+import { json_users, json_sessions, json_sessionitems } from './filepaths';
 
 export function convertTimeRange(timeRange, date) {
   const [start, end] = timeRange.split('-').map((time) => time.trim());
@@ -18,7 +18,7 @@ export function convertTimeRange(timeRange, date) {
 
   const startTime = startDate.toLocaleTimeString('en-US', { hour12: false });
   const endTime = endDate.toLocaleTimeString('en-US', { hour12: false });
-  
+
   return [startTime, endTime];
 }
 
@@ -103,4 +103,68 @@ export function mapSessionData({
   } catch (error) {
     throw new Error(error);
   }
+}
+
+export function mapSessionItemData({
+  sessionId,
+  abstractId,
+  presenter,
+  title,
+  startTime,
+  endTime,
+}: SessionItem) {
+  try {
+    const mappedData: SessionItem = {
+      sessionId,
+      abstractId,
+      presenter,
+      title,
+      startTime,
+      endTime,
+    };
+
+    // Read the existing JSON file
+    const existingData = JSON.parse(
+      fs.readFileSync(json_sessionitems, 'utf-8'),
+    );
+
+    // Append the new data to the existing data
+    existingData.push(mappedData);
+
+    // Save the updated data back to the file
+    fs.writeFileSync(
+      json_sessionitems,
+      JSON.stringify(existingData, null, 2),
+      'utf-8',
+    );
+  } catch (error) {
+    throw new Error(error);
+  }
+}
+
+// Function to check and split the "zoom"
+export function splitZoom(input: string[]) {
+  let hasZoom = false;
+  let zoom = '';
+  let name = '';
+  for (const line of input) {
+    hasZoom = /zoom/i.test(line);
+    if (hasZoom) {
+      zoom = input.pop();
+      break;
+    }
+  }
+
+  let splits;
+
+  if (hasZoom) {
+    name = input.pop();
+    splits = [input.join(', '), name, zoom];
+  } else {
+    const _ = input.pop();
+    name = input.pop();
+    splits = [input.join(', ').replace(/"/g, ''), name, undefined];
+  }
+
+  return splits;
 }
