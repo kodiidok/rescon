@@ -17,7 +17,6 @@ import { getSessionByDate } from "@/config/api";
 import { button } from "@nextui-org/theme";
 import { SearchResult } from "../search/search";
 import { Button } from "@nextui-org/button";
-import { Session } from "inspector";
 
 interface Session {
   id?: string;
