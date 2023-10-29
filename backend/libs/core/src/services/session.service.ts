@@ -30,20 +30,17 @@ export class SessionService {
 
       const [data, count] = await this.sessionRepository.findAndCount(options);
 
-      // for (const session of data) {
-      //   if (session) {
-      //     // Check if session.sessionChairIds is defined and is an array
-      //     if (Array.isArray(session.sessionChairIds)) {
-      //       // Use Promise.all only if session.sessionChairIds is an array
-      //       session.sessionChairs = await Promise.all(
-      //         session.sessionChairIds.map(
-      //           async (userId: string) =>
-      //             await this.userService.findOne(userId),
-      //         ),
-      //       );
-      //     }
-      //   }
-      // }
+      if (data) {
+        for (const session of data) {
+          if (session.sessionChairIds) {
+            session.sessionChairs = await Promise.all(
+              session.sessionChairIds.map((userId) =>
+                this.userService.findOne(userId.replace(/[{}]/g, '')),
+              ),
+            );
+          }
+        }
+      }
 
       return {
         data,
@@ -66,16 +63,12 @@ export class SessionService {
         },
       });
 
-      if (session) {
-        // Check if session.sessionChairIds is defined and is an array
-        if (Array.isArray(session.sessionChairIds)) {
-          // Use Promise.all only if session.sessionChairIds is an array
-          session.sessionChairs = await Promise.all(
-            session.sessionChairIds.map(
-              async (userId: string) => await this.userService.findOne(userId),
-            ),
-          );
-        }
+      if (session.sessionChairIds) {
+        session.sessionChairs = await Promise.all(
+          session.sessionChairIds.map((userId) =>
+            this.userService.findOne(userId.replace(/[{}]/g, '')),
+          ),
+        );
       }
 
       return session;
@@ -89,6 +82,14 @@ export class SessionService {
   ): Promise<SessionEntity> {
     try {
       const newSession = this.sessionRepository.create(createSessionDto);
+
+      const chairIds = createSessionDto.sessionChairIds;
+      if (chairIds && Array.isArray(chairIds)) {
+        newSession.sessionChairs = await Promise.all(
+          chairIds.map((id) => this.userService.findOne(id)),
+        );
+      }
+
       return await this.sessionRepository.save(newSession);
     } catch (error) {
       throw new Error(`Failed to create session: ${error}`);
@@ -103,17 +104,15 @@ export class SessionService {
       const session = await this.findOne(id);
 
       // check if the session ids are given as an array
-      if (
-        updateSessionDto.sessionChairIds &&
-        Array.isArray(updateSessionDto.sessionChairIds)
-      ) {
+      const chairIds = updateSessionDto.sessionChairIds;
+      if (chairIds && Array.isArray(chairIds)) {
         if (!Array.isArray(session.sessionChairs)) {
           session.sessionChairs = [];
         }
 
         // find all the users who match the chairperson ids
         const chairsToAdd = await Promise.all(
-          updateSessionDto.sessionChairIds.map(async (chairId) => {
+          chairIds.map(async (chairId) => {
             return await this.userService.findOne(chairId);
           }),
         );
