@@ -33,11 +33,11 @@ export class UserEntity extends BaseEntity {
   name?: string;
 
   @ManyToOne((type) => RoleEntity)
-  @JoinColumn({ name: 'role_id', referencedColumnName: 'id' })
+  @JoinColumn({ name: 'role_name', referencedColumnName: 'name' })
   role?: RoleEntity;
 
-  @Column({ name: 'role_id', nullable: true })
-  roleId?: string;
+  @Column({ name: 'role_name', nullable: true })
+  roleName?: string;
 
   @ManyToMany(
     () => SessionEntity,

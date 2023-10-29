@@ -2,6 +2,7 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { RoleEntity } from '../entities/role.entity';
 import { FindManyOptions, Repository } from 'typeorm';
+import { UserRoles } from '../enums/user-roles.enum';
 
 @Injectable()
 export class RoleService {
@@ -31,9 +32,9 @@ export class RoleService {
     }
   }
 
-  async findOne(id: string): Promise<RoleEntity | undefined> {
+  async findOne(name: UserRoles): Promise<RoleEntity | undefined> {
     try {
-      return await this.roleRepository.findOne({ where: { id } });
+      return await this.roleRepository.findOne({ where: { name } });
     } catch (error) {
       throw new Error(`Failed to fetch role: ${error}`);
     }
@@ -49,11 +50,11 @@ export class RoleService {
   }
 
   async update(
-    id: string,
+    name: UserRoles,
     updateRoleDto: Partial<RoleEntity>,
   ): Promise<RoleEntity | undefined> {
     try {
-      const role = await this.findOne(id);
+      const role = await this.findOne(name);
       Object.assign(role, updateRoleDto);
       return await this.roleRepository.save(role);
     } catch (error) {

@@ -44,8 +44,19 @@
       "sourceRoot": "apps/mail/src",
       "compilerOptions": {
         "tsConfigPath": "apps/mail/tsconfig.app.json",
-        "assets": ["apps/mail/src/templates/**/*"],
+        "assets": [
+          "apps/mail/src/templates/**/*"
+        ],
         "watchAssets": true
+      }
+    },
+    "util": {
+      "type": "library",
+      "root": "libs/util",
+      "entryFile": "index",
+      "sourceRoot": "libs/util/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/util/tsconfig.lib.json"
       }
     }
   }
