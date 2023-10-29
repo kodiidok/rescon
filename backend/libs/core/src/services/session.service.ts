@@ -141,4 +141,15 @@ export class SessionService {
       throw new Error(`Failed to fetch session: ${error}`);
     }
   }
+
+  async findByDate(date: string): Promise<SessionEntity[]> {
+    try {
+      return await this.sessionRepository.find({
+        where: { date },
+        relations: { sessionItems: true },
+      });
+    } catch (error) {
+      throw new Error(`Failed to fetch session: ${error}`);
+    }
+  }
 }

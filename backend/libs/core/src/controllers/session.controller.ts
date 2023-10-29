@@ -100,10 +100,20 @@ export class SessionController {
     }
   }
 
+  
   @Get('category/:name')
   async findBySessionId(@Param('name') category: string): Promise<SessionEntity[]> {
     try {
       return await this.sessionService.findByCategory(category);
+    } catch (error) {
+      throw new Error(error);
+    }
+  }
+
+  @Get('date/:date')
+  async findByDate(@Param('date') date: string): Promise<SessionEntity[]> {
+    try {
+      return await this.sessionService.findByDate(date);
     } catch (error) {
       throw new Error(error);
     }

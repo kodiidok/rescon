@@ -24,3 +24,11 @@ export interface SessionItem {
   sessionId?: string;
   via?: string;
 }
+
+export interface PlenaryTlak {
+  startTime?: string;
+  endTime?: string;
+  presenter?: string;
+  sessionId?: string;
+  location?: string;
+}
