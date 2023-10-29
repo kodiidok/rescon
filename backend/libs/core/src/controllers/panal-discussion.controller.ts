@@ -10,20 +10,19 @@ import {
 } from '@nestjs/common';
 
 import { ApiBody, ApiResponse, ApiTags } from '@nestjs/swagger';
-import { UserRoles } from '../enums/user-roles.enum';
 import { PanalDiscussionService } from '../services/panal-discussion.service';
 import { PanalDiscussionEntity } from '../entities/panal-discussion.entity';
 import { CreatePanalDiscussionDto, UpdatePanalDiscussionDto } from '../dto/panal-discussion.dto';
 
 @ApiTags('panal-discussions')
-@Controller('panal-discusisons')
+@Controller('panal-discussions')
 export class PanalDiscussionController {
   constructor(private readonly panalDiscussionService: PanalDiscussionService) {}
 
   @Get()
   @ApiResponse({
     status: 200,
-    description: 'List of session items with pagination information',
+    description: 'List of panal discussions with pagination information',
     type: () => PanalDiscussionEntity,
   })
   async findAll(
@@ -37,10 +36,10 @@ export class PanalDiscussionController {
     }
   }
 
-  @Get(':name')
-  async findOne(@Param('name') name: UserRoles): Promise<PanalDiscussionEntity | undefined> {
+  @Get(':id')
+  async findOne(@Param('id') id: string): Promise<PanalDiscussionEntity | undefined> {
     try {
-      return await this.panalDiscussionService.findOne(name);
+      return await this.panalDiscussionService.findOne(id);
     } catch (error) {
       throw new Error(error);
     }
@@ -49,11 +48,11 @@ export class PanalDiscussionController {
   @Post()
   @ApiBody({
     type: [CreatePanalDiscussionDto],
-    description: 'Array of role objects or a single role object',
+    description: 'Array of panal discussion objects or a single panal discussion object',
   })
   @ApiResponse({
     status: 201,
-    description: 'The created role(s)',
+    description: 'The created panal discussion(s)',
     type: [PanalDiscussionEntity],
   })
   async create(
@@ -62,12 +61,12 @@ export class PanalDiscussionController {
     try {
       if (Array.isArray(createPanalDiscussionDto)) {
         // If an array is provided, create multiple entities
-        const createdRoles = await Promise.all(
+        const createdPanalDiscussions = await Promise.all(
           createPanalDiscussionDto.map((sessionDto) =>
             this.panalDiscussionService.create(sessionDto),
           ),
         );
-        return createdRoles;
+        return createdPanalDiscussions;
       } else {
         // If a single object is provided, create a single entity
         return await this.panalDiscussionService.create(createPanalDiscussionDto);
@@ -80,10 +79,10 @@ export class PanalDiscussionController {
   @Put(':sessionId')
   async update(
     @Param('sessionId') sessionId: string,
-    @Body() updatePanalDIscussionDto: UpdatePanalDiscussionDto,
+    @Body() updatePanalDiscussionDto: UpdatePanalDiscussionDto,
   ): Promise<PanalDiscussionEntity | undefined> {
     try {
-      return await this.panalDiscussionService.update(sessionId, updatePanalDIscussionDto);
+      return await this.panalDiscussionService.update(sessionId, updatePanalDiscussionDto);
     } catch (error) {
       throw new Error(error);
     }

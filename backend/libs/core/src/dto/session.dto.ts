@@ -25,9 +25,6 @@ export class CreateSessionDto {
 
   @ApiProperty()
   location: string;
-
-  @ApiProperty({ nullable: true })
-  plenaryTalklocation: string;
 }
 
 export class UpdateSessionDto {
@@ -55,8 +52,8 @@ export class UpdateSessionDto {
   @ApiProperty({ nullable: true })
   location: string;
 
-  @ApiProperty({ nullable: true })
-  plenaryTalklocation: string;
+  @ApiProperty({nullable: true})
+  panalDiscussionIds: string[];
 }
 
 export class ResponseDto {
@@ -83,7 +80,4 @@ export class ResponseDto {
 
   @ApiProperty({nullable: true})
   sessionChairs: UserEntity[];
-
-  @ApiProperty({ nullable: true })
-  plenaryTalklocation: string;
 }

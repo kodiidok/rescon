@@ -5,5 +5,6 @@ export enum UserRoles {
   SESSION_CHAIR = 'session_chair',
   PUBLIC_USER = 'public_user',
   PAID_USER = 'paid_user',
-  STUDENT = 'student'
+  STUDENT = 'student',
+  STAFF = 'staff',
 }

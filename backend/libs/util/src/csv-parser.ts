@@ -2,11 +2,13 @@ import * as fs from 'fs';
 import {
   convertTimeRange,
   mapChairPersonData,
+  mapPanalDiscussionData,
+  mapPlenaryTalkData,
   mapSessionData,
   mapSessionItemData,
   splitZoom,
 } from './mapper';
-import { csv_sessionitems, csv_sessions } from './filepaths';
+import { csv_panaldiscussions, csv_plenarytalks, csv_sessionitems, csv_sessions } from './filepaths';
 
 export function readFile<T>(
   filepath: string,
@@ -33,47 +35,47 @@ export function readFile<T>(
 }
 
 /** read session.csv file and parse data */
-readFile(csv_sessions, (lines) => {
-  const dataLines = lines.slice(1);
-  return dataLines;
-})
-  .then((dataLines) => {
-    for (const line of dataLines) {
-      let [
-        id,
-        chair1,
-        email1,
-        chair2,
-        email2,
-        date,
-        time,
-        location,
-        theme,
-        ...rest
-      ] = line.split(',');
+// readFile(csv_sessions, (lines) => {
+//   const dataLines = lines.slice(1);
+//   return dataLines;
+// })
+//   .then((dataLines) => {
+//     for (const line of dataLines) {
+//       let [
+//         id,
+//         chair1,
+//         email1,
+//         chair2,
+//         email2,
+//         date,
+//         time,
+//         location,
+//         theme,
+//         ...rest
+//       ] = line.split(',');
 
-      if (rest) {
-        theme = [theme, ...rest].join(',');
-      }
+//       if (rest) {
+//         theme = [theme, ...rest].join(',');
+//       }
 
-      const [startTime, endTime] = convertTimeRange(time, date);
+//       const [startTime, endTime] = convertTimeRange(time, date);
 
-      // map data and save to json file
-      // mapChairPersonData({ email: email1, name: chair1 });
-      // mapChairPersonData({ email: email2, name: chair2 });
-      // mapSessionData({
-      //   sessionId: id,
-      //   category: theme.replace(/\r/g, ''),
-      //   location: location,
-      //   date: date,
-      //   startTime: startTime,
-      //   endTime: endTime,
-      // });
-    }
-  })
-  .catch((error) => {
-    console.error('Error reading the file:', error.message);
-  });
+//       // map data and save to json file
+//       mapChairPersonData({ email: email1, name: chair1 });
+//       mapChairPersonData({ email: email2, name: chair2 });
+//       mapSessionData({
+//         sessionId: id,
+//         category: theme.replace(/\r/g, ''),
+//         location: location,
+//         date: date,
+//         startTime: startTime,
+//         endTime: endTime,
+//       });
+//     }
+//   })
+//   .catch((error) => {
+//     console.error('Error reading the file:', error.message);
+//   });
 
 /** read session-items.csv file and parse data */
 readFile(csv_sessionitems, (lines) => {
@@ -88,17 +90,66 @@ readFile(csv_sessionitems, (lines) => {
       const [title, presenter, via] = splitZoom(rest);
 
       // map data and save to json file
-      // mapSessionItemData({
-      //   sessionId,
-      //   endTime,
-      //   startTime,
-      //   abstractId: parseInt(abstractId, 10),
-      //   title,
-      //   presenter,
-      //   via,
-      // });
+      mapSessionItemData({
+        sessionId,
+        endTime,
+        startTime,
+        abstractId: parseInt(abstractId, 10),
+        title,
+        presenter,
+        via: via?.replace(/\r/g, ''),
+      });
     }
   })
   .catch((error) => {
     console.error('Error reading the file:', error.message);
   });
+
+/** read panal discussion.csv file and parse data */
+// readFile(csv_panaldiscussions, (lines) => {
+//   const dataLines = lines.slice(1);
+//   return dataLines;
+// })
+//   .then((dataLines) => {
+//     for (const line of dataLines) {
+//       let [sessionId, time] = line.split(',');
+
+//       const [startTime, endTime] = convertTimeRange(time, new Date());
+
+//       // map data and save to json file
+//       mapPanalDiscussionData({
+//         sessionId,
+//         endTime,
+//         startTime,
+//       });
+//     }
+//   })
+//   .catch((error) => {
+//     console.error('Error reading the file:', error.message);
+//   });
+
+/** read plenary talks.csv file and parse data */
+// readFile(csv_plenarytalks, (lines) => {
+//   const dataLines = lines.slice(1);
+//   return dataLines;
+// })
+//   .then((dataLines) => {
+//     for (const line of dataLines) {
+//       let [sessionId, time, presenter, plenaryTalkLocation] = line.split(',');
+
+//       const [startTime, endTime] = convertTimeRange(time, new Date());
+
+//       // map data and save to json file
+//       mapPlenaryTalkData({
+//         sessionId,
+//         endTime,
+//         startTime,
+//         presenter,
+//         location: plenaryTalkLocation.replace(/\r/g, '')
+//       });
+//     }
+//   })
+//   .catch((error) => {
+//     console.error('Error reading the file:', error.message);
+//   });
+  

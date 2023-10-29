@@ -25,7 +25,7 @@ export class SessionController {
   @Get()
   @ApiResponse({
     status: 200,
-    description: 'List of session items with pagination information',
+    description: 'List of sessions with pagination information',
     type: () => SessionEntity,
   })
   async findAll(

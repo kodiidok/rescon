@@ -36,8 +36,8 @@
     "abstractId": 205,
     "presenter": "Maheshi M.K. Dheerasinghe",
     "title": "THE RAINBOW CONNECTION NUMBER OF THE EXTENDED VERSION OF SANDAT GRAPH",
-    "startTime": "24:00:00",
-    "endTime": "24:15:00"
+    "startTime": "12:00:00",
+    "endTime": "12:15:00"
   },
   {
     "sessionId": "ICTMS2",
@@ -148,8 +148,8 @@
     "abstractId": 168,
     "presenter": "Deshan H Nawarathna",
     "title": "CLASSIFICATION OF SINHALA NEWS USING MACHINE LEARNING APPROACHES",
-    "startTime": "24:00:00",
-    "endTime": "24:15:00"
+    "startTime": "12:00:00",
+    "endTime": "12:15:00"
   },
   {
     "sessionId": "ICTMS5",
@@ -236,24 +236,24 @@
     "abstractId": 117,
     "presenter": "Thyangi Anushka Ekanayaka",
     "title": "BIOACTIVITY STUDIES OF ALPINIA CALCARATA AND GLORIOSA SUPERBA LEAVES EXTRACTS",
-    "startTime": "24:00:00",
-    "endTime": "24:15:00"
+    "startTime": "12:00:00",
+    "endTime": "12:15:00"
   },
   {
     "sessionId": "LS1",
     "abstractId": 123,
     "presenter": "Sanjana Sithumini Gamaarachchi",
     "title": "BIOACTIVITY STUDIES OF SOLVENT EXTRACTS OF PIPER NIGRUM SEEDS",
-    "startTime": "24:15:00",
-    "endTime": "24:30:00"
+    "startTime": "12:15:00",
+    "endTime": "12:30:00"
   },
   {
     "sessionId": "LS1",
     "abstractId": 153,
     "presenter": "Bhathiya Bandara Gopallawa",
     "title": "MORPHOMETRIC ANALYSIS OF GENUS PIPER (PIPERACEAE),  SRI LANKA",
-    "startTime": "24:30:00",
-    "endTime": "24:45:00"
+    "startTime": "12:30:00",
+    "endTime": "12:45:00"
   },
   {
     "sessionId": "LS2",
@@ -292,16 +292,16 @@
     "abstractId": 166,
     "presenter": "Gayumi H.K. Athapaththu",
     "title": "ETHNOMEDICAL SURVEY ON SRI LANKAN HASTI VEDAKAMA; A STUDY BASED ON ELEPHANT CLUSTER AT THE TEMPLE OF THE TOOTH RELIC",
-    "startTime": "24:00:00",
-    "endTime": "24:15:00"
+    "startTime": "12:00:00",
+    "endTime": "12:15:00"
   },
   {
     "sessionId": "LS2",
     "abstractId": 192,
     "presenter": "Deepthi Ekanayake",
     "title": "IMPACT OF HABITAT TYPE AND FLORAL RESOURCE AVAILABILITY ON GROUND-NESTING BEE ESTABLISHMENT IN AN AGRO-NATURAL LANDSCAPE",
-    "startTime": "24:15:00",
-    "endTime": "24:30:00"
+    "startTime": "12:15:00",
+    "endTime": "12:30:00"
   },
   {
     "sessionId": "LS3",
@@ -421,7 +421,8 @@
     "presenter": "Sathyamalee Indunika",
     "title": "\"THE IMPACT OF INCLUSION BODY HEPATITIS (IBH) VIRUS ON IMMUNE ORGANS (BURSA OF FABRICIUS,  SPLEEN,  AND THYMUS) OF BROILER CHICKENS IN SRI LANKA.\"",
     "startTime": "08:00:00",
-    "endTime": "08:15:00"
+    "endTime": "08:15:00",
+    "via": "zoom"
   },
   {
     "sessionId": "LS5",
@@ -429,7 +430,8 @@
     "presenter": "Madhusha Ranaweera",
     "title": "RAPID DETECTION AND MOLECULAR AUTHENTICATION OF SANDALWOOD MARKET SAMPLES USING HIGH RESOLUTION MELTING ANALYSIS",
     "startTime": "08:15:00",
-    "endTime": "08:30:00"
+    "endTime": "08:30:00",
+    "via": "zoom"
   },
   {
     "sessionId": "LS5",
@@ -437,7 +439,8 @@
     "presenter": "Upuli S Nakandala",
     "title": "HIGH QUALITY GENOME FOR AUSTRALIAN FINGER LIME",
     "startTime": "08:30:00",
-    "endTime": "08:45:00"
+    "endTime": "08:45:00",
+    "via": "zoom"
   },
   {
     "sessionId": "LS5",
@@ -445,7 +448,8 @@
     "presenter": "Dayani Pavalakumar",
     "title": "VIABILITY OF PROBIOTIC BACTERIA INHABITING TENDER COCONUT WATER UNDER ARTIFICIAL SALIVA AND SIMULATED GASTROINTESTINAL JUICE CONDITIONS",
     "startTime": "08:45:00",
-    "endTime": "09:00:00"
+    "endTime": "09:00:00",
+    "via": "zoom"
   },
   {
     "sessionId": "LS5",
@@ -453,7 +457,8 @@
     "presenter": "Chathuri J Gunathunga",
     "title": "IN VITRO ASSAY OF ANTIOXIDANT POTENTIAL AND TOTAL PHENOLIC CONTENT OF PROBIOTIC LACTOBACILLUS DELBRUECKII SUBSP. INDICUS STRAINS ISOLATED FROM TRADITIONAL SRI LANKAN BUFFALO CURD.",
     "startTime": "09:00:00",
-    "endTime": "09:15:00"
+    "endTime": "09:15:00",
+    "via": "zoom"
   },
   {
     "sessionId": "LS5",
@@ -461,7 +466,8 @@
     "presenter": "Ruuth Goonawardana",
     "title": "SOLUBILITY ENHANCEMENT OF THE AHL LACTONASE (jsvC) IDENTIFYIED FROM DERMACCOCUS NISHINOMIYAENSIS",
     "startTime": "09:15:00",
-    "endTime": "09:30:00"
+    "endTime": "09:30:00",
+    "via": "zoom"
   },
   {
     "sessionId": "LS5",
@@ -469,7 +475,8 @@
     "presenter": "Lahiru P.G. Madushan",
     "title": "\"IDENTIFICATION OF BACTROCERA DORSALIS AND B. KANDIENSIS VIA PCR-RFLP,  ASSESSED TRAINING AND TEST DATA\"",
     "startTime": "09:30:00",
-    "endTime": "09:45:00"
+    "endTime": "09:45:00",
+    "via": "zoom"
   },
   {
     "sessionId": "LS6",
@@ -580,8 +587,8 @@
     "abstractId": 177,
     "presenter": "Chanika D Jayasinghe",
     "title": "RISK FACTORS OF DENGUE HEMORRHAGIC FEVER AMONG ADULT DENGUE PATIENTS IN THE WESTERN PROVINCE OF SRI LANKA: A CASE-CONTROL STUDY",
-    "startTime": "24:00:00",
-    "endTime": "24:15:00"
+    "startTime": "12:00:00",
+    "endTime": "12:15:00"
   },
   {
     "sessionId": "LS8",
@@ -636,8 +643,8 @@
     "abstractId": 142,
     "presenter": "Amali Herath",
     "title": "ISOLATION AND IDENTIFICATION OF A NOVAL AND EFFICIENT CELLULOSE DEGRADING FUNGAL SPECIES; Aspergillus nomius FROM SOIL SAMPLES",
-    "startTime": "24:00:00",
-    "endTime": "24:15:00"
+    "startTime": "12:00:00",
+    "endTime": "12:15:00"
   },
   {
     "sessionId": "LS9",
@@ -700,7 +707,7 @@
     "abstractId": 18,
     "presenter": "Chathuranga A G Wijerathna",
     "title": "Ti/TiO2 SHOTCKY JUNCTION AND HIGHLY PHOTOACTIVE Sb2S3 PHOTOANODE FOR SOLAR WATER SPLITING",
-    "startTime": "Invalid Date",
+    "startTime": "11:00:00",
     "endTime": "11:15:00"
   },
   {
@@ -708,56 +715,56 @@
     "abstractId": 48,
     "presenter": "Sivanayani Selvakumar",
     "title": "REMOVAL OF MAGNESIUM IONS BY FUNCTIONALIZED CARBON NANOTUBE",
-    "startTime": "Invalid Date",
-    "endTime": "Invalid Date"
+    "startTime": "11:15:00",
+    "endTime": "11:30:00"
   },
   {
     "sessionId": "PS1",
     "abstractId": 54,
     "presenter": "Nalesha Mudannayake",
     "title": "Modeling Copper Ion Adsorption On Kaolinite By In-situ Measurement of Free Metal Ion Activities",
-    "startTime": "Invalid Date",
-    "endTime": "Invalid Date"
+    "startTime": "11:30:00",
+    "endTime": "11:45:00"
   },
   {
     "sessionId": "PS1",
     "abstractId": 144,
     "presenter": "Dhananjani Egodawele",
     "title": "Electronically Conducting Donor Acceptor (D-A) type polymer synthesized using 3, 4-Ethylenedioxythiophene (EDOT) with Berberine isolated from Coscinium fenestratum",
-    "startTime": "Invalid Date",
-    "endTime": "Invalid Date"
+    "startTime": "11:45:00",
+    "endTime": "12:00:00"
   },
   {
     "sessionId": "PS1",
     "abstractId": 155,
     "presenter": "Sammani A Kanthage",
     "title": "ADSORPTIVE REMOVAL OF RHODAMINE B DYE FROM MAGNETIC MnFe2O4-MONTMORILLONITE NANOCOMPOSITE",
-    "startTime": "Invalid Date",
-    "endTime": "Invalid Date"
+    "startTime": "12:00:00",
+    "endTime": "12:15:00"
   },
   {
     "sessionId": "PS1",
     "abstractId": 158,
     "presenter": "Pradeep Hewage",
     "title": "OPTIMIZATION OF THE SOLUTE DESCRIPTORS FOR CITRONELLAL BY GAS CHROMATOGRAPHY AND LIQUID-LIQUID PARTITION SYSTEMS",
-    "startTime": "Invalid Date",
-    "endTime": "Invalid Date"
+    "startTime": "12:15:00",
+    "endTime": "12:30:00"
   },
   {
     "sessionId": "PS1",
     "abstractId": 160,
     "presenter": "Thushani P.D.T.S.N Jayasundara",
     "title": "Enhanced Semiconducting Properties in Co-MOF-74 Upon Encapsulation of Aniline Derivatives as Guest Molecules",
-    "startTime": "Invalid Date",
-    "endTime": "Invalid Date"
+    "startTime": "12:30:00",
+    "endTime": "12:45:00"
   },
   {
     "sessionId": "PS1",
     "abstractId": 179,
     "presenter": "Roshan Tharindu Bandara",
     "title": "ADSORPTIVE REMOVAL OF AMOXICILLIN USING MONTMORILLONITE BARIUM TITANATE NANOCOMPOSITE IN AN AQUEOUS MEDIUM",
-    "startTime": "24:45:00",
-    "endTime": "13:00:00"
+    "startTime": "12:45:00",
+    "endTime": "01:00:00"
   },
   {
     "sessionId": "PS2",
@@ -796,80 +803,83 @@
     "abstractId": 122,
     "presenter": "Kanishka Hansana Madurawala",
     "title": "SELECTIVE REDUCTION OF GRAPHENE OXIDE DEPOSITED ON HEAT-SENSITIVE SUBSTRATES",
-    "startTime": "24:00:00",
-    "endTime": "24:15:00"
+    "startTime": "12:00:00",
+    "endTime": "12:15:00"
   },
   {
     "sessionId": "PS2",
     "abstractId": 182,
     "presenter": "Olajide I. Olusola",
     "title": "THICKNESS EFFECT ON THE PHYSICOCHEMICAL PROPERTIES OF ELECTRODEPOSITED ZnTe LAYERS",
-    "startTime": "24:15:00",
-    "endTime": "24:30:00"
+    "startTime": "12:15:00",
+    "endTime": "12:30:00",
+    "via": "zoom"
   },
   {
     "sessionId": "PS2",
     "abstractId": 195,
     "presenter": "Lina N Khandare",
     "title": "Layered Marigold-Flower-like CdS/MoS2-reduced Graphene Oxide Nanocomposite as an Efficient Electrode Material for Supercapacitor",
-    "startTime": "24:30:00",
-    "endTime": "24:45:00"
+    "startTime": "12:30:00",
+    "endTime": "12:45:00",
+    "via": "zoom"
   },
   {
     "sessionId": "PS2",
     "abstractId": 196,
     "presenter": "Maruti V Salve",
     "title": "Synthesis of Sb2Te3 nanoparticles by a cost-effective hydrothermal technique and its photodetector applications.",
-    "startTime": "24:45:00",
-    "endTime": "13:00:00"
+    "startTime": "12:45:00",
+    "endTime": "01:00:00",
+    "via": "zoom"
   },
   {
     "sessionId": "PS3",
     "abstractId": 24,
     "presenter": "Savani Ulpathakumbura",
     "title": "ASSESSMENT OF CYTOTOXICITY OF SELECTED EDIBLE LEAFY PLANTS OF SRI LANKA",
-    "startTime": "Invalid Date",
-    "endTime": "Invalid Date"
+    "startTime": "14:00:00",
+    "endTime": "14:15:00"
   },
   {
     "sessionId": "PS3",
     "abstractId": 31,
     "presenter": "Nithini Liyadipiptiya",
     "title": "DETERMINATION OF CYTOTOXICITY OF DIFFERENT SOLVENT EXTRACTS OF SOFT STEMS OF DIFFERENT BANANA (Musa sp.) CULTIVARS",
-    "startTime": "Invalid Date",
-    "endTime": "Invalid Date"
+    "startTime": "14:15:00",
+    "endTime": "14:30:00"
   },
   {
     "sessionId": "PS3",
     "abstractId": 83,
     "presenter": "T.P.Sathsara S. Perera",
     "title": "DETERMINATION OF PHENOLIC CONTENT AND ANTIOXIDANT POTENTIAL OF A NUTRIENT SUPPLEMENT DEVELOPED USING SELECTED LOCAL GRAIN VARIETIES",
-    "startTime": "Invalid Date",
-    "endTime": "Invalid Date"
+    "startTime": "14:30:00",
+    "endTime": "14:45:00"
   },
   {
     "sessionId": "PS3",
     "abstractId": 126,
     "presenter": "Kanishka C.J Costa",
     "title": "ANTI-OBESITY EFFECTS OF A POLYHERBAL MIXTURE",
-    "startTime": "Invalid Date",
-    "endTime": "Invalid Date"
+    "startTime": "14:45:00",
+    "endTime": "15:00:00"
   },
   {
     "sessionId": "PS3",
     "abstractId": 132,
     "presenter": "Tharala D Thennakoon",
     "title": "ANTIDIABETIC AND ANTIOBESITY POTENTIAL OF OLEANOLIC ACID DERIVATIVES",
-    "startTime": "Invalid Date",
-    "endTime": "Invalid Date"
+    "startTime": "15:00:00",
+    "endTime": "15:15:00"
   },
   {
     "sessionId": "PS3",
     "abstractId": 134,
     "presenter": "Wathsala J Nandasiri",
     "title": "Comparative study on nutritional components and antioxidant activities of a local wild grape variety,  Ampelocissus indica (L.) Planch and a commercial grape variety,  Vitis vinifera L.",
-    "startTime": "Invalid Date",
-    "endTime": "Invalid Date"
+    "startTime": "15:15:00",
+    "endTime": "15:30:00"
   },
   {
     "sessionId": "PS3",
@@ -932,64 +942,69 @@
     "abstractId": 8,
     "presenter": "E.S. Mohamed",
     "title": "DEVELOPMENT OF AN ELECTRIC VEHICLE FOR THE DIFFERENTLY ABLED WITH SOLAR ASSIST",
-    "startTime": "Invalid Date",
-    "endTime": "Invalid Date"
+    "startTime": "08:00:00",
+    "endTime": "08:15:00"
   },
   {
     "sessionId": "PS5",
     "abstractId": 148,
     "presenter": "KMSP Bandara",
     "title": "Effect of Quaternary Cations on The Efficiency of Quasi-Solid-State Dye-Sensitized Solar Cells",
-    "startTime": "Invalid Date",
-    "endTime": "Invalid Date"
+    "startTime": "08:15:00",
+    "endTime": "08:30:00"
   },
   {
     "sessionId": "PS5",
     "abstractId": 150,
     "presenter": "Rampatige P Chandrika",
     "title": "OPTIMIZATION OF EFFICIENCY IN DYE-SENSITIZED SOLAR CELLS BY THE INFUSION OF GRAPHENE TO PHOTOANODE",
-    "startTime": "Invalid Date",
-    "endTime": "Invalid Date"
+    "startTime": "08:30:00",
+    "endTime": "08:45:00"
   },
   {
     "sessionId": "PS5",
     "abstractId": 163,
     "presenter": "Mason Caron",
     "title": "ANALYSIS OF AFM IMAGES FOR INVESTIGATING THE MORPHOLOGY AND POROSITY OF FLUORINE-DOPED TIN OXIDE THIN FILMS",
-    "startTime": "Invalid Date",
-    "endTime": "Invalid Date"
+    "startTime": "08:45:00",
+    "endTime": "09:00:00",
+    "via": "zoom"
   },
   {
     "sessionId": "PS5",
     "abstractId": 197,
     "presenter": "Swapnil R Bhosale",
     "title": "CeO2/MnO2 Composite Material for Asymmetric Supercapacitor Applications",
-    "startTime": "Invalid Date",
-    "endTime": "Invalid Date"
+    "startTime": "09:00:00",
+    "endTime": "09:15:00",
+    "via": "zoom"
   },
   {
     "sessionId": "PS5",
     "abstractId": 198,
     "presenter": "Aparna Satish Ukarande",
     "title": "HYDROTHERMAL SYNTHESIS OF HGTE THIN FILM FOR POSSIBLE APPLICATIONS IN THE DEVLOPMENT OF CDTE SOLAR CELLS.",
-    "startTime": "Invalid Date",
-    "endTime": "Invalid Date"
+    "startTime": "09:15:00",
+    "endTime": "09:30:00",
+    "via": "zoom"
   },
   {
     "sessionId": "PS5",
     "abstractId": 201,
     "presenter": "Sachin Vijay Desarada",
     "title": "PERFORMANCE ENHANCEMENT IN ULTRATHIN CIGS SOLAR CELLS USING PLASMONIC NANOPARTICLES – A FINITE DIFFERENCE TIME DOMAIN ANALYSIS APPROCH",
-    "startTime": "Invalid Date",
-    "endTime": "Invalid Date"
+    "startTime": "09:30:00",
+    "endTime": "09:45:00",
+    "via": "zoom"
   },
   {
     "sessionId": "PS5",
     "abstractId": 202,
     "presenter": "Priyanka U Londhe",
     "title": "COST-EFFECTIVE CIGS THIN FILMS: ELECTRODEPOSITION AND CHARACTERIZATION FOR EFFICIENT SOLAR CELLS",
-    "startTime": "Invalid Date",
-    "endTime": "Invalid Date"
+    "startTime": "09:45:00",
+    "endTime": "10:00:00",
+    "via": "zoom"
   },
   {
     "sessionId": "PS6",
@@ -1052,32 +1067,32 @@
     "abstractId": 19,
     "presenter": "Nilmini P.M. Samarakoon",
     "title": "POTENTIAL FOR PROMOTING AVITOURISM IN SELECTED HABITATS,  MULLAITIVU DISTRICT,  SRI LANKA",
-    "startTime": "24:00:00",
-    "endTime": "24:15:00"
+    "startTime": "12:00:00",
+    "endTime": "12:15:00"
   },
   {
     "sessionId": "EES1",
     "abstractId": 34,
     "presenter": "Irandi S.I.M. Liyanage",
     "title": "DOES THE ENVIRONMENTAL SCORE OF ESG (ENVIRONMENTAL,  SOCIAL AND GOVERNANCE) REPORTING HAS AN EFFECT ON COPERATE PERFORMANCE OF COMPANIES?",
-    "startTime": "24:15:00",
-    "endTime": "24:30:00"
+    "startTime": "12:15:00",
+    "endTime": "12:30:00"
   },
   {
     "sessionId": "EES1",
     "abstractId": 37,
     "presenter": "Thilini M Bandara",
     "title": "CARBON FOOTPRINT OF SRI LANKAN TEA SECTOR",
-    "startTime": "24:30:00",
-    "endTime": "24:45:00"
+    "startTime": "12:30:00",
+    "endTime": "12:45:00"
   },
   {
     "sessionId": "EES1",
     "abstractId": 164,
     "presenter": "Mahesh Senarathna",
     "title": "AIR QUALITY TRENDS AND PATTERNS IN KANDY,  SRI LANKA",
-    "startTime": "24:45:00",
-    "endTime": "13:00:00"
+    "startTime": "12:45:00",
+    "endTime": "01:00:00"
   },
   {
     "sessionId": "EES2",
@@ -1285,7 +1300,8 @@
     "presenter": "Swapnaja Shridhar Gajbhiye",
     "title": "SYNTHESIS OF CERIUM OXIDE NANOPARTICLES BY HYDROTHERMAL METHOD AND INVESTIGATION OF THEIR ANTIBACTERIAL ACTIVITIES",
     "startTime": "15:00:00",
-    "endTime": "15:15:00"
+    "endTime": "15:15:00",
+    "via": "zoom"
   },
   {
     "sessionId": "SE1",
@@ -1340,8 +1356,8 @@
     "abstractId": 186,
     "presenter": "Kandiah Balasritharan",
     "title": "EFFECTIVENESS OF TRADITIONAL AND SKILL ORIENTED TEACHING AND ASSESSMENT TO ENHANCE GENERIC SKILLS IN CHEMISTRY IN JUNIOR SECONDARY SCHOOL: A CASE STUDY IN CENTRAL PROVINCE,  SRI LANKA",
-    "startTime": "24:00:00",
-    "endTime": "24:15:00"
+    "startTime": "12:00:00",
+    "endTime": "12:15:00"
   },
   {
     "sessionId": "SE2",

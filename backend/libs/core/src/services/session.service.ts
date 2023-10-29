@@ -20,24 +20,30 @@ export class SessionService {
       const options: FindManyOptions<SessionEntity> = {
         take: pageSize,
         skip: (page - 1) * pageSize,
+        relations: {
+          panalDiscussions: true,
+          sessionChairs: true,
+          sessionItems: true,
+          plenaryTalks: true,
+        },
       };
 
       const [data, count] = await this.sessionRepository.findAndCount(options);
 
-      for (const session of data) {
-        if (session) {
-          // Check if session.sessionChairIds is defined and is an array
-          if (Array.isArray(session.sessionChairIds)) {
-            // Use Promise.all only if session.sessionChairIds is an array
-            session.sessionChairs = await Promise.all(
-              session.sessionChairIds.map(
-                async (userId: string) =>
-                  await this.userService.findOne(userId),
-              ),
-            );
-          }
-        }
-      }
+      // for (const session of data) {
+      //   if (session) {
+      //     // Check if session.sessionChairIds is defined and is an array
+      //     if (Array.isArray(session.sessionChairIds)) {
+      //       // Use Promise.all only if session.sessionChairIds is an array
+      //       session.sessionChairs = await Promise.all(
+      //         session.sessionChairIds.map(
+      //           async (userId: string) =>
+      //             await this.userService.findOne(userId),
+      //         ),
+      //       );
+      //     }
+      //   }
+      // }
 
       return {
         data,
@@ -52,6 +58,12 @@ export class SessionService {
     try {
       const session = await this.sessionRepository.findOne({
         where: { sessionId: id },
+        relations: {
+          panalDiscussions: true,
+          sessionChairs: true,
+          sessionItems: true,
+          plenaryTalks: true,
+        },
       });
 
       if (session) {
@@ -136,6 +148,12 @@ export class SessionService {
     try {
       return await this.sessionRepository.find({
         where: { category },
+        relations: {
+          panalDiscussions: true,
+          sessionChairs: true,
+          sessionItems: true,
+          plenaryTalks: true,
+        },
       });
     } catch (error) {
       throw new Error(`Failed to fetch session: ${error}`);
@@ -146,7 +164,12 @@ export class SessionService {
     try {
       return await this.sessionRepository.find({
         where: { date },
-        relations: { sessionItems: true },
+        relations: {
+          panalDiscussions: true,
+          sessionChairs: true,
+          sessionItems: true,
+          plenaryTalks: true,
+        },
       });
     } catch (error) {
       throw new Error(`Failed to fetch session: ${error}`);

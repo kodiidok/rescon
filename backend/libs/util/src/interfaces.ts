@@ -25,10 +25,16 @@ export interface SessionItem {
   via?: string;
 }
 
-export interface PlenaryTlak {
+export interface PlenaryTalk {
   startTime?: string;
   endTime?: string;
   presenter?: string;
   sessionId?: string;
   location?: string;
+}
+
+export interface PanalDiscussion {
+  startTime?: string;
+  endTime?: string;
+  sessionId?: string;
 }

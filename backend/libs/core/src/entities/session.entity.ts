@@ -3,6 +3,7 @@ import { BaseEntity } from './base.entity';
 import { SessionItemEntity } from './session-item.entity';
 import { UserEntity } from './user.entity';
 import { PanalDiscussionEntity } from './panal-discussion.entity';
+import { PlenaryTalkEntity } from './plenary-talk.entity';
 
 @Entity('sessions')
 export class SessionEntity extends BaseEntity {
@@ -51,12 +52,18 @@ export class SessionEntity extends BaseEntity {
   )
   panalDiscussions: PanalDiscussionEntity[];
 
+  @Column('simple-array', { name: 'plenary_talk_ids', nullable: true })
+  plenaryTalkIds: string[];
+
+  @OneToMany(
+    () => PlenaryTalkEntity,
+    (entity: PlenaryTalkEntity) => entity.session,
+  )
+  plenaryTalks: PlenaryTalkEntity[];
+
   @Column()
   category: string;
 
   @Column({ nullable: true })
   location: string;
-
-  @Column({ nullable: true })
-  plenaryTalklocation: string;
 }

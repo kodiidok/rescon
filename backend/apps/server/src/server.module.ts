@@ -14,6 +14,8 @@ import { UserEntity } from '@core/core/entities/user.entity';
 import { RoleEntity } from '@core/core/entities/role.entity';
 import { PanalDiscussionEntity } from '@core/core/entities/panal-discussion.entity';
 import { PanalDiscussionModule } from '@core/core/modules/panal-discussion.module';
+import { PlenaryTalkEntity } from '@core/core/entities/plenary-talk.entity';
+import { PlenaryTalkModule } from '@core/core/modules/plenary-talk.module';
 
 @Module({
   imports: [
@@ -25,6 +27,7 @@ import { PanalDiscussionModule } from '@core/core/modules/panal-discussion.modul
         SessionEntity,
         SessionItemEntity,
         PanalDiscussionEntity,
+        PlenaryTalkEntity,
       ],
     }),
 
@@ -35,6 +38,7 @@ import { PanalDiscussionModule } from '@core/core/modules/panal-discussion.modul
     SessionItemModule,
     SessionModule,
     PanalDiscussionModule,
+    PlenaryTalkModule,
   ],
   controllers: [ServerController],
   providers: [ServerService],
