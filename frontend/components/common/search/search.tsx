@@ -45,6 +45,7 @@ export const Search = () => {
 
           // Check if searchQuery is included in title, presenter, or abstractId
           const isMatch =
+            isWordIncluded(item.sessionId, lowerSearchQuery) ||
             isWordIncluded(item.title, lowerSearchQuery) ||
             isWordIncluded(String(item.abstractId), lowerSearchQuery) ||
             isWordIncluded(item.presenter, lowerSearchQuery);
@@ -100,8 +101,8 @@ export const Search = () => {
       {/* Display search results or a message if no results */}
       {searchQuery && searchResults.length > 0
         ? searchResults.map((result, index) => (
-            <SearchCard result={result} index={index} />
-          ))
+          <SearchCard result={result} index={index} />
+        ))
         : showNoResults && <p>No search results found.</p>}
     </div>
   );
