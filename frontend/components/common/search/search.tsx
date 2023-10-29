@@ -66,7 +66,7 @@ export const Search = () => {
           setShowNoResults(true);
         }, 20000);
       }
-    }, 2000); // Debounce time set to 1000 milliseconds
+    }, 1000); // Debounce time set to 1000 milliseconds
   };
 
   useEffect(() => {

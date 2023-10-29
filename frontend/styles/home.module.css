@@ -1,0 +1,11 @@
+.imageContainer {
+  width: 500px;
+  height: 200px;
+  overflow: hidden; /* Hide overflowing content */
+}
+
+.image {
+  width: 100%; /* Make the image take 100% of the container's width */
+  height: auto; /* Maintain the aspect ratio */
+  display: block; /* Remove extra space below inline images */
+}

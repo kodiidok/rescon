@@ -1,29 +1,21 @@
 export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
-	name: "Next.js + NextUI",
-	description: "Make beautiful websites regardless of your design experience.",
+	name: "RESCON23",
+	description: "The Premier Postgraduate Research Congress of Sri Lanka.",
 	navItems: [
 		{
 			label: "Home",
 			href: "/",
 		},
     {
-      label: "Docs",
-      href: "/docs",
+      label: "Time Table",
+      href: "/time-table",
     },
     {
-      label: "Pricing",
-      href: "/pricing",
+      label: "Map",
+      href: "/map",
     },
-    {
-      label: "Blog",
-      href: "/blog",
-    },
-    {
-      label: "About",
-      href: "/about",
-    }
 	],
 	navMenuItems: [
 		{
