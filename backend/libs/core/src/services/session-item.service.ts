@@ -105,7 +105,7 @@ export class SessionItemService {
         words
           .map(
             (word, index) =>
-              `(LOWER(sessions.title) LIKE LOWER(:word${index}) OR LOWER(sessions.presenter) LIKE LOWER(:word${index}) OR LOWER(CAST(sessions.session_id AS TEXT)) LIKE LOWER(:word${index}))`,
+              `(LOWER(sessions.title) LIKE LOWER(:word${index}) OR LOWER(sessions.presenter) LIKE LOWER(:word${index}) OR CAST(sessions.session_id AS TEXT) LIKE LOWER(:word${index}) OR CAST(sessions.abstract_id AS TEXT) LIKE LOWER(:word${index}))`,
           )
           .join(' OR '), // Use OR between the conditions
         words.reduce(

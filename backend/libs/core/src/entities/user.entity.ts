@@ -39,7 +39,7 @@ export class UserEntity extends BaseEntity {
   @Column({ name: 'role_name', nullable: true })
   roleName?: string;
 
-  @Column({ type: 'simple-array', nullable: true })
+  @Column({ name: 'chairing_sessions', type: 'simple-array', nullable: true })
   chairingSessionIds?: string[];
 
   @ManyToMany(
