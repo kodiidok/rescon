@@ -27,8 +27,99 @@
   border-radius: 0%;
 }
 
+.banner-lg {
+  display: flex;
+  gap: 10rem;
+}
+
+.banner-lg .banner-font {
+  font-size: medium;
+}
+
+.banner-sm {
+  display: none;
+}
+
+.flex-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.flex-start {
+  justify-content: start;
+}
+
+.flex-end {
+  justify-content: end;
+}
+
 .center-all {
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 10rem;
+}
+
+.homepage-btn {
+  background-color: #212529;
+  color: #cad4df;
+  font: inherit;
+  font-weight: 500;
+  border-radius: 0.5rem;
+}
+
+.homepage-btn:hover {
+  background-color: #a9e34b;
+  color: #141414;
+}
+
+.homepage-card-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  grid-auto-rows: minmax(100px, auto);
+}
+
+.banner-font {
+  font-size: small;
+}
+
+.banner-font h1 {
+  font-weight: bold;
+}
+
+@media (max-width: 767px) {
+  .image-container {
+    height: 200px;
+  }
+  .banner-container {
+    height: 140px;
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+  .banner-sm {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+  .banner-lg {
+    display: none;
+  }
+  .banner-lg .banner-font {
+    display: none;
+  }
+  .banner-sm .banner-font {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .banner-sm .banner-font h1 {
+    margin-top: 1rem;
+    font-size: large;
+  }
+  .center-all {
+    gap: 3rem;
+  }
 }
