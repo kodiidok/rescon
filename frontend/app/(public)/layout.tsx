@@ -15,9 +15,9 @@ export const metadata: Metadata = {
 		{ media: "(prefers-color-scheme: dark)", color: "black" },
 	],
 	icons: {
-		icon: "/favicon.ico",
-		shortcut: "/favicon-16x16.png",
-		apple: "/apple-touch-icon.png",
+		icon: "/uop.png",
+		shortcut: "/uop.png",
+		apple: "/uop.png",
 	},
 };
 
@@ -29,11 +29,13 @@ export default function RootLayout({
 	return (
 		<html lang="en" suppressHydrationWarning>
 			<head />
-			<body className="min-h-screen bg-background font-sans antialiased">
+			<body className="min-h-screen bg-background font-raedex antialiased">
 				<Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
 					<div className="relative flex flex-col h-screen">
-						<Navbar />
-						<main className="container mx-auto max-w-7xl pt-16 px-6 flex-grow">
+						<div style={{ backgroundColor: '#2C2E33' }}>
+							<Navbar />
+						</div>
+						<main className="container mx-auto pt-10 max-w-7xl flex-grow">
 							{children}
 						</main>
 						<footer className="w-full flex items-center justify-center py-3">
