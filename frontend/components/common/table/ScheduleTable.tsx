@@ -12,26 +12,54 @@ import {
   Tab,
 } from "@nextui-org/react";
 import { useState, useEffect } from "react";
-import { SearchResult } from "../search/search";
-import { getSessionByCategory } from "@/config/api";
+import { getSessionByDate } from "@/config/api";
+// import { getSessionByCategory } from "@/config/api";
 import { button } from "@nextui-org/theme";
+import { SearchResult } from "../search/search";
+import { Button } from "@nextui-org/button";
+import { Session } from "inspector";
+
+interface Session {
+  id?: string;
+  createdAt: string;
+  updatedAt: string;
+  startTime: string;
+  endTime: string;
+  date: string;
+  sessionId: string;
+  sessionChairIds: null | any[];
+  sessionItemIds: string[];
+  panalDiscussionIds: null | any[];
+  plenaryTalkIds: null | any[];
+  category: string;
+  location: string;
+  panalDiscussions: any[];
+  sessionChairs: any[];
+  sessionItems: SearchResult[];
+}
 
 export default function ScheduleTable() {
   const [category, setCategory] = useState("Life Sciences");
-  const [searchResults, setSearchResults] = useState<SearchResult[]>([]);
+  const [date, setDate] = useState("2023-11-04");
+  const [sessionResults, setSessionResults] = useState<SearchResult[]>([]);
   const [showNoResults, setShowNoResults] = useState(false);
   let debounceTimer: NodeJS.Timeout;
 
   const handleCategorySelect = () => {
     clearTimeout(debounceTimer);
-
     debounceTimer = setTimeout(async () => {
       if (category) {
-        const results = await getSessionByCategory(category);
-        setSearchResults(results);
+        const results = await getSessionByDate(date);
+
+        const sessionItems: SearchResult[] = results
+          .filter((session: Session) => session.category === category)
+          .map((session: Session) => session.sessionItems);
+
+        console.log(sessionItems);
+        setSessionResults(sessionItems);
         setShowNoResults(false);
       } else {
-        setSearchResults([]);
+        setSessionResults([]);
         setTimeout(() => {
           setShowNoResults(true);
         }, 20000);
@@ -39,17 +67,27 @@ export default function ScheduleTable() {
     }, 2000);
   };
 
-  useEffect(() => {
-    const timeoutId = setTimeout(() => {
-      setShowNoResults(false);
-    }, 20000);
+  // useEffect(() => {
+  //   const timeoutId = setTimeout(() => {
+  //     setShowNoResults(false);
+  //   }, 20000);
 
-    return () => clearTimeout(timeoutId);
-  }, [showNoResults]);
+  //   return () => clearTimeout(timeoutId);
+  // }, [showNoResults]);
 
   return (
     <div className="w-4/5 mx-auto">
-      <button onClick={handleCategorySelect}>Click</button>
+      <Button onClick={handleCategorySelect}>Click</Button>
+
+      {sessionResults.length > 0
+        ? sessionResults.map((result) => (
+            <div>
+              <p>{result.abstractId}</p>
+            </div>
+          ))
+        : showNoResults && <p>No search results found.</p>}
+
+      {/* <button onClick={handleCategorySelect}>Click</button>
       <div>
         <div>
           <div className="text-center">
@@ -362,7 +400,7 @@ export default function ScheduleTable() {
             </Tab>
           </Tabs>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }
