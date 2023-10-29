@@ -13,6 +13,7 @@ import { ApiBody, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { RoleService } from '../services/role.service';
 import { RoleEntity } from '../entities/role.entity';
 import { CreateRoleDto, UpdateRoleDto } from '../dto/role.dto';
+import { UserRoles } from '../enums/user-roles.enum';
 
 @ApiTags('roles')
 @Controller('roles')
@@ -36,10 +37,10 @@ export class RoleController {
     }
   }
 
-  @Get(':id')
-  async findOne(@Param('id') id: string): Promise<RoleEntity | undefined> {
+  @Get(':name')
+  async findOne(@Param('name') name: UserRoles): Promise<RoleEntity | undefined> {
     try {
-      return await this.roleService.findOne(id);
+      return await this.roleService.findOne(name);
     } catch (error) {
       throw new Error(error);
     }
@@ -76,13 +77,13 @@ export class RoleController {
     }
   }
 
-  @Put(':id')
+  @Put(':name')
   async update(
-    @Param('id') id: string,
+    @Param('name') name: UserRoles,
     @Body() updateRoleDto: UpdateRoleDto,
   ): Promise<RoleEntity | undefined> {
     try {
-      return await this.roleService.update(id, updateRoleDto);
+      return await this.roleService.update(name, updateRoleDto);
     } catch (error) {
       throw new Error(error);
     }
