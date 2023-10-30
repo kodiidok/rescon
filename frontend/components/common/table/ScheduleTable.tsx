@@ -41,7 +41,7 @@ interface Session {
 
 export default function ScheduleTable() {
   const tabdays = ["2023-11-03", "2023-11-04"];
-  const sessionTimes =[""]
+  const sessionTimes = [""];
   const [category, setCategory] = useState("Life Sciences");
   const [date, setDate] = useState("2023-11-04");
   const [sessionResults, setSessionResults] = useState<SearchResult[]>([]);
@@ -100,11 +100,21 @@ export default function ScheduleTable() {
               {sessionResults.length > 0
                 ? sessionResults.map((result: any, resultIndex: number) => (
                     <div key={resultIndex}>
-                      <TableDetails
-                        title="Friday, 3rd November 2023"
-                        SessionID="YourSessionIDValue"
-                        location="YourLocationValue"
-                      />
+                      {[1, 2, 3].map((index) => (
+                        <div key={index}>
+                          <TableDetails
+                            title={
+                              index === 1
+                                ? "Friday, 3rd November 2023" // shouldnt be fixed
+                                : index === 2
+                                ? "Lunch Break"
+                                : "Tea Break"
+                            }
+                            SessionID={"id"}
+                            location={"loc"}
+                          />
+                        </div>
+                      ))}
                     </div>
                   ))
                 : showNoResults && <p>No search results found.</p>}
