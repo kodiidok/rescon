@@ -2,12 +2,13 @@ import React from "react";
 import cx from 'classnames';
 
 type TableDetailsProps = {
+  time?: string;
   sessionId: string;
   location: string;
   sessionChairs: any[];
 };
 
-const TableTitle: React.FC<TableDetailsProps> = ({ sessionId, location, sessionChairs }) => {
+const TableTitle: React.FC<TableDetailsProps> = ({ sessionId, location, sessionChairs, time }) => {
 
   const [first, second] = sessionChairs;
 
@@ -34,7 +35,7 @@ const TableTitle: React.FC<TableDetailsProps> = ({ sessionId, location, sessionC
       </div>
       <div className={`flex text-center py-2 px-6 ${catColor1}`}>
         <div className="w-1/2 text-left">
-          <h1 className="text-xs font-bold">Time</h1>
+          <h1 className="text-xs font-bold">{time}</h1>
           <h1 className="font-bold">Session ID: {sessionId}</h1>
         </div>
         <div className="w-1/2 text-right">

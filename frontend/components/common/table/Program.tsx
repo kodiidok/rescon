@@ -42,7 +42,7 @@ interface Session {
   sessionItems: SearchResult[];
 }
 
-export default function ScheduleTable() {
+export default function Program() {
   const [category, setCategory] = useState("Life Sciences");
   const [date, setDate] = useState("2023-11-03");
   // const [sessionItems, setSessionItems] = useState<SearchResult[]>([]);
@@ -96,7 +96,7 @@ export default function ScheduleTable() {
       />
 
       <div className="flex justify-between items-center">
-        <h1 className="text-5xl font-semibold my-4">Session Lineup</h1>
+        <h1 className="text-5xl font-semibold my-4">Program</h1>
         <div className="flex gap-3 items-center">
           <Button className={`font-semibold text-lg ${btnActive ? 'bg-slate-300 text-gray-900' : ''}`} onClick={() => handleDateSelect("2023-11-03")}>3rd</Button>
           <Button className={`font-semibold text-lg ${!btnActive ? 'bg-slate-300 text-gray-900' : ''}`} onClick={() => handleDateSelect("2023-11-04")}>4th</Button>
@@ -112,13 +112,14 @@ export default function ScheduleTable() {
                 sessionId={sessionArray.sessionId}
                 location={sessionArray.location}
                 sessionChairs={sessionArray.sessionChairs}
+                time={[sessionArray.startTime, sessionArray.endTime].join('-')}
               ></TableTitle>
-              {
+              {/* {
                 sessionArray.sessionItems &&
                   sessionArray.sessionItems.length > 0 ?
                   <SessionTable data={sessionArray.sessionItems} /> :
                   "No session items available"
-              }
+              } */}
             </div>
           ))
           : "No session results available"}

@@ -14,36 +14,36 @@ export const siteConfig = {
 		},
 		{
 			label: "Lineup",
-			href: "/session-lineup",
+			href: "/sessions",
 		},
 		{
 			label: "Program",
-			href: "/time-table",
+			href: "/program",
 		},
 		{
 			label: "Program Search",
-			href: "/program-search",
+			href: "/search-sessions",
 		},
-		{
-			label: "Agenda",
-			href: "/agenda",
-		},
-		{
-			label: "Livestream",
-			href: "/livestream",
-		},
-		{
-			label: "Talks & Discussions",
-			href: "/talks",
-		},
-		{
-			label: "Map",
-			href: "/map",
-		},
-		{
-			label: "Logout",
-			href: "/logout",
-		},
+		// {
+		// 	label: "Agenda",
+		// 	href: "/agenda",
+		// },
+		// {
+		// 	label: "Livestream",
+		// 	href: "/livestream",
+		// },
+		// {
+		// 	label: "Talks & Discussions",
+		// 	href: "/talks",
+		// },
+		// {
+		// 	label: "Map",
+		// 	href: "/map",
+		// },
+		// {
+		// 	label: "Logout",
+		// 	href: "/logout",
+		// },
 	],
 	navMenuItems: [
 		{
@@ -52,36 +52,36 @@ export const siteConfig = {
 		},
 		{
 			label: "Session Lineup",
-			href: "/session-lineup",
+			href: "/sessions",
 		},
 		{
 			label: "Technical Program",
-			href: "/technical-program",
+			href: "/program",
 		},
 		{
 			label: "Program Search",
-			href: "/program-search",
+			href: "/search-sessions",
 		},
-		{
-			label: "Inaugration Agenda",
-			href: "/agenda",
-		},
-		{
-			label: "Inaugaration Livestream",
-			href: "/livestream",
-		},
-		{
-			label: "Talks & Discussions",
-			href: "/talks",
-		},
-		{
-			label: "Venue Map",
-			href: "/map",
-		},
-		{
-			label: "Logout",
-			href: "/logout",
-		},
+		// {
+		// 	label: "Inaugration Agenda",
+		// 	href: "/agenda",
+		// },
+		// {
+		// 	label: "Inaugaration Livestream",
+		// 	href: "/livestream",
+		// },
+		// {
+		// 	label: "Talks & Discussions",
+		// 	href: "/talks",
+		// },
+		// {
+		// 	label: "Venue Map",
+		// 	href: "/map",
+		// },
+		// {
+		// 	label: "Logout",
+		// 	href: "/logout",
+		// },
 	],
 	links: {
 		github: "https://github.com/nextui-org/nextui",
