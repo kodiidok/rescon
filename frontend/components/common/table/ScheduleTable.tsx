@@ -85,10 +85,6 @@ export default function ScheduleTable() {
     return () => clearTimeout(timeoutId);
   }, [showNoResults]);
 
-  // useEffect(() => {
-  //   console.log(sessionResults);
-  // }, [sessionResults]);
-
   return (
     <>
       <CatSelect
@@ -106,21 +102,23 @@ export default function ScheduleTable() {
       >
         {[0, 1].map((index) => (
           <Tab key={index} title={`Day ${index + 1}`}>
-            <div>
-              {sessionResults
-                ? sessionResults.map(
-                    (itemArray: SearchResult, itemIndex: number) => (
-                      // itemArray contains all the session items data
-                      // that relates to the selected date and category
-                      
-                      <SessionTable key={itemIndex} data={itemArray} />
-                    )
-                  )
-                : "nothing here"}
-            </div>
+
           </Tab>
         ))}
       </Tabs>
+
+      <div>
+        {sessionResults
+          ? sessionResults.map(
+            (itemArray: SearchResult, itemIndex: number) => (
+              // itemArray contains all the session items data
+              // that relates to the selected date and category
+
+              <SessionTable key={itemIndex} data={itemArray} />
+            )
+          )
+          : "nothing here"}
+      </div>
     </>
   );
 }
