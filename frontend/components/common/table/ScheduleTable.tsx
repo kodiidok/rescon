@@ -44,7 +44,8 @@ interface Session {
 export default function ScheduleTable() {
   const [category, setCategory] = useState("Life Sciences");
   const [date, setDate] = useState("2023-11-03");
-  const [sessionResults, setSessionResults] = useState<SearchResult[]>([]);
+  // const [sessionItems, setSessionItems] = useState<SearchResult[]>([]);
+  const [sessionResults, setSessionResults] = useState<Session[]>([]);
   const [showNoResults, setShowNoResults] = useState(false);
 
   let debounceTimer: NodeJS.Timeout;
@@ -54,11 +55,15 @@ export default function ScheduleTable() {
       try {
         const results = await getSessionByDate(date);
 
-        const sessionItems: SearchResult[] = results
-          .filter((session: Session) => session.category === category)
-          .map((session: Session) => session.sessionItems);
+        const filteredSessions: Session[] = results.filter(
+          (session: Session) => session.category === category
+        );
+        // const newSessionItems = filteredSessions.flatMap(
+        //   (session) => session.sessionItems
+        // );
 
-        setSessionResults(sessionItems);
+        // setSessionItems(newSessionItems);
+        setSessionResults(filteredSessions);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -97,21 +102,26 @@ export default function ScheduleTable() {
       </div>
 
       <div>
-        {sessionResults
-          ? sessionResults.map((itemArray: any, itemIndex: number) => (
-              // itemArray contains all the session items data
-              // that relates to the selected date and category
-
-              <div key={itemIndex}>
+        {sessionResults && sessionResults.length > 0
+          ? sessionResults.map((sessionArray: any, sessionIndex: number) => (
+              <div key={sessionIndex}>
                 <TableTitle
-                  SessionID={itemArray[0].sessionId}
-                  location={itemArray[0].location}
+                  SessionID={sessionArray.SessionID}
+                  location={sessionArray.location}
                 ></TableTitle>
-
-                <SessionTable key={itemIndex} data={itemArray} />
+                {sessionArray.sessionItems &&
+                sessionArray.sessionItems.length > 0
+                  ? sessionArray.sessionItems.map(
+                      (itemArray: any, itemIndex: number) => (
+                        <div key={itemIndex}>
+                          <SessionTable key={itemIndex} data={itemArray} />
+                        </div>
+                      )
+                    )
+                  : "No session items available"}
               </div>
             ))
-          : "nothing here"}
+          : "No session results available"}
       </div>
     </>
   );

@@ -3,7 +3,6 @@ import React from "react";
 type TableDetailsProps = {
   SessionID: string;
   location: string;
-  Chairs?: string;
 };
 
 const TableTitle: React.FC<TableDetailsProps> = ({ SessionID, location }) => {
@@ -27,10 +26,10 @@ const TableTitle: React.FC<TableDetailsProps> = ({ SessionID, location }) => {
           <h1>Session Chairs</h1>
         </div>
         <div className="w-1/3">
-          <h1></h1>
+          <h1>Chair 1</h1>
         </div>
         <div className="w-1/3">
-          <h1></h1>
+          <h1>Chari 2</h1>
         </div>
       </div>
     </div>
