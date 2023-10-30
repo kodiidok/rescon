@@ -18,7 +18,6 @@ import { button } from "@nextui-org/theme";
 import { SearchResult } from "../search/search";
 import { Button } from "@nextui-org/button";
 import TableDetails from "./TableDetails";
-import TableContent from "./TableContent";
 
 interface Session {
   id?: string;
@@ -47,11 +46,7 @@ function SessionTable({ data }: SessionTableProps) {
   console.log(data);
   return (
     <div className="mt-3 px-3">
-
-
-
       <Table aria-label="Session Items Filtered by Date and Category">
-
         <TableHeader>
           <TableColumn>Time</TableColumn>
           <TableColumn>Abstract Id</TableColumn>
@@ -60,18 +55,18 @@ function SessionTable({ data }: SessionTableProps) {
         </TableHeader>
 
         <TableBody>
-          {
-            data.map((item: any) => {
-              return (
-                <TableRow key={item.id}>
-                  <TableCell>{[item.startTime, item.endTime].join('-')}</TableCell>
-                  <TableCell>{item.abstractId}</TableCell>
-                  <TableCell>{item.title}</TableCell>
-                  <TableCell>{item.presenter}</TableCell>
-                </TableRow>
-              )
-            })
-          }
+          {data.map((item: any) => {
+            return (
+              <TableRow key={item.id}>
+                <TableCell>
+                  {[item.startTime, item.endTime].join("-")}
+                </TableCell>
+                <TableCell>{item.abstractId}</TableCell>
+                <TableCell>{item.title}</TableCell>
+                <TableCell>{item.presenter}</TableCell>
+              </TableRow>
+            );
+          })}
         </TableBody>
       </Table>
     </div>
@@ -79,22 +74,16 @@ function SessionTable({ data }: SessionTableProps) {
 }
 
 export default function ScheduleTable() {
-  const tabdays = ["2023-11-03", "2023-11-04"];
   const sessionTimes = [""];
   const [category, setCategory] = useState("Life Sciences");
-  const [date, setDate] = useState("2023-11-04");
+  const [date, setDate] = useState("2023-11-03");
   const [sessionResults, setSessionResults] = useState<SearchResult[]>([]);
   const [showNoResults, setShowNoResults] = useState(false);
   let debounceTimer: NodeJS.Timeout;
 
-  const handleDateSelect = (selectedDate: string) => {
-    setDate(selectedDate);
-  };
-
-  const handleCategorySelect = () => {
-    clearTimeout(debounceTimer);
-    debounceTimer = setTimeout(async () => {
-      if (category) {
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
         const results = await getSessionByDate(date);
 
         const sessionItems: SearchResult[] = results
@@ -102,14 +91,25 @@ export default function ScheduleTable() {
           .map((session: Session) => session.sessionItems);
 
         setSessionResults(sessionItems);
-        setShowNoResults(false);
-      } else {
-        setSessionResults([]);
-        setTimeout(() => {
-          setShowNoResults(true);
-        }, 20000);
+      } catch (error) {
+        console.error("Error fetching data:", error);
       }
-    }, 1000);
+    };
+
+    fetchData();
+  }, [date, category]);
+
+  const handleDateSelect = () => {
+    // Check the current date and toggle between two values
+    if (date === "2023-11-03") {
+      setDate("2023-11-04");
+    } else {
+      setDate("2023-11-03");
+    }
+  };
+
+  const handleCategorySelect = (selectedCategory: string) => {
+    setCategory(selectedCategory);
   };
 
   useEffect(() => {
@@ -126,19 +126,31 @@ export default function ScheduleTable() {
 
   return (
     <>
-      <Button onClick={handleCategorySelect}>Click</Button>
-      <div>
-        <div>{date}</div>
-        {
-          sessionResults ?
-            sessionResults?.map((itemArray: SearchResult, index: number) => (
-              // itemArray contains all the session items data
-              // that relates to the selected date and category
-              <SessionTable key={index} data={itemArray} />
-            ))
-            : 'nothing here'
-        }
+      <div className="text-center">
+        <h1 className="text-5xl">Time Table</h1>
       </div>
+      <Tabs
+        aria-label="Options"
+        color="primary"
+        onClick={() => handleDateSelect()}
+      >
+        {[0, 1].map((index) => (
+          <Tab key={index} title={`Day ${index + 1}`}>
+            <div>
+              {sessionResults
+                ? sessionResults.map(
+                    (itemArray: SearchResult, itemIndex: number) => (
+                      // itemArray contains all the session items data
+                      // that relates to the selected date and category
+
+                      <SessionTable key={itemIndex} data={itemArray} />
+                    )
+                  )
+                : "nothing here"}
+            </div>
+          </Tab>
+        ))}
+      </Tabs>
     </>
   );
 }
