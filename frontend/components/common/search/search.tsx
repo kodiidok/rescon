@@ -113,7 +113,7 @@ export const Search = () => {
       {/* Display search results or a message if no results */}
       {searchQuery && searchResults.length > 0
         ? searchResults.map((result, index) => (
-          <SearchCard result={result} index={index} />
+          <SearchCard key={index} result={result} index={index} />
         ))
         : showNoResults && <p>No search results found.</p>}
     </div>

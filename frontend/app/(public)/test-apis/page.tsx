@@ -12,7 +12,7 @@ export default async function Page() {
 
   return (
     <div>
-      we test api's here!
+      we test api&apos;s here!
       <div>
         {JSON.stringify(data)}
         {JSON.stringify(sessionsByDate)}
