@@ -39,6 +39,45 @@ interface Session {
   sessionItems: SearchResult[];
 }
 
+interface SessionTableProps {
+  data: any;
+}
+
+function SessionTable({ data }: SessionTableProps) {
+  console.log(data);
+  return (
+    <div className="mt-3 px-3">
+
+
+
+      <Table aria-label="Session Items Filtered by Date and Category">
+
+        <TableHeader>
+          <TableColumn>Time</TableColumn>
+          <TableColumn>Abstract Id</TableColumn>
+          <TableColumn>Title</TableColumn>
+          <TableColumn>Presenter</TableColumn>
+        </TableHeader>
+
+        <TableBody>
+          {
+            data.map((item: any) => {
+              return (
+                <TableRow key={item.id}>
+                  <TableCell>{[item.startTime, item.endTime].join('-')}</TableCell>
+                  <TableCell>{item.abstractId}</TableCell>
+                  <TableCell>{item.title}</TableCell>
+                  <TableCell>{item.presenter}</TableCell>
+                </TableRow>
+              )
+            })
+          }
+        </TableBody>
+      </Table>
+    </div>
+  );
+}
+
 export default function ScheduleTable() {
   const tabdays = ["2023-11-03", "2023-11-04"];
   const sessionTimes = [""];
@@ -81,47 +120,25 @@ export default function ScheduleTable() {
     return () => clearTimeout(timeoutId);
   }, [showNoResults]);
 
-  useEffect(() => {
-    console.log(sessionResults);
-  }, [sessionResults]);
-  return (
-    <div className="w-4/5 mx-auto">
-      <Button onClick={handleCategorySelect}>Click</Button>
-      <div className="text-center">
-        <h1 className="text-5xl">Time Table</h1>
+  // useEffect(() => {
+  //   console.log(sessionResults);
+  // }, [sessionResults]);
 
-        <Tabs aria-label="Options" color="primary">
-          {tabdays.map((tabday, index) => (
-            <Tab
-              key={index}
-              onClick={() => handleDateSelect(tabday)}
-              title={`Day ${index + 1}`}
-            >
-              {sessionResults.length > 0
-                ? sessionResults.map((result: any, resultIndex: number) => (
-                    <div key={resultIndex}>
-                      {[1, 2, 3].map((index) => (
-                        <div key={index}>
-                          <TableDetails
-                            title={
-                              index === 1
-                                ? "Friday, 3rd November 2023" // shouldnt be fixed
-                                : index === 2
-                                ? "Lunch Break"
-                                : "Tea Break"
-                            }
-                            SessionID={"id"}
-                            location={"loc"}
-                          />
-                        </div>
-                      ))}
-                    </div>
-                  ))
-                : showNoResults && <p>No search results found.</p>}
-            </Tab>
-          ))}
-        </Tabs>
+  return (
+    <>
+      <Button onClick={handleCategorySelect}>Click</Button>
+      <div>
+        <div>{date}</div>
+        {
+          sessionResults ?
+            sessionResults?.map((itemArray: SearchResult, index: number) => (
+              // itemArray contains all the session items data
+              // that relates to the selected date and category
+              <SessionTable key={index} data={itemArray} />
+            ))
+            : 'nothing here'
+        }
       </div>
-    </div>
+    </>
   );
 }

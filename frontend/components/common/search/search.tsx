@@ -15,8 +15,20 @@ export interface SearchResult {
   presenter: string;
   day: string;
   sessionId: number;
-  sessionChairs: string[];
+  sessionChairs: any[];
+  panalDiscussions: any[];
+  plenaryTalks: any[];
   category: string;
+  via: string;
+}
+
+interface PanalDiscussions {
+  id: string;
+  createdAt: Date;
+  updatedAt: Date;
+  sessionId: string;
+  startTime: string;
+  endTime: string;
 }
 
 export const Search = () => {
