@@ -145,7 +145,7 @@ export class SessionService {
 
   async findByCategory(category: string): Promise<SessionEntity[]> {
     try {
-      return await this.sessionRepository.find({
+      const sessions = await this.sessionRepository.find({
         where: { category },
         relations: {
           panalDiscussions: true,
@@ -154,6 +154,18 @@ export class SessionService {
           plenaryTalks: true,
         },
       });
+
+      for (const session of sessions) {
+        if (session.sessionChairIds) {
+          session.sessionChairs = await Promise.all(
+            session.sessionChairIds.map((userId) =>
+              this.userService.findOne(userId.replace(/[{}]/g, '')),
+            ),
+          );
+        }
+      }
+
+      return sessions;
     } catch (error) {
       throw new Error(`Failed to fetch session: ${error}`);
     }
@@ -161,7 +173,7 @@ export class SessionService {
 
   async findByDate(date: string): Promise<SessionEntity[]> {
     try {
-      return await this.sessionRepository.find({
+      const sessions = await this.sessionRepository.find({
         where: { date },
         relations: {
           panalDiscussions: true,
@@ -170,6 +182,18 @@ export class SessionService {
           plenaryTalks: true,
         },
       });
+
+      for (const session of sessions) {
+        if (session.sessionChairIds) {
+          session.sessionChairs = await Promise.all(
+            session.sessionChairIds.map((userId) =>
+              this.userService.findOne(userId.replace(/[{}]/g, '')),
+            ),
+          );
+        }
+      }
+
+      return sessions;
     } catch (error) {
       throw new Error(`Failed to fetch session: ${error}`);
     }
