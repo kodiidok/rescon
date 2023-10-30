@@ -109,6 +109,7 @@ export default function ScheduleTable() {
                       // that relates to the selected date and category
 
                       <SessionTable key={itemIndex} data={itemArray} />
+
                     )
                   )
                 : "nothing here"}
