@@ -9,42 +9,74 @@ export const siteConfig = {
 			href: "/",
 		},
     {
-      label: "Time Table",
-      href: "/time-table",
-    },
-    {
-      label: "Map",
-      href: "/map",
-    },
+			label: "Scan QR",
+			href: "/scan-qr",
+		},
+		{
+			label: "Lineup",
+			href: "/session-lineup",
+		},
+		{
+			label: "Program",
+			href: "/time-table",
+		},
+		{
+			label: "Program Search",
+			href: "/program-search",
+		},
+		{
+			label: "Agenda",
+			href: "/agenda",
+		},
+		{
+			label: "Livestream",
+			href: "/livestream",
+		},
+		{
+			label: "Talks & Discussions",
+			href: "/talks",
+		},
+		{
+			label: "Map",
+			href: "/map",
+		},
+		{
+			label: "Logout",
+			href: "/logout",
+		},
 	],
 	navMenuItems: [
 		{
-			label: "Profile",
-			href: "/profile",
+			label: "Scan QR",
+			href: "/scan-qr",
 		},
 		{
-			label: "Dashboard",
-			href: "/dashboard",
+			label: "Session Lineup",
+			href: "/session-lineup",
 		},
 		{
-			label: "Projects",
-			href: "/projects",
+			label: "Technical Program",
+			href: "/technical-program",
 		},
 		{
-			label: "Team",
-			href: "/team",
+			label: "Program Search",
+			href: "/program-search",
 		},
 		{
-			label: "Calendar",
-			href: "/calendar",
+			label: "Inaugration Agenda",
+			href: "/agenda",
 		},
 		{
-			label: "Settings",
-			href: "/settings",
+			label: "Inaugaration Livestream",
+			href: "/livestream",
 		},
 		{
-			label: "Help & Feedback",
-			href: "/help-feedback",
+			label: "Talks & Discussions",
+			href: "/talks",
+		},
+		{
+			label: "Venue Map",
+			href: "/map",
 		},
 		{
 			label: "Logout",
