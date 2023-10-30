@@ -16,10 +16,11 @@ import { getSessionByDate } from "@/config/api";
 // import { getSessionByCategory } from "@/config/api";
 import { button } from "@nextui-org/theme";
 import { SearchResult } from "../search/search";
-import { Button } from "@nextui-org/button";
-import TableDetails from "./TableDetails";
+import { Button } from "@nextui-org/react";
+import TableDetails from "./TableTitle";
 import SessionTable from "./SessionTable";
 import CatSelect from "./CatSelect";
+import TableTitle from "./TableTitle";
 
 interface Session {
   id?: string;
@@ -45,6 +46,7 @@ export default function ScheduleTable() {
   const [date, setDate] = useState("2023-11-03");
   const [sessionResults, setSessionResults] = useState<SearchResult[]>([]);
   const [showNoResults, setShowNoResults] = useState(false);
+
   let debounceTimer: NodeJS.Timeout;
 
   useEffect(() => {
@@ -65,12 +67,8 @@ export default function ScheduleTable() {
     fetchData();
   }, [date, category]);
 
-  const handleDateSelect = () => {
-    if (date === "2023-11-03") {
-      setDate("2023-11-04");
-    } else {
-      setDate("2023-11-03");
-    }
+  const handleDateSelect = (selectedDate: string) => {
+    setDate(selectedDate);
   };
 
   const handleCategorySelect = (selectedCategory: string) => {
@@ -94,29 +92,25 @@ export default function ScheduleTable() {
 
       <div className="text-center">
         <h1 className="text-5xl my-4">Time Table</h1>
+        <Button onClick={() => handleDateSelect("2023-11-03")}>Day 1</Button>
+        <Button onClick={() => handleDateSelect("2023-11-04")}>Day 2</Button>
       </div>
-      <Tabs
-        aria-label="Options"
-        color="primary"
-        onClick={() => handleDateSelect()}
-      >
-        {[0, 1].map((index) => (
-          <Tab key={index} title={`Day ${index + 1}`}>
-
-          </Tab>
-        ))}
-      </Tabs>
 
       <div>
         {sessionResults
-          ? sessionResults.map(
-            (itemArray: SearchResult, itemIndex: number) => (
+          ? sessionResults.map((itemArray: any, itemIndex: number) => (
               // itemArray contains all the session items data
               // that relates to the selected date and category
 
-              <SessionTable key={itemIndex} data={itemArray} />
-            )
-          )
+              <div key={itemIndex}>
+                <TableTitle
+                  SessionID={itemArray[0].sessionId}
+                  location={itemArray[0].location}
+                ></TableTitle>
+
+                <SessionTable key={itemIndex} data={itemArray} />
+              </div>
+            ))
           : "nothing here"}
       </div>
     </>

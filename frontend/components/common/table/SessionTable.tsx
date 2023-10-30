@@ -9,7 +9,7 @@ import {
   Tabs,
   Tab,
 } from "@nextui-org/react";
-import TableDetails from "./TableDetails";
+import TableTitle from "./TableTitle";
 
 interface SessionTableProps {
   data: any;
