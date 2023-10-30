@@ -40,6 +40,8 @@ interface Session {
 }
 
 export default function ScheduleTable() {
+  const tabdays = ["2023-11-03", "2023-11-04"];
+  const sessionTimes =[""]
   const [category, setCategory] = useState("Life Sciences");
   const [date, setDate] = useState("2023-11-04");
   const [sessionResults, setSessionResults] = useState<SearchResult[]>([]);
@@ -82,87 +84,33 @@ export default function ScheduleTable() {
   useEffect(() => {
     console.log(sessionResults);
   }, [sessionResults]);
-
   return (
     <div className="w-4/5 mx-auto">
       <Button onClick={handleCategorySelect}>Click</Button>
+      <div className="text-center">
+        <h1 className="text-5xl">Time Table</h1>
 
-      {sessionResults.length > 0
-        ? sessionResults.map((result: any, index: number) => (
-            <div key={index}>
-              {result.map((sessionItem: any, sessionItemIndex: number) => (
-                <div
-                  style={{ margin: "10px" }}
-                  key={sessionItemIndex}
-                  className="sessionItem-item"
-                >
-                  {JSON.stringify(sessionItem)}
-                </div>
-              ))}
-            </div>
-          ))
-        : showNoResults && <p>No search results found.</p>}
-      <div>
-        <div>
-          <div className="text-center">
-            <h1 className="text-5xl">Time Table</h1>
-          </div>
-          <Tabs aria-label="Options" color="primary">
+        <Tabs aria-label="Options" color="primary">
+          {tabdays.map((tabday, index) => (
             <Tab
-              onClick={() => handleDateSelect("2023-11-03")}
-              key="Day 1"
-              title="Day 1"
+              key={index}
+              onClick={() => handleDateSelect(tabday)}
+              title={`Day ${index + 1}`}
             >
-              <TableDetails
-                title="Friday, 3rd November 2023"
-                SessionID="YourSessionIDValue"
-                location="YourLocationValue"
-              />
-
-              <TableContent />
-              <TableDetails
-                title="Lunch Break"
-                SessionID="YourSessionIDValue"
-                location="YourLocationValue"
-              />
-
-              <TableContent />
-              <TableDetails
-                title="Tea Break"
-                SessionID="YourSessionIDValue"
-                location="YourLocationValue"
-              />
-
-              <TableContent />
+              {sessionResults.length > 0
+                ? sessionResults.map((result: any, resultIndex: number) => (
+                    <div key={resultIndex}>
+                      <TableDetails
+                        title="Friday, 3rd November 2023"
+                        SessionID="YourSessionIDValue"
+                        location="YourLocationValue"
+                      />
+                    </div>
+                  ))
+                : showNoResults && <p>No search results found.</p>}
             </Tab>
-            <Tab
-              onClick={() => handleDateSelect("2023-11-04")}
-              key="Day 2"
-              title="Day 2"
-            >
-              <TableDetails
-                title="Friday, 4th November 2023"
-                SessionID="YourSessionIDValue"
-                location="YourLocationValue"
-              />
-              <TableContent />
-              <TableDetails
-                title="Lunch Break"
-                SessionID="YourSessionIDValue"
-                location="YourLocationValue"
-              />
-
-              <TableContent />
-              <TableDetails
-                title="Tea Break"
-                SessionID="YourSessionIDValue"
-                location="YourLocationValue"
-              />
-
-              <TableContent />
-            </Tab>
-          </Tabs>
-        </div>
+          ))}
+        </Tabs>
       </div>
     </div>
   );

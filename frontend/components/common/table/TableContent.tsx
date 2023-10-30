@@ -10,7 +10,13 @@ import {
   Tab,
 } from "@nextui-org/react";
 
-const TableContent = () => {
+type TableContentProps = {
+ item:any
+};
+
+const TableContent : React.FC<TableContentProps> = ({
+ item
+})=> {
   return (
     <Table isStriped aria-label="Example static collection table">
       <TableHeader>
