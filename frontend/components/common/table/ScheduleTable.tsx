@@ -45,6 +45,15 @@ interface SessionTableProps {
 
 function SessionTable({ data }: SessionTableProps) {
   console.log(data);
+  
+  const [first, ...rest] = Array.isArray(data) ? data : [];
+  
+  const sessionId = first.sessionId;
+  const location = '';
+  const sessionChairs = [];
+  const panalDiscussions = [];
+  const plenaryTalks = [];
+
   return (
     <div className="mt-3 px-3">
 
@@ -128,6 +137,7 @@ export default function ScheduleTable() {
     <>
       <Button onClick={handleCategorySelect}>Click</Button>
       <div>
+        {/* set date to format 'Friday, 3rd of November' */}
         <div>{date}</div>
         {
           sessionResults ?
