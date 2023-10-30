@@ -18,6 +18,7 @@ import { button } from "@nextui-org/theme";
 import { SearchResult } from "../search/search";
 import { Button } from "@nextui-org/button";
 import TableDetails from "./TableDetails";
+import SessionTable from "./SessionTable";
 
 interface Session {
   id?: string;
@@ -36,41 +37,6 @@ interface Session {
   panalDiscussions: any[];
   sessionChairs: any[];
   sessionItems: SearchResult[];
-}
-
-interface SessionTableProps {
-  data: any;
-}
-
-function SessionTable({ data }: SessionTableProps) {
-  console.log(data);
-  return (
-    <div className="mt-3 px-3">
-      <Table aria-label="Session Items Filtered by Date and Category">
-        <TableHeader>
-          <TableColumn>Time</TableColumn>
-          <TableColumn>Abstract Id</TableColumn>
-          <TableColumn>Title</TableColumn>
-          <TableColumn>Presenter</TableColumn>
-        </TableHeader>
-
-        <TableBody>
-          {data.map((item: any) => {
-            return (
-              <TableRow key={item.id}>
-                <TableCell>
-                  {[item.startTime, item.endTime].join("-")}
-                </TableCell>
-                <TableCell>{item.abstractId}</TableCell>
-                <TableCell>{item.title}</TableCell>
-                <TableCell>{item.presenter}</TableCell>
-              </TableRow>
-            );
-          })}
-        </TableBody>
-      </Table>
-    </div>
-  );
 }
 
 export default function ScheduleTable() {
@@ -100,7 +66,6 @@ export default function ScheduleTable() {
   }, [date, category]);
 
   const handleDateSelect = () => {
-    // Check the current date and toggle between two values
     if (date === "2023-11-03") {
       setDate("2023-11-04");
     } else {
