@@ -19,6 +19,7 @@ import { SearchResult } from "../search/search";
 import { Button } from "@nextui-org/button";
 import TableDetails from "./TableDetails";
 import SessionTable from "./SessionTable";
+import CatSelect from "./CatSelect";
 
 interface Session {
   id?: string;
@@ -40,7 +41,6 @@ interface Session {
 }
 
 export default function ScheduleTable() {
-  const sessionTimes = [""];
   const [category, setCategory] = useState("Life Sciences");
   const [date, setDate] = useState("2023-11-03");
   const [sessionResults, setSessionResults] = useState<SearchResult[]>([]);
@@ -91,8 +91,13 @@ export default function ScheduleTable() {
 
   return (
     <>
+      <CatSelect
+        selectedCat={category}
+        onCategoryChange={handleCategorySelect}
+      />
+
       <div className="text-center">
-        <h1 className="text-5xl">Time Table</h1>
+        <h1 className="text-5xl my-4">Time Table</h1>
       </div>
       <Tabs
         aria-label="Options"
@@ -109,7 +114,6 @@ export default function ScheduleTable() {
                       // that relates to the selected date and category
 
                       <SessionTable key={itemIndex} data={itemArray} />
-
                     )
                   )
                 : "nothing here"}
