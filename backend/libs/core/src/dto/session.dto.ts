@@ -1,5 +1,4 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { UserEntity } from '../entities/user.entity';
 
 export class CreateSessionDto {
   @ApiProperty()
@@ -51,30 +50,7 @@ export class UpdateSessionDto {
 
   @ApiProperty({ nullable: true })
   location: string;
-}
-
-export class ResponseDto {
-  @ApiProperty({ nullable: true })
-  startTime: string;
-
-  @ApiProperty({ nullable: true })
-  endTime: string;
-
-  @ApiProperty({ nullable: true })
-  date: string;
-
-  @ApiProperty({ nullable: true })
-  sessionId: string;
-
-  @ApiProperty({ nullable: true })
-  sessionItemIds: string[];
-
-  @ApiProperty({ nullable: true })
-  category: string;
-
-  @ApiProperty({ nullable: true })
-  location: string;
 
   @ApiProperty({nullable: true})
-  sessionChairs: UserEntity[];
+  panalDiscussionIds: string[];
 }

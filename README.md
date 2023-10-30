@@ -1,4 +1,7 @@
 # RESCON
+
+![rescon homepage](assets/homepage.png)  
+
 A utility application for session managements in events. Primarily being developed as a dedicated platform for the annual research conference of PGIS, University of Peradeniya. Tailored for the university's research community, this app aims to enhance the conference experience by facilitating easy exploration of researches and innovations.
 
 ## Setting up the development server

@@ -1,9 +1,4 @@
-import {
-  Entity,
-  Column,
-  ManyToOne,
-  JoinColumn,
-} from 'typeorm';
+import { Entity, Column, ManyToOne, JoinColumn } from 'typeorm';
 import { BaseEntity } from './base.entity';
 import { SessionEntity } from './session.entity';
 
@@ -15,7 +10,7 @@ export class SessionItemEntity extends BaseEntity {
   @Column({ type: 'time', name: 'end_time' })
   endTime: string;
 
-  @Column()
+  @Column({ nullable: true })
   title: string;
 
   @Column()
@@ -24,8 +19,11 @@ export class SessionItemEntity extends BaseEntity {
   @Column({ name: 'session_id', nullable: true })
   sessionId: string;
 
-  @Column({ type: 'int', name: 'abstract_id' })
+  @Column({ type: 'int', name: 'abstract_id', nullable: true })
   abstractId: number;
+
+  @Column({ nullable: true })
+  via: string;
 
   @ManyToOne(
     () => SessionEntity,

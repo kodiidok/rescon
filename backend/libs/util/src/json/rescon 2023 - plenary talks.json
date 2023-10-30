@@ -1,0 +1,30 @@
+[
+  {
+    "sessionId": "ICTMS4",
+    "location": "Conference Hall Block C",
+    "startTime": "10:30:00",
+    "endTime": "11:00:00",
+    "presenter": "Dr. Chaminda Ranasinghe"
+  },
+  {
+    "sessionId": "PS6",
+    "location": "Conference Hall Block C",
+    "startTime": "13:30:00",
+    "endTime": "14:00:00",
+    "presenter": "Prof. Danny O'Hare"
+  },
+  {
+    "sessionId": "EES1",
+    "location": "Conference Hall Block C",
+    "startTime": "11:00:00",
+    "endTime": "11:30:00",
+    "presenter": "Prof. Johannes Barth"
+  },
+  {
+    "sessionId": "SE2",
+    "location": "Auditorium Block A",
+    "startTime": "13:30:00",
+    "endTime": "14:00:00",
+    "presenter": "Prof. Shironica Karunanayake"
+  }
+]

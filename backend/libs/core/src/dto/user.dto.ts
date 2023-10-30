@@ -1,4 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger';
+import { UserRoles } from '../enums/user-roles.enum';
 
 export class CreateUserDto {
   @ApiProperty({ required: true, default: 'user' })
@@ -14,7 +15,10 @@ export class CreateUserDto {
   name?: string;
 
   @ApiProperty({ nullable: true })
-  roleId?: string;
+  roleName?: UserRoles;
+
+  @ApiProperty({ nullable: true })
+  chairingSessionIds?: string[];
 }
 
 export class UpdateUserDto {
@@ -31,5 +35,8 @@ export class UpdateUserDto {
   name?: string;
 
   @ApiProperty({ nullable: true })
-  roleId?: string;
+  roleName?: UserRoles;
+
+  @ApiProperty({ nullable: true })
+  chairingSessionIds?: string[];
 }

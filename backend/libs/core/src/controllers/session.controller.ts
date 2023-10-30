@@ -25,7 +25,7 @@ export class SessionController {
   @Get()
   @ApiResponse({
     status: 200,
-    description: 'List of session items with pagination information',
+    description: 'List of sessions with pagination information',
     type: () => SessionEntity,
   })
   async findAll(
@@ -95,6 +95,25 @@ export class SessionController {
   async remove(@Param('id') id: string): Promise<void> {
     try {
       return await this.sessionService.remove(id);
+    } catch (error) {
+      throw new Error(error);
+    }
+  }
+
+  
+  @Get('category/:name')
+  async findBySessionId(@Param('name') category: string): Promise<SessionEntity[]> {
+    try {
+      return await this.sessionService.findByCategory(category);
+    } catch (error) {
+      throw new Error(error);
+    }
+  }
+
+  @Get('date/:date')
+  async findByDate(@Param('date') date: string): Promise<SessionEntity[]> {
+    try {
+      return await this.sessionService.findByDate(date);
     } catch (error) {
       throw new Error(error);
     }

@@ -84,6 +84,16 @@ export class SessionItemService {
     }
   }
 
+  async findBySessionId(sessionId: string): Promise<SessionItemEntity[]> {
+    try {
+      return await this.sessionItemRepository.find({
+        where: { sessionId },
+      });
+    } catch (error) {
+      throw new Error(`Failed to fetch session items: ${error}`);
+    }
+  }
+
   async searchSessionItems(query: string): Promise<SessionItemEntity[]> {
     const words = query.split(' ');
 
@@ -95,7 +105,7 @@ export class SessionItemService {
         words
           .map(
             (word, index) =>
-              `(LOWER(sessions.title) LIKE LOWER(:word${index}) OR LOWER(sessions.presenter) LIKE LOWER(:word${index}) OR LOWER(CAST(sessions.session_id AS TEXT)) LIKE LOWER(:word${index}))`,
+              `(LOWER(sessions.title) LIKE LOWER(:word${index}) OR LOWER(sessions.presenter) LIKE LOWER(:word${index}) OR CAST(sessions.session_id AS TEXT) LIKE LOWER(:word${index}) OR CAST(sessions.abstract_id AS TEXT) LIKE LOWER(:word${index}))`,
           )
           .join(' OR '), // Use OR between the conditions
         words.reduce(

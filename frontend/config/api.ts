@@ -1,5 +1,3 @@
-
-
 /** url of the backend server */
 export const server = process.env.SERVER ?? "http://localhost:3333";
 
@@ -73,6 +71,38 @@ export async function getSessionItemById(id: string) {
   return res.json();
 }
 
+export async function getSessionItemByAbstractId(id: number) {
+  const res = await fetch(`${server}/session-items/abstract/${id}`);
+  if (!res.ok) {
+    throw new Error("Failed to fetch session-item data");
+  }
+  return res.json();
+}
+
+export async function getSessionItemBySessionId(id: string) {
+  const res = await fetch(`${server}/session-items/session/${id}`);
+  if (!res.ok) {
+    throw new Error("Failed to fetch session-item data");
+  }
+  return res.json();
+}
+
+export async function getSessionByCategory(category: string) {
+  const res = await fetch(`${server}/sessions/category/${category}`);
+  if (!res.ok) {
+    throw new Error("Failed to fetch session data");
+  }
+  return res.json();
+}
+
+export async function getSessionByDate(date: string) {
+  const res = await fetch(`${server}/sessions/date/${date}`);
+  if (!res.ok) {
+    throw new Error("Failed to fetch session data");
+  }
+  return res.json();
+}
+
 /** post request handlers */
 
 export async function postUserData(data: any) {
@@ -133,17 +163,12 @@ export async function postSessionData(data: any) {
 
 /** update request handlers */
 
-
-
 /** delete request handlers */
-
 
 /** search handler */
 export async function searchSessionItems(query: string) {
   const queryString = encodeURIComponent(query);
-  const res = await fetch(
-    `${server}/session-items/search?q=${queryString}`
-  );
+  const res = await fetch(`${server}/session-items/search?q=${queryString}`);
   if (!res.ok) {
     throw new Error("Failed to search session item data");
   }

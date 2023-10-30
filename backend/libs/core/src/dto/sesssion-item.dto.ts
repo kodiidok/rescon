@@ -18,6 +18,9 @@ export class CreateSessionItemDto {
 
   @ApiProperty({ nullable: true })
   sessionId: string;
+
+  @ApiProperty({ nullable: true })
+  via: string;
 }
 
 export class UpdateSessionItemDto {
@@ -38,4 +41,7 @@ export class UpdateSessionItemDto {
 
   @ApiProperty({ nullable: true })
   sessionId: string;
+
+  @ApiProperty({ nullable: true })
+  via: string;
 }
