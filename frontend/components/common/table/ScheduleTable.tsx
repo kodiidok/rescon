@@ -91,8 +91,19 @@ export default function ScheduleTable() {
 
   return (
     <>
+    <div className="flex py-1s">
+      <div className="w-min font-bold text-left">
+        <Button>&lt;</Button>
+      </div>
+      <div className="w-full text-center py-2 bg-zinc-700 mx-4 rounded-xl font-medium font-mono">
+        <h1>ICT, Mathermatics and Statistics</h1>
+      </div>
+      <div className="w-min text-right">
+        <Button>&gt;</Button>
+      </div>
+    </div>
       <div className="text-center">
-        <h1 className="text-5xl">Time Table</h1>
+        <h1 className="text-5xl my-4">Time Table</h1>
       </div>
       <Tabs
         aria-label="Options"
@@ -104,13 +115,13 @@ export default function ScheduleTable() {
             <div>
               {sessionResults
                 ? sessionResults.map(
-                    (itemArray: SearchResult, itemIndex: number) => (
-                      // itemArray contains all the session items data
-                      // that relates to the selected date and category
+                  (itemArray: SearchResult, itemIndex: number) => (
+                    // itemArray contains all the session items data
+                    // that relates to the selected date and category
 
-                      <SessionTable key={itemIndex} data={itemArray} />
-                    )
+                    <SessionTable key={itemIndex} data={itemArray} />
                   )
+                )
                 : "nothing here"}
             </div>
           </Tab>
