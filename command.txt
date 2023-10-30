@@ -5,3 +5,5 @@ psql -h localhost -p 3003 -U rescon -d rescon
 pg_dump -h localhost -p 3003 -U rescon -d rescon > assets/db/backup.sql
 
 psql -h localhost -p 3003 -U rescon -d rescon_backup < assets/db/backup.sql
+
+gcloud compute ssh --zone "asia-south2-a" "instance-1" --project "subtle-lambda-403610"
