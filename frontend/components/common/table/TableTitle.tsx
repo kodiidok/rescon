@@ -1,35 +1,39 @@
 import React from "react";
 
 type TableDetailsProps = {
-  SessionID: string;
+  sessionId: string;
   location: string;
+  sessionChairs: any[];
 };
 
-const TableTitle: React.FC<TableDetailsProps> = ({ SessionID, location }) => {
+const TableTitle: React.FC<TableDetailsProps> = ({ sessionId, location, sessionChairs }) => {
+
+  const [first, second] = sessionChairs;
+
   return (
-    <div>
-      <div className="text-center py-2 bg-gray-100 rounded-tl-xl rounded-tr-xl">
+    <div className="text-gray-900">
+      <div className="text-center py-2 bg-gray-100 rounded-t-xl">
         {/* <h1 className="text-lg font-bold">{title}</h1> */}
       </div>
       <div className="flex text-center py-2 px-6 bg-blue-200">
         <div className="w-1/2 text-left">
           <h1 className="text-xs font-bold">Time</h1>
-          <h1 className="font-bold">Session ID: {SessionID}</h1>
+          <h1 className="font-bold">Session ID: {sessionId}</h1>
         </div>
         <div className="w-1/2 text-right">
           <h1 className="text-xs font-bold">Location</h1>
           <h1 className="font-extrabold text-xl">{location}</h1>
         </div>
       </div>
-      <div className="flex py-1 text-center text-xs">
+      <div className="flex py-3 text-center text-sm bg-sky-400">
         <div className="w-1/3 font-bold">
           <h1>Session Chairs</h1>
         </div>
         <div className="w-1/3">
-          <h1>Chair 1</h1>
+          <h1>{first.name}</h1>
         </div>
         <div className="w-1/3">
-          <h1>Chari 2</h1>
+          <h1>{second.name}</h1>
         </div>
       </div>
     </div>

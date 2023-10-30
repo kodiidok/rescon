@@ -16,10 +16,10 @@ interface SessionTableProps {
 }
 
 function SessionTable({ data }: SessionTableProps) {
-  console.log(data);
+
   return (
-    <div className="mt-3 px-3">
-      <Table aria-label="Session Items Filtered by Date and Category">
+    <div className="rounded-b-xl overflow-hidden">
+      <Table radius="none" aria-label="Session Items Filtered by Date and Category">
         <TableHeader>
           <TableColumn>Time</TableColumn>
           <TableColumn>Abstract Id</TableColumn>
@@ -31,8 +31,9 @@ function SessionTable({ data }: SessionTableProps) {
           {data.map((item: any) => {
             return (
               <TableRow key={item.id}>
-                <TableCell>
-                  {[item.startTime, item.endTime].join("-")}
+                <TableCell className="flex flex-col">
+                  <div>{item.startTime.slice(0, -3)}</div>
+                  <div>{item.endTime.slice(0, -3)}</div>
                 </TableCell>
                 <TableCell>{item.abstractId}</TableCell>
                 <TableCell>{item.title}</TableCell>

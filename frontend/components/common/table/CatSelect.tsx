@@ -37,7 +37,7 @@ const CatSelect: React.FC<CatSelectProps> = ({
       <div className="w-min font-bold text-left">
         <Button onClick={handlePrev}>&lt;</Button>
       </div>
-      <div className="w-full text-center py-2 bg-zinc-700 mx-4 rounded-xl font-medium font-mono">
+      <div className="w-full text-center py-2 bg-zinc-700 mx-4 rounded-xl font-medium">
         <h1>{selectedCat}</h1>
       </div>
       <div className="w-min text-right">
