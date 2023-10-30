@@ -12,16 +12,15 @@
     color: #292929;
 }
 
-/* .right {
+.right {
     text-align: right;
-    background-color: #B5DFFF;
     border-radius: 0 15px 15px 0;
     padding: 15px 30px;
     font-size: 18px;
     font-weight: 700;
-} */
+}
 
-.blue {
+/* .blue {
     text-align: right;
     background-color: #B5DFFF;
     border-radius: 0 15px 15px 0;
@@ -64,7 +63,7 @@
     padding: 15px 30px;
     font-size: 18px;
     font-weight: 700;
-}
+} */
 
 .presenter {
     color: #b3b3b5;

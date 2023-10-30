@@ -1,8 +1,7 @@
 import React from "react";
 import styles from "./search.module.css";
 import { SearchResult } from "./search"; // replace with the actual path
-import { log } from "console";
-import { color } from "framer-motion";
+import cx from 'classnames';
 
 const SearchCard = ({
   result,
@@ -11,10 +10,14 @@ const SearchCard = ({
   result: SearchResult;
   index: number;
 }) => {
-  const colors = ["blue", "yellow", "orange","red","green"];
-  const right_color = colors[index % 5];
-  const rightColorClass = styles[right_color];
 
+  const catColor = cx(
+    result.sessionId.replace(/\d/g, '') === 'EES' ? 'bg-green-500' :
+      result.sessionId.replace(/\d/g, '') === 'ICTMS' ? 'bg-blue-500' :
+        result.sessionId.replace(/\d/g, '') === 'LS' ? 'bg-purple-500' :
+          result.sessionId.replace(/\d/g, '') === 'PS' ? 'bg-pink-500' :
+            result.sessionId.replace(/\d/g, '') === 'SE' ? 'bg-orange-500' : 'bg-zinc-700'
+  );
 
   return (
     <div className={styles.container} key={result.id}>
@@ -22,12 +25,11 @@ const SearchCard = ({
         <p className={styles.presenter}>{result.presenter}</p>
         <p>{result.title}</p>
       </div>
-      <div className={rightColorClass}>
+      <div className={`${styles.right} ${catColor}`}>
         <p>{result.abstractId}</p>
         <p>{result.sessionId}</p>
         <p className={styles.time}>{result.time}</p>
       </div>
-      {/* Display other relevant information */}
     </div>
   );
 };

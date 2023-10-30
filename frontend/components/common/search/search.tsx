@@ -14,7 +14,7 @@ export interface SearchResult {
   title: string;
   presenter: string;
   day: string;
-  sessionId: number;
+  sessionId: string;
   sessionChairs: any[];
   panalDiscussions: any[];
   plenaryTalks: any[];

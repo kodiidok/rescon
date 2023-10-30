@@ -1,7 +1,6 @@
 'use client'
 
 import { Search } from "@/components/common/search/search";
-import { title, subtitle } from "@/components/primitives";
 import { Image } from "@nextui-org/react";
 import styles from '@/styles/home.module.css';
 
@@ -15,12 +14,6 @@ export default function Home() {
 				<div className={styles.imageContainer}>
 					<Image src="rescon logo.JPG" alt="rescon 23 logo" />
 				</div>
-				{/* <>
-					<h1 className={title()}>RESCON</h1>
-					<h2 className={subtitle({ class: "mt-4" })}>
-						The Premier Postgraduate Research Congress of Sri Lanka.
-					</h2>
-				</> */}
 				<Search />
 			</div>
 		</section>
