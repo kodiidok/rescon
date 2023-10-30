@@ -1,4 +1,5 @@
 .container {
+    width: 100%;
     display: grid;
     grid-template-columns: 70% 30%;
 }
@@ -13,7 +14,10 @@
 }
 
 .right {
-    text-align: right;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     border-radius: 0 15px 15px 0;
     padding: 15px 30px;
     font-size: 18px;

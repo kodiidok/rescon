@@ -104,9 +104,8 @@ export const Search = () => {
   }, [showNoResults]);
 
   return (
-    <div className="flex flex-col gap-3 w-full">
+    <div style={{width: '90vw', maxWidth: '63rem'}} className="flex flex-col gap-3 px-5 items-center">
       <Input
-        className="w-full"
         placeholder="Search by title, abstract id, or presenter"
         value={searchQuery}
         onChange={(e) => {
@@ -114,7 +113,7 @@ export const Search = () => {
           // handleSearch();
         }}
       />
-      <Button className="hover:bg-lime-400 hover:text-gray-900 font-semibold text-lg" onClick={handleSearch}>Search</Button>
+      <Button style={{width: '100%'}} className="hover:bg-lime-500 hover:text-gray-800 font-semibold text-xl" onClick={handleSearch}>Search</Button>
 
       {/* Display search results or a message if no results */}
       {searchQuery && searchResults.length > 0

@@ -22,8 +22,8 @@ const SearchCard = ({
   return (
     <div className={styles.container} key={result.id}>
       <div className={styles.left}>
-        <p className={styles.presenter}>{result.presenter}</p>
-        <p>{result.title}</p>
+        <p className="text-sm text-gray-400">{result.presenter}</p>
+        <p className="text-sm">{result.title}</p>
       </div>
       <div className={`${styles.right} ${catColor}`}>
         <p>{result.abstractId}</p>

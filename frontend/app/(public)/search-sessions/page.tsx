@@ -8,7 +8,7 @@ export default function Home() {
 	return (
 		<section className="flex flex-col items-center justify-center gap-4">
 			<Banner />
-			<div className="inline-block w-unit-9xl text-center justify-center">
+			<div className="inline-block text-center justify-center">
 				<Search />
 			</div>
 		</section>
