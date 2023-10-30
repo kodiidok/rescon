@@ -47,25 +47,26 @@ export const Search = () => {
     debounceTimer = setTimeout(async () => {
       if (searchQuery) {
         const results = await searchSessionItems(searchQuery);
+        const searchWords = searchQuery.toLowerCase().split(' ');
         // const results = mockdata;
         const filteredResults = results.filter((item: any) => {
-          const lowerSearchQuery = searchQuery.toLowerCase();
-
-          // Function to check if a word is included in another word
-          const isWordIncluded = (fullWord: string, partialWord: string) =>
+          // Function to check if any part of a word is included in another word
+          const isPartialWordIncluded = (fullWord: string, partialWord: string) =>
             fullWord.toLowerCase().includes(partialWord.toLowerCase());
 
-          // Check if searchQuery is included in title, presenter, or abstractId
+          // Check if any part of searchQuery is included in title, presenter, or abstractId
           const isMatch =
-            isWordIncluded(item.sessionId, lowerSearchQuery) ||
-            isWordIncluded(item.title, lowerSearchQuery) ||
-            isWordIncluded(String(item.abstractId), lowerSearchQuery) ||
-            isWordIncluded(item.presenter, lowerSearchQuery);
+            searchWords.some((word) =>
+              isPartialWordIncluded(item.sessionId, word) ||
+              isPartialWordIncluded(item.title, word) ||
+              isPartialWordIncluded(String(item.abstractId), word) ||
+              isPartialWordIncluded(item.presenter, word)
+            );
 
           // If searchQuery is a number, check if it's included in abstractId
           const isNumberMatch =
-            !isNaN(Number(lowerSearchQuery)) &&
-            String(item.abstractId).includes(lowerSearchQuery);
+            !isNaN(Number(searchQuery)) &&
+            String(item.abstractId).includes(searchQuery);
 
           return isMatch || isNumberMatch;
         });
@@ -89,6 +90,10 @@ export const Search = () => {
     }
   }, [searchQuery]);
 
+  // useEffect(() => {
+  //   console.log(searchResults);
+  // }, [searchResults]);
+
   // Clear "No results found" message after 20 seconds
   useEffect(() => {
     const timeoutId = setTimeout(() => {
@@ -99,8 +104,9 @@ export const Search = () => {
   }, [showNoResults]);
 
   return (
-    <div className="flex flex-col gap-3">
+    <div className="flex flex-col gap-3 w-full">
       <Input
+        className="w-full"
         placeholder="Search by title, abstract id, or presenter"
         value={searchQuery}
         onChange={(e) => {
@@ -108,7 +114,7 @@ export const Search = () => {
           // handleSearch();
         }}
       />
-      <Button onClick={handleSearch}>Search</Button>
+      <Button className="hover:bg-lime-400 hover:text-gray-900 font-semibold text-lg" onClick={handleSearch}>Search</Button>
 
       {/* Display search results or a message if no results */}
       {searchQuery && searchResults.length > 0
