@@ -9,6 +9,7 @@ import {
   Tabs,
   Tab,
 } from "@nextui-org/react";
+import TableDetails from "./TableDetails";
 
 interface SessionTableProps {
   data: any;
@@ -17,7 +18,6 @@ interface SessionTableProps {
 function SessionTable({ data }: SessionTableProps) {
   console.log(data);
   return (
-    
     <div className="mt-3 px-3">
       <Table aria-label="Session Items Filtered by Date and Category">
         <TableHeader>

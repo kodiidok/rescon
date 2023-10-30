@@ -112,7 +112,7 @@ export default function ScheduleTable() {
                     (itemArray: SearchResult, itemIndex: number) => (
                       // itemArray contains all the session items data
                       // that relates to the selected date and category
-
+                      
                       <SessionTable key={itemIndex} data={itemArray} />
                     )
                   )
