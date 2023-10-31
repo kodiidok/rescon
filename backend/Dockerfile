@@ -1,18 +1,23 @@
+# Use the official Node.js image as the base image
 FROM node:18-alpine
 
-# Install pnpm
-RUN npm install -g pnpm
-
+# Set the working directory in the container
 WORKDIR /app
 
+# Copy package.json and pnpm-lock.yaml to the working directory
 COPY package*.json ./
 
-COPY pnpm*.yaml ./
+# Install dependencies using pnpm
+RUN npm install
 
-RUN pnpm install
-
+# Copy the rest of the application code
 COPY . .
 
+# Run the build command
+RUN npm run build
+
+# Expose the port on which the application will run
 EXPOSE 3333
 
-CMD ["pnpm", "start"]
+# Command to run the application
+CMD ["npm", "run", "start"]
