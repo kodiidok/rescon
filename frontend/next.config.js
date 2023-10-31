@@ -1,28 +1,5 @@
 /** @type {import('next').NextConfig} */
-const customServer = process.env.SERVER ?? "http://localhost:3333";
 
-const nextConfig = {
-  async rewrites() {
-    return [
-      {
-        source: "/api/",
-        destination: `${customServer}/`,
-      },
-    ];
-  },
-  // async headers() {
-  //   return [
-  //     {
-  //       source: '/',
-  //       headers: [
-  //         {
-  //           key: 'x-custom-header',
-  //           value: 'my custom header value',
-  //         },
-  //       ],
-  //     },
-  //   ]
-  // },
-};
+const nextConfig = {};
 
 module.exports = nextConfig;

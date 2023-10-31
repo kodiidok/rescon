@@ -8,4 +8,12 @@ pg_dump -h localhost -p 3003 -U rescon -d rescon > assets/db/backup.sql
 
 psql -h localhost -p 3003 -U rescon -d rescon_backup < assets/db/backup.sql
 
-gcloud compute ssh --zone "asia-south2-a" "instance-1" --project "subtle-lambda-403610"
+# Pull the latest changes
+git pull origin master
+
+# Build Docker images
+docker build -t rescon-server:1.0 -f backend/Dockerfile .
+docker build -t rescon-ui:1.0 -f frontend/Dockerfile .
+
+# Run Docker Compose
+docker-compose up -d

@@ -7,6 +7,8 @@ WORKDIR /app
 
 COPY package*.json ./
 
+COPY pnpm*.yaml ./
+
 RUN pnpm install
 
 COPY . .

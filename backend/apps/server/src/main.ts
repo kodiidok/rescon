@@ -4,10 +4,15 @@ import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 
 async function bootstrap() {
   const port = process.env['PORT'] ?? 3333;
+  
+  const uiPort = process.env['UI_PORT'] ?? 3000;
+  const uiHost = process.env['UI_HOST'] ?? 'localhost';
+  const uiUrl = `http://${uiHost}:${uiPort}`;
+
   const app = await NestFactory.create(ServerModule);
 
   app.enableCors({
-    origin: ['http://localhost:3000'],
+    origin: [uiUrl],
   });
 
   const config = new DocumentBuilder()

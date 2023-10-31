@@ -1,4 +1,4 @@
-version: "3.8"
+version: "0.0"
 
 services:
   postgres:
@@ -14,20 +14,22 @@ services:
       - postgres-data:/var/lib/postgresql/data
 
   backend:
-    image: your-nestjs-image # Replace with your actual NestJS Docker image
-    container_name: rescon-backend
+    image: rescon-server
+    container_name: rescon-server
     environment:
       PORT: ${PORT:-3333}
+      UI_PORT: ${UI_PORT:-3000}
+      UI_HOST: ${UI_HOST:-localhost}
     ports:
       - "3333:3333"
     depends_on:
       - postgres
 
   frontend:
-    image: your-nextjs-image # Replace with your actual Next.js Docker image
-    container_name: rescon-frontend
+    image: rescon-ui
+    container_name: rescon-ui
     environment:
-      SERVER: ${SERVER:-http://localhost:3333}
+      API: ${API:-http://localhost:3333}
     ports:
       - "3000:3000"
     depends_on:
