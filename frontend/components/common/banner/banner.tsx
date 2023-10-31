@@ -15,10 +15,13 @@ export default function Banner() {
               <h4>University of Peradeniya</h4>
               <h5>Sri Lanka</h5>
             </div>
+
           </div>
-          <Image className={[styles['flex-end']].join(' ')} width={450} src="rescon logo.JPG" alt="rescon 23 logo" />
+          <Image className={[styles['flex-end']].join(' ')} 
+          width={450} src="rescon logo.JPG" alt="rescon 23 logo" />
         </div>
-        <div className={[styles['banner-sm']].join(' ')}>
+        <div className={[styles['banner-sm']]
+        .join(' ')}>
           <div className={[styles['flex-row'], styles['flex-start']].join(' ')}>
             <Image width={90} src="uop.png" alt="uop logo" />
             <Image className={[styles['flex-end']].join(' ')} width={450} src="rescon logo.JPG" alt="rescon 23 logo" />
