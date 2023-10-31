@@ -1,5 +1,7 @@
 /** url of the backend api */
-export const api = process.env.API ?? "http://localhost:3333";
+export const api = process.env['API'] ?? "http://localhost:3333";
+
+console.log(process.env['API']);
 
 /** api hanlders to get paginated data */
 
