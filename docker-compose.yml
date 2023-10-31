@@ -16,7 +16,7 @@ services:
       - common-net
 
   backend:
-    image: rescon-server:1.0
+    image: sahancrk/rescon-server:1.0
     container_name: rescon-server
     environment:
       PORT: 3333
@@ -34,7 +34,7 @@ services:
       - common-net
 
   frontend:
-    image: rescon-ui:1.0
+    image: sahancrk/rescon-ui:1.0
     container_name: rescon-ui
     environment:
       API: http://host.docker.internal:3333
