@@ -19,5 +19,9 @@ RUN npm run build
 # Expose the port on which the application will run
 EXPOSE 3000
 
+# Define environment variable
+ARG API_URL
+ENV API=$API_URL
+
 # Command to run the application
 CMD ["npm", "run", "start"]

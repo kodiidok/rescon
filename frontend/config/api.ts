@@ -1,8 +1,6 @@
 /** url of the backend api */
 export const api = process.env['API'] ?? "http://localhost:3333";
 
-console.log(process.env['API']);
-
 /** api hanlders to get paginated data */
 
 export async function getAllUsers(page: number, pageSize: number) {

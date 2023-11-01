@@ -19,5 +19,16 @@ RUN npm run build
 # Expose the port on which the application will run
 EXPOSE 3333
 
+# Define environment variable
+ARG UI_URL
+
+ENV PORT=3333
+ENV UI=$UI_URL
+ENV DB_HOST=rescon-postgres
+ENV DB_PORT=5432
+ENV DB_NAME=rescon
+ENV DB_USER=rescon
+ENV DB_PASSWORD=rescon
+
 # Command to run the application
 CMD ["npm", "run", "start"]
