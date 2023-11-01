@@ -95,7 +95,7 @@ export default function ScheduleTable() {
         onCategoryChange={handleCategorySelect}
       />
 
-      <div className="flex justify-between items-center">
+      <div className="flex flex-col md:flex-row justify-between items-center">
         <h1 className="text-5xl font-semibold my-4">Session Lineup</h1>
         <div className="flex gap-3 items-center">
           <Button className={`font-semibold text-lg ${btnActive ? 'bg-slate-300 text-gray-900' : ''}`} onClick={() => handleDateSelect("2023-11-03")}>3rd</Button>

@@ -31,7 +31,7 @@ function SessionTable({ data }: SessionTableProps) {
           {data.map((item: any) => {
             return (
               <TableRow key={item.id}>
-                <TableCell className="flex flex-col">
+                <TableCell >
                   <div>{item.startTime.slice(0, -3)}</div>
                   <div>{item.endTime.slice(0, -3)}</div>
                 </TableCell>
