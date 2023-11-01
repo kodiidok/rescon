@@ -14,7 +14,7 @@ const TableTitle: React.FC<TableDetailsProps> = ({ sessionId, location, sessionC
 
   const catColor1 = cx(
     sessionId.replace(/\d/g, '') === 'EES' ? 'bg-green-400' :
-      sessionId.replace(/\d/g, '') === 'ICTMS, Mathematics and Statistics' ? 'bg-blue-400' :
+      sessionId.replace(/\d/g, '') === 'ICTMS' ? 'bg-blue-400' :
         sessionId.replace(/\d/g, '') === 'LS' ? 'bg-purple-400' :
           sessionId.replace(/\d/g, '') === 'PS' ? 'bg-pink-400' :
             sessionId.replace(/\d/g, '') === 'SE' ? 'bg-orange-400' : 'bg-zinc-700'
@@ -22,7 +22,7 @@ const TableTitle: React.FC<TableDetailsProps> = ({ sessionId, location, sessionC
 
   const catColor2 = cx(
     sessionId.replace(/\d/g, '') === 'EES' ? 'bg-green-500' :
-      sessionId.replace(/\d/g, '') === 'ICTMS, Mathematics and Statistics' ? 'bg-blue-500' :
+      sessionId.replace(/\d/g, '') === 'ICTMS' ? 'bg-blue-500' :
         sessionId.replace(/\d/g, '') === 'LS' ? 'bg-purple-500' :
           sessionId.replace(/\d/g, '') === 'PS' ? 'bg-pink-500' :
             sessionId.replace(/\d/g, '') === 'SE' ? 'bg-orange-500' : 'bg-zinc-700'
