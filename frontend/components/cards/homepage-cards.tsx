@@ -14,7 +14,7 @@ function HomePageCard({ name, route }: Props) {
 
   return (
     <>
-      <Button className={[styles['homepage-btn']].join(' ')} onClick={() => router.push(route)}>{name}</Button>
+      <Button className="rounded-md font-semibold text-lg md:grid-cols-4 hover:bg-lime-500 hover:text-gray-900" onClick={() => router.push(route)}>{name}</Button>
     </>
   );
 }
@@ -24,7 +24,7 @@ export default function HomePageCards() {
 
   return (
     <>
-      <div className={[styles['homepage-card-grid']].join(' ')}>
+      <div className="grid gap-3 grid-cols-1">
         {
           cards?.map((item, index) => (
             <HomePageCard key={item.name} name={item.name} route={item.route} />

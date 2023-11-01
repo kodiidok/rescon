@@ -14,8 +14,8 @@ export default function Page() {
   return (
     <div className="px-10">
       <Banner />
-      <div className="flex flex-col md:flex-row gap-5 w-full">
-        <Image src="QR/homeQR.svg" width={400} height={400} />
+      <div className="flex flex-col md:flex-row gap-5 w-full justify-center">
+        <Image src="QR/regQR.svg" width={400} height={400} />
         <div className="flex flex-col justify-center">
           <h1 className="text-5xl font-semibold my-4">Registration</h1>
           <p className="text-lg mb-2">
@@ -24,9 +24,9 @@ export default function Page() {
           <p className="text-sm text-gray-600">
             Make sure to have your details ready for a smooth registration process.
           </p>
-          <button className="bg-green-500 text-white px-4 py-2 rounded" onClick={() => handleButtonClick('/scan-qr/check-in')}>
-          Next
-        </button>
+          <button className="bg-green-500 font-semibold text-gray-900 px-4 py-2 rounded mt-5" onClick={() => handleButtonClick('/scan-qr/check-in')}>
+            Next
+          </button>
         </div>
       </div>
     </div>
