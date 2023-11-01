@@ -1,9 +1,11 @@
 /** url of the backend api */
-export const api = process.env['API'] ?? "http://localhost:3333";
+export const api =
+  process.env["API"] ?? "http://139.59.24.47:3333" ?? "http://localhost:3333";
 
 /** api hanlders to get paginated data */
 
 export async function getAllUsers(page: number, pageSize: number) {
+  console.log(api);
   const res = await fetch(`${api}/users?page=${page}&limit=${pageSize}`);
   if (!res.ok) {
     throw new Error("Failed to fetch user data");

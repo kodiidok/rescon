@@ -16,18 +16,18 @@ services:
   backend:
     image: rescon-server:1.0
     container_name: rescon-server
-    build:
-      context: ./backend/
-      dockerfile: Dockerfile
-      # no_cache: true
-    environment:
-      PORT: 3333
-      UI: rescon-postgres
-      DB_HOST: rescon-postgres
-      DB_PORT: 5432
-      DB_NAME: rescon
-      DB_USER: rescon
-      DB_PASSWORD: rescon
+    # build:
+    #   context: ./backend/
+    #   dockerfile: Dockerfile
+    #   no_cache: true
+    # environment:
+    #   PORT: 3333
+    #   UI: rescon-postgres
+    #   DB_HOST: rescon-postgres
+    #   DB_PORT: 5432
+    #   DB_NAME: rescon
+    #   DB_USER: rescon
+    #   DB_PASSWORD: rescon
     ports:
       - "3333:3333"
     depends_on:
@@ -38,12 +38,12 @@ services:
   frontend:
     image: rescon-ui:1.1
     container_name: rescon-ui
-    build:
-      context: ./frontend/
-      dockerfile: Dockerfile
-      no_cache: true
-    environment:
-      API: rescon-server
+    # build:
+    #   context: ./frontend/
+    #   dockerfile: Dockerfile
+    #   no_cache: true
+    # environment:
+    #   API: rescon-server
     ports:
       - "3000:3000"
     depends_on:
