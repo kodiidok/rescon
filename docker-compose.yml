@@ -36,7 +36,7 @@ services:
       - common-net
 
   frontend:
-    image: sahancrk/rescon-ui:2.1
+    image: sahancrk/rescon-ui:2.2
     container_name: rescon-ui
     # build:
     #   context: ./frontend/
