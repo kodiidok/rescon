@@ -20,10 +20,11 @@ RUN npm run build
 EXPOSE 3333
 
 # Define environment variable
-ARG UI_URL
+# ARG UI_URL
+# ENV UI=$UI_URL
 
 ENV PORT=3333
-ENV UI=$UI_URL
+ENV UI=http://139.59.24.47:3000
 ENV DB_HOST=rescon-postgres
 ENV DB_PORT=5432
 ENV DB_NAME=rescon

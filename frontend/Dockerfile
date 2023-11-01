@@ -20,8 +20,10 @@ RUN npm run build
 EXPOSE 3000
 
 # Define environment variable
-ARG API_URL
-ENV API=$API_URL
+# ARG API_URL
+# ENV API=$API_URL
+
+ENV API=http://139.59.24.47:3333
 
 # Command to run the application
 CMD ["npm", "run", "start"]
