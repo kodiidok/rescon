@@ -13,13 +13,13 @@ export default function Page() {
     <div className="mt-36 flex flex-col justify-center items-center px-10">
       <h1 className="text-4xl font-semibold mb-6">Choose Your Role</h1>
       <div className="w-96 flex flex-col gap-4 font-semibold p-10">
-        <button className="bg-blue-500 text-white px-4 py-2 rounded" onClick={() => handleButtonClick('/presenter')}>
+        <button className="bg-blue-500 text-white px-4 py-2 rounded" onClick={() => handleButtonClick('/scan-qr/check-in/presenter')}>
           Presenter
         </button>
-        <button className="bg-green-500 text-white px-4 py-2 rounded" onClick={() => handleButtonClick('/paid-user')}>
+        <button className="bg-green-500 text-white px-4 py-2 rounded" onClick={() => handleButtonClick('/scan-qr/check-in/paid-user')}>
           Paid User
         </button>
-        <button className="bg-purple-500 text-white px-4 py-2 rounded" onClick={() => handleButtonClick('/student')}>
+        <button className="bg-purple-500 text-white px-4 py-2 rounded" onClick={() => handleButtonClick('/scan-qr/check-in/student')}>
           Student
         </button>
       </div>

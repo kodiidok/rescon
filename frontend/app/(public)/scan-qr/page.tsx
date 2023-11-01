@@ -14,7 +14,7 @@ export default function Page() {
   return (
     <div className="px-10">
       <Banner />
-      <div className="flex gap-5 w-full">
+      <div className="flex flex-col md:flex-row gap-5 w-full">
         <Image src="QR/homeQR.svg" width={400} height={400} />
         <div className="flex flex-col justify-center">
           <h1 className="text-5xl font-semibold my-4">Registration</h1>
