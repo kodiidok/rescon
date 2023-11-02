@@ -18,19 +18,6 @@ docker build -t rescon-ui:1.0 -f frontend/Dockerfile .
 # Run Docker Compose
 docker-compose up -d
 
-# Run Server
-docker run -d \
--e PORT=3000 \
--e DB_HOST=localhost \
--e DB_PORT=3003 \
--e DB_NAME=rescon \
--e DB_USER=rescon \
--e DB_PASSWORD=rescon \
--e UI=http://localhost:3000 \
---name server \
--p 3333:3333 \
-rescon-server:1.0
-
 
 docker build --no-cache -t rescon-server:3.0 -f Dockerfile .
 docker build -t rescon-server:3.0 -f Dockerfile .
