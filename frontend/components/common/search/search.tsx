@@ -12,7 +12,7 @@ export interface SearchResult {
   time: string;
   abstractId: number;
   title: string;
-  presenter: string;
+  presenterId: string;
   day: string;
   sessionId: string;
   sessionChairs: any[];
@@ -77,8 +77,7 @@ export const Search = () => {
           return searchWords.some((word) =>
               isPartialWordIncluded(item.sessionId, word) ||
               isPartialWordIncluded(item.title, word) ||
-              isPartialWordIncluded(String(item.abstractId), word) ||
-              isPartialWordIncluded(item.presenter, word)
+              isPartialWordIncluded(String(item.abstractId), word)
             );
         });
 

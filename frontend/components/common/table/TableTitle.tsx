@@ -28,6 +28,21 @@ const TableTitle: React.FC<TableDetailsProps> = ({ sessionId, location, sessionC
             sessionId.replace(/\d/g, '') === 'SE' ? 'bg-orange-500' : 'bg-zinc-700'
   );
 
+  // Function to format session IDs
+  function formatSessionId(sessionId: string) {
+    // Use regular expression to match the pattern "EES1" or "PS6"
+    const match = sessionId.match(/([A-Z]+)(\d+)/);
+
+    // If there is a match, format the session ID as "EES-1" or "PS-6"
+    if (match) {
+      const [, prefix, number] = match;
+      return `${prefix}-${number}`;
+    }
+
+    // If there is no match, return the original session ID
+    return sessionId;
+  }
+
   return (
     <div className="text-gray-900">
       <div className="text-center py-2 bg-gray-100 rounded-t-xl">
@@ -36,7 +51,7 @@ const TableTitle: React.FC<TableDetailsProps> = ({ sessionId, location, sessionC
       <div className={`flex text-center py-2 px-6 ${catColor1}`}>
         <div className="w-1/2 text-left">
           <h1 className="text-xs font-bold">{time}</h1>
-          <h1 className="font-bold">Session ID: {sessionId}</h1>
+          <h1 className="font-bold">Session ID: {formatSessionId(sessionId)}</h1>
         </div>
         <div className="w-1/2 text-right">
           <h1 className="text-xs font-bold">Location</h1>

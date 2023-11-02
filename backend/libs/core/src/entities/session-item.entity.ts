@@ -19,7 +19,7 @@ export class SessionItemEntity extends BaseEntity {
     (entity: UserEntity) => entity.presentingSessions,
   )
   @JoinColumn({ name: 'presenter_id', referencedColumnName: 'id' })
-  presenter: string;
+  presenter: UserEntity;
 
   @Column({ name: 'presenter_id', nullable: true })
   presenterId: string;

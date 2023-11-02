@@ -21,7 +21,7 @@ export class UserEntity extends BaseEntity {
   username?: string;
 
   @Column()
-  email?: string;
+  email: string;
 
   @Column()
   password!: string;
@@ -31,17 +31,17 @@ export class UserEntity extends BaseEntity {
   }
 
   @Column({ nullable: true })
-  name?: string;
+  name: string;
 
   @ManyToOne((type) => RoleEntity)
   @JoinColumn({ name: 'role_name', referencedColumnName: 'name' })
-  role?: RoleEntity;
+  role: RoleEntity;
 
   @Column({ name: 'role_name', nullable: true })
-  roleName?: string;
+  roleName: string;
 
   @Column({ name: 'chairing_sessions', type: 'simple-array', nullable: true })
-  chairingSessionIds?: string[];
+  chairingSessionIds: string[];
 
   @ManyToMany(
     () => SessionEntity,
@@ -57,10 +57,10 @@ export class UserEntity extends BaseEntity {
   presentingSessions: SessionItemEntity[];
 
   @Column({ nullable: true })
-  nic?: string;
+  nic: string;
   
   @Column({ name: 'presenting_sessions', type: 'simple-array', nullable: true })
-  presentingSessionIds?: string[];
+  presentingSessionIds: string[];
 
   @Column({ nullable: true })
   institute: string;
