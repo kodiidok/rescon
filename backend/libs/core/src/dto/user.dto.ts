@@ -19,6 +19,18 @@ export class CreateUserDto {
 
   @ApiProperty({ nullable: true })
   chairingSessionIds?: string[];
+
+  @ApiProperty({ nullable: true })
+  nic?: string;
+  
+  @ApiProperty({ nullable: true })
+  presentingSessionIds?: string[];
+
+  @ApiProperty({ nullable: true })
+  institute?: string;
+
+  @ApiProperty({ nullable: true, default: false })
+  registered?: boolean;
 }
 
 export class UpdateUserDto {
@@ -39,4 +51,16 @@ export class UpdateUserDto {
 
   @ApiProperty({ nullable: true })
   chairingSessionIds?: string[];
+
+  @ApiProperty({ nullable: true })
+  nic?: string;
+  
+  @ApiProperty({ nullable: true })
+  presentingSessionIds?: string[];
+
+  @ApiProperty({ nullable: true })
+  institute?: string;
+
+  @ApiProperty({ nullable: true })
+  registered?: boolean;
 }

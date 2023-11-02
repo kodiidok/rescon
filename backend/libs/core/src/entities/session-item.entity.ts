@@ -1,6 +1,7 @@
 import { Entity, Column, ManyToOne, JoinColumn } from 'typeorm';
 import { BaseEntity } from './base.entity';
 import { SessionEntity } from './session.entity';
+import { UserEntity } from './user.entity';
 
 @Entity('session_items')
 export class SessionItemEntity extends BaseEntity {
@@ -13,8 +14,15 @@ export class SessionItemEntity extends BaseEntity {
   @Column({ nullable: true })
   title: string;
 
-  @Column()
+  @ManyToOne(
+    () => UserEntity,
+    (entity: UserEntity) => entity.presentingSessions,
+  )
+  @JoinColumn({ name: 'presenter_id', referencedColumnName: 'id' })
   presenter: string;
+
+  @Column({ name: 'presenter_id', nullable: true })
+  presenterId: string;
 
   @Column({ name: 'session_id', nullable: true })
   sessionId: string;

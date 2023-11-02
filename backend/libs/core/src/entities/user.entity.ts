@@ -13,6 +13,7 @@ import * as bcrypt from 'bcrypt';
 import { VerificationCode } from './verification-codes.entity';
 import { BaseEntity } from './base.entity';
 import { SessionEntity } from './session.entity';
+import { SessionItemEntity } from './session-item.entity';
 
 @Entity('users')
 export class UserEntity extends BaseEntity {
@@ -47,7 +48,25 @@ export class UserEntity extends BaseEntity {
     (entity: SessionEntity) => entity.sessionChairs,
     { nullable: true, onDelete: 'SET NULL', onUpdate: 'CASCADE' },
   )
-  chairingSessions?: SessionEntity[];
+  chairingSessions: SessionEntity[];
+
+  @OneToMany(
+    () => SessionItemEntity,
+    (entity: SessionItemEntity) => entity.presenter,
+  )
+  presentingSessions: SessionItemEntity[];
+
+  @Column({ nullable: true })
+  nic?: string;
+  
+  @Column({ name: 'presenting_sessions', type: 'simple-array', nullable: true })
+  presentingSessionIds?: string[];
+
+  @Column({ nullable: true })
+  institute: string;
+
+  @Column({ nullable: true })
+  registered: boolean;
 
   // @BeforeUpdate()
   // updateSessions() {
