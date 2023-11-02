@@ -20,7 +20,7 @@ function HomePageCard({ name, route }: Props) {
 }
 
 export default function HomePageCards() {
-  const cards: Props[] = [{ name: 'Check In', route: '/check-in' }, { name: 'Program', route: '/program' }, { name: 'Sessions', route: '/sessions' }, { name: 'Search', route: '/search-sessions' }];
+  const cards: Props[] = [{ name: 'Scan QR', route: '/scan-qr' }, { name: 'Program', route: '/program' }, { name: 'Sessions', route: '/sessions' }, { name: 'Search', route: '/search-sessions' }];
 
   return (
     <>

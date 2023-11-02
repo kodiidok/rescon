@@ -54,7 +54,7 @@ export default function Page() {
     <div className="px-10">
       {/* <Banner /> */}
       <div className="flex flex-col md:flex-row gap-5 w-full justify-center">
-        {isMobile ? (
+        {isMobile && (
           // Show QR code scanner for mobile
           <QrReader
             onResult={(result: any, error: any) => {
@@ -71,21 +71,23 @@ export default function Page() {
               facingMode: 'environment'
             }}
           />
-        ) : (
-          // Show image for larger screens
-          <Image src="QR/regQR.svg" width={400} height={400} />
-        )}
+        ) 
+        // : (
+        //   // Show image for larger screens
+        //   <Image src="QR/regQR.svg" width={400} height={400} />
+        // )
+        }
         <div className="flex flex-col justify-center">
           <h1 className="text-5xl font-semibold my-4">Registration</h1>
           <p className="text-lg mb-2">
-            Scan the QR code to access the registration portal.
+            Scan the QR code at the <span className="font-bold">registration desk</span>
           </p>
           <p className="text-sm text-gray-600">
-            Make sure to have your details ready for a smooth registration process.
+            Make sure to give permisssion to use the camera from the device to complete the registration process.
           </p>
-          <button className="bg-green-500 font-semibold text-gray-900 px-4 py-2 rounded mt-5" onClick={() => handleButtonClick('/check-in')}>
+          {/* <button className="bg-green-500 font-semibold text-gray-900 px-4 py-2 rounded mt-5" onClick={() => handleButtonClick('/check-in')}>
             Next
-          </button>
+          </button> */}
         </div>
       </div>
     </div >
