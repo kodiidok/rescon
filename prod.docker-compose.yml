@@ -14,7 +14,7 @@ services:
       - common-net
 
   backend:
-    image: sahancrk/rescon-server:2.0
+    image: sahancrk/rescon-server:3.0
     container_name: rescon-server
     ports:
       - "3333:3333"
@@ -24,7 +24,7 @@ services:
       - common-net
 
   frontend:
-    image: sahancrk/rescon-ui:3.0
+    image: sahancrk/rescon-ui:3.1
     container_name: rescon-ui
     ports:
       - "3000:3000"
