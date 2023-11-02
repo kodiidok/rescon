@@ -11,6 +11,7 @@ export default function Page() {
   const router = useRouter();
   const [qrCodeData, setQrCodeData] = useState('');
   const [isMobile, setIsMobile] = useState(true);
+  const [correctQR, setCorrectQR] = useState(false);
 
   const handleButtonClick = (route: string) => {
     router.push(route);
@@ -22,9 +23,10 @@ export default function Page() {
 
       // Check if the scanned QR code data matches the expected URL
       if (data === expectedURL) {
+        setCorrectQR(true);
         router.push('/check-in');
       } else {
-        console.log('BAD URL');
+        setCorrectQR(false);
       }
     }
   };
@@ -67,15 +69,18 @@ export default function Page() {
               }
             }}
             className="w-full"
+            scanDelay={100}
             constraints={{
-              facingMode: 'environment'
+              facingMode: 'environment',
+              autoGainControl: true,
+              aspectRatio: 1,
             }}
           />
-        ) 
-        // : (
-        //   // Show image for larger screens
-        //   <Image src="QR/regQR.svg" width={400} height={400} />
-        // )
+        )
+          // : (
+          //   // Show image for larger screens
+          //   <Image src="QR/regQR.svg" width={400} height={400} />
+          // )
         }
         <div className="flex flex-col justify-center">
           <h1 className="text-5xl font-semibold my-4">Registration</h1>
@@ -85,9 +90,9 @@ export default function Page() {
           <p className="text-sm text-gray-600">
             Make sure to give permisssion to use the camera from the device to complete the registration process.
           </p>
-          {/* <button className="bg-green-500 font-semibold text-gray-900 px-4 py-2 rounded mt-5" onClick={() => handleButtonClick('/check-in')}>
+          {correctQR && (<button className="bg-green-500 font-semibold text-gray-900 px-4 py-2 rounded mt-5" onClick={() => handleButtonClick('/check-in')}>
             Next
-          </button> */}
+          </button>)}
         </div>
       </div>
     </div >
