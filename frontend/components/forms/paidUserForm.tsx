@@ -12,7 +12,7 @@ const PaidUserForm: React.FC<Props> = ({ role }: Props) => {
   const router = useRouter();
 
   const handleGoBack = () => {
-    router.push('/scan-qr/check-in');
+    router.push('/check-in');
   };
 
   return (

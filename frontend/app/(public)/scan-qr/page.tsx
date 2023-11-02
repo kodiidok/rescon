@@ -24,7 +24,7 @@ export default function Page() {
           <p className="text-sm text-gray-600">
             Make sure to have your details ready for a smooth registration process.
           </p>
-          <button className="bg-green-500 font-semibold text-gray-900 px-4 py-2 rounded mt-5" onClick={() => handleButtonClick('/scan-qr/check-in')}>
+          <button className="bg-green-500 font-semibold text-gray-900 px-4 py-2 rounded mt-5" onClick={() => handleButtonClick('/check-in')}>
             Next
           </button>
         </div>
