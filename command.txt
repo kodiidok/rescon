@@ -38,8 +38,8 @@ docker tag rescon-server:2.0 sahancrk/rescon-server:2.0
 docker push sahancrk/rescon-server:2.0
 docker pull sahancrk/rescon-server:2.0
 
-docker build --no-cache -t rescon-ui:2.5 -f Dockerfile .
-docker build -t rescon-ui:2.5 -f Dockerfile .
-docker tag rescon-ui:2.5 sahancrk/rescon-ui:2.5
-docker push sahancrk/rescon-ui:2.5
-docker pull sahancrk/rescon-ui:2.5
+docker build --no-cache -t rescon-ui:3.0 -f Dockerfile .
+docker build -t rescon-ui:3.0 -f Dockerfile .
+docker tag rescon-ui:3.0 sahancrk/rescon-ui:3.0
+docker push sahancrk/rescon-ui:3.0
+docker pull sahancrk/rescon-ui:3.0
