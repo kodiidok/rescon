@@ -47,6 +47,10 @@ export const siteConfig = {
 	],
 	navMenuItems: [
 		{
+			label: "Home",
+			href: "/",
+		},
+		{
 			label: "Scan QR",
 			href: "/scan-qr",
 		},

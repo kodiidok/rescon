@@ -3,11 +3,13 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "cdev": "node server.js",
-    "build": "next build",
-    "start": "next start",
-    "cstart": "NODE_ENV=production node server.js",
+    "dev:next": "next dev",
+    "build:next": "next build",
+    "start:next": "next start",
+    "dev:server": "node server/index.js",
+    "build:server": "tsc --project tsconfig.server.json",
+    "start:server": "NODE_ENV=production node dist/index.js",
+    "build": "npm run build:next && npm run build:server",
     "lint": "next lint"
   },
   "dependencies": {

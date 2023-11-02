@@ -13,7 +13,7 @@ import {
   Tab,
 } from "@nextui-org/react";
 import { useState, useEffect } from "react";
-import { getSessionByDate } from "@/config/api";
+// import { getSessionByDate } from "@/config/api";
 // import { getSessionByCategory } from "@/config/api";
 import { button } from "@nextui-org/theme";
 import { SearchResult } from "../search/search";
@@ -52,6 +52,14 @@ export default function Program() {
 
 
   let debounceTimer: NodeJS.Timeout;
+
+  async function getSessionByDate(date: string) {
+    const res = await fetch(`/api/sessions/date/${date}`);
+    if (!res.ok) {
+      throw new Error("Failed to fetch session data");
+    }
+    return res.json();
+  }
 
   useEffect(() => {
     const fetchData = async () => {

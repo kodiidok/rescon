@@ -3,7 +3,7 @@
 import { Input } from "@nextui-org/input";
 import { useState, useEffect } from "react";
 import { Button } from "@nextui-org/button";
-import { searchSessionItems } from "@/config/api";
+// import { searchSessionItems } from "@/config/api";
 import SearchCard from "./searchCard";
 // import mockdata from "@/components/mock/abstracts.json";
 
@@ -43,6 +43,15 @@ export const Search = () => {
      * full text search algorithm
      */
     clearTimeout(debounceTimer);
+
+    async function searchSessionItems(query: string) {
+      const queryString = encodeURIComponent(query);
+      const res = await fetch(`/api/session-items/search?q=${queryString}`);
+      if (!res.ok) {
+        throw new Error("Failed to search session item data");
+      }
+      return res.json();
+    }
 
     debounceTimer = setTimeout(async () => {
       if (searchQuery) {

@@ -14,7 +14,8 @@ RUN npm install
 COPY . .
 
 # Run the build command
-RUN npm run build
+RUN npm run build:next
+RUN npm run build:next
 
 # Expose the port on which the application will run
 EXPOSE 3000
@@ -26,4 +27,4 @@ EXPOSE 3000
 ENV API=https://139.59.24.47:3333
 
 # Command to run the application
-CMD ["npm", "run", "start"]
+CMD ["npm", "run", "start:server"]
