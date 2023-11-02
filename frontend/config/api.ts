@@ -1,6 +1,6 @@
 /** url of the backend api */
 export const api =
-  process.env["API"] ?? "http://139.59.24.47:3333" ?? "http://localhost:3333";
+  process.env["API"] ?? "https://139.59.24.47:3333" ?? "http://localhost:3333";
 
 /** api hanlders to get paginated data */
 
