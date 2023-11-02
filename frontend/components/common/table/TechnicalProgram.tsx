@@ -42,7 +42,7 @@ interface Session {
   sessionItems: SearchResult[];
 }
 
-export default function Program() {
+export default function TechnicalProgram() {
   const [category, setCategory] = useState("Life Sciences");
   const [date, setDate] = useState("2023-11-03");
   // const [sessionItems, setSessionItems] = useState<SearchResult[]>([]);
@@ -108,7 +108,7 @@ export default function Program() {
         <div className="flex gap-3 items-center">
           <Button className={`font-semibold text-lg ${btnActive ? 'bg-slate-300 text-gray-900' : ''}`} onClick={() => handleDateSelect("2023-11-03")}>3rd</Button>
           <Button className={`font-semibold text-lg ${!btnActive ? 'bg-slate-300 text-gray-900' : ''}`} onClick={() => handleDateSelect("2023-11-04")}>4th</Button>
-          <h2 className="text-2xl md:text-tiny">of November</h2>
+          <h2 className="text-2xl font-semibold">of November</h2>
         </div>
       </div>
 
@@ -120,14 +120,13 @@ export default function Program() {
                 sessionId={sessionArray.sessionId}
                 location={sessionArray.location}
                 sessionChairs={sessionArray.sessionChairs}
-                time={[sessionArray.startTime, sessionArray.endTime].join('-')}
               ></TableTitle>
-              {/* {
+              {
                 sessionArray.sessionItems &&
                   sessionArray.sessionItems.length > 0 ?
                   <SessionTable data={sessionArray.sessionItems} /> :
                   "No session items available"
-              } */}
+              }
             </div>
           ))
           : "No session results available"}

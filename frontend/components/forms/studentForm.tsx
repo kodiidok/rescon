@@ -17,8 +17,8 @@ const StudentForm: React.FC<Props> = ({ role }: Props) => {
 
   return (
     <div className="mt-8">
-      <div className="mb-5 p-2 rounded-md text-3xl font-semibold text-center bg-purple-500">
-        <h1>{role}</h1>
+      <div className="mb-5 p-2 rounded-md text-3xl text-gray-900 font-semibold text-center bg-yellow-500">
+        <h1>Student of Faculty of Science</h1>
       </div>
       <h2 className="text-2xl font-semibold mb-4">Enter Your Details</h2>
       <Input label="Name" placeholder="Enter your name" className="mb-4" />
