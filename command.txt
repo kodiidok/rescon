@@ -32,13 +32,14 @@ docker run -d \
 rescon-server:1.0
 
 
-docker build --no-cache -t rescon-server:1.0 -f Dockerfile .
-docker tag rescon-server:1.0 sahancrk/rescon-server:1.0
-docker push sahancrk/rescon-server:1.0
-docker pull sahancrk/rescon-server:1.0
+docker build --no-cache -t rescon-server:2.0 -f Dockerfile .
+docker build -t rescon-server:2.0 -f Dockerfile .
+docker tag rescon-server:2.0 sahancrk/rescon-server:2.0
+docker push sahancrk/rescon-server:2.0
+docker pull sahancrk/rescon-server:2.0
 
-docker build --no-cache -t rescon-ui:2.3 -f Dockerfile .
-docker build -t rescon-ui:2.3 -f Dockerfile .
-docker tag rescon-ui:2.3 sahancrk/rescon-ui:2.3
-docker push sahancrk/rescon-ui:2.3
-docker pull sahancrk/rescon-ui:2.3
+docker build --no-cache -t rescon-ui:2.5 -f Dockerfile .
+docker build -t rescon-ui:2.5 -f Dockerfile .
+docker tag rescon-ui:2.5 sahancrk/rescon-ui:2.5
+docker push sahancrk/rescon-ui:2.5
+docker pull sahancrk/rescon-ui:2.5

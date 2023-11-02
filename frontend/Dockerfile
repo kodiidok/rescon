@@ -23,7 +23,7 @@ EXPOSE 3000
 # ARG API_URL
 # ENV API=$API_URL
 
-ENV API=http://139.59.24.47:3333
+ENV API=https://139.59.24.47:3333
 
 # Command to run the application
 CMD ["npm", "run", "start"]

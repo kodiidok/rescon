@@ -1,12 +1,11 @@
 /** url of the backend api */
-export const api =
-  process.env["API"] ?? "https://139.59.24.47:3333" ?? "http://localhost:3333";
+// export const api =
+//   process.env["API"] ?? "http://139.59.24.47:3333" ?? "http://localhost:3333";
 
 /** api hanlders to get paginated data */
 
 export async function getAllUsers(page: number, pageSize: number) {
-  console.log(api);
-  const res = await fetch(`${api}/users?page=${page}&limit=${pageSize}`);
+  const res = await fetch(`/api/users?page=${page}&limit=${pageSize}`);
   if (!res.ok) {
     throw new Error("Failed to fetch user data");
   }
@@ -14,7 +13,7 @@ export async function getAllUsers(page: number, pageSize: number) {
 }
 
 export async function getAllRoles(page: number, pageSize: number) {
-  const res = await fetch(`${api}/roles?page=${page}&limit=${pageSize}`);
+  const res = await fetch(`/api/roles?page=${page}&limit=${pageSize}`);
   if (!res.ok) {
     throw new Error("Failed to fetch role data");
   }
@@ -23,7 +22,7 @@ export async function getAllRoles(page: number, pageSize: number) {
 
 export async function getAllSessionItems(page: number, pageSize: number) {
   const res = await fetch(
-    `${api}/session-items?page=${page}&limit=${pageSize}`
+    `/api/session-items?page=${page}&limit=${pageSize}`
   );
   if (!res.ok) {
     throw new Error("Failed to fetch session item data");
@@ -32,7 +31,7 @@ export async function getAllSessionItems(page: number, pageSize: number) {
 }
 
 export async function getAllSessions(page: number, pageSize: number) {
-  const res = await fetch(`${api}/sessions?page=${page}&limit=${pageSize}`);
+  const res = await fetch(`/api/sessions?page=${page}&limit=${pageSize}`);
   if (!res.ok) {
     throw new Error("Failed to fetch session data");
   }
@@ -42,7 +41,7 @@ export async function getAllSessions(page: number, pageSize: number) {
 /** api handlers to get data by id */
 
 export async function getUserById(id: string) {
-  const res = await fetch(`${api}/users/${id}`);
+  const res = await fetch(`/api/users/${id}`);
   if (!res.ok) {
     throw new Error("Failed to fetch user data");
   }
@@ -50,7 +49,7 @@ export async function getUserById(id: string) {
 }
 
 export async function getRoleById(id: string) {
-  const res = await fetch(`${api}/roles/${id}`);
+  const res = await fetch(`/api/roles/${id}`);
   if (!res.ok) {
     throw new Error("Failed to fetch role data");
   }
@@ -58,7 +57,7 @@ export async function getRoleById(id: string) {
 }
 
 export async function getSessionById(id: string) {
-  const res = await fetch(`${api}/sessions/${id}`);
+  const res = await fetch(`/api/sessions/${id}`);
   if (!res.ok) {
     throw new Error("Failed to fetch session data");
   }
@@ -66,7 +65,7 @@ export async function getSessionById(id: string) {
 }
 
 export async function getSessionItemById(id: string) {
-  const res = await fetch(`${api}/session-items/${id}`);
+  const res = await fetch(`/api/session-items/${id}`);
   if (!res.ok) {
     throw new Error("Failed to fetch session-item data");
   }
@@ -74,7 +73,7 @@ export async function getSessionItemById(id: string) {
 }
 
 export async function getSessionItemByAbstractId(id: number) {
-  const res = await fetch(`${api}/session-items/abstract/${id}`);
+  const res = await fetch(`/api/session-items/abstract/${id}`);
   if (!res.ok) {
     throw new Error("Failed to fetch session-item data");
   }
@@ -82,7 +81,7 @@ export async function getSessionItemByAbstractId(id: number) {
 }
 
 export async function getSessionItemBySessionId(id: string) {
-  const res = await fetch(`${api}/session-items/session/${id}`);
+  const res = await fetch(`/api/session-items/session/${id}`);
   if (!res.ok) {
     throw new Error("Failed to fetch session-item data");
   }
@@ -90,7 +89,7 @@ export async function getSessionItemBySessionId(id: string) {
 }
 
 export async function getSessionByCategory(category: string) {
-  const res = await fetch(`${api}/sessions/category/${category}`);
+  const res = await fetch(`/api/sessions/category/${category}`);
   if (!res.ok) {
     throw new Error("Failed to fetch session data");
   }
@@ -98,7 +97,7 @@ export async function getSessionByCategory(category: string) {
 }
 
 export async function getSessionByDate(date: string) {
-  const res = await fetch(`${api}/sessions/date/${date}`);
+  const res = await fetch(`/api/sessions/date/${date}`);
   if (!res.ok) {
     throw new Error("Failed to fetch session data");
   }
@@ -108,7 +107,7 @@ export async function getSessionByDate(date: string) {
 /** post request handlers */
 
 export async function postUserData(data: any) {
-  const res = await fetch(`${api}/users`, {
+  const res = await fetch(`/api/users`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -122,7 +121,7 @@ export async function postUserData(data: any) {
 }
 
 export async function postRoleData(data: any) {
-  const res = await fetch(`${api}/roles`, {
+  const res = await fetch(`/api/roles`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -136,7 +135,7 @@ export async function postRoleData(data: any) {
 }
 
 export async function postSessionItemData(data: any) {
-  const res = await fetch(`${api}/users`, {
+  const res = await fetch(`/api/users`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -150,7 +149,7 @@ export async function postSessionItemData(data: any) {
 }
 
 export async function postSessionData(data: any) {
-  const res = await fetch(`${api}/users`, {
+  const res = await fetch(`/api/users`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -170,7 +169,7 @@ export async function postSessionData(data: any) {
 /** search handler */
 export async function searchSessionItems(query: string) {
   const queryString = encodeURIComponent(query);
-  const res = await fetch(`${api}/session-items/search?q=${queryString}`);
+  const res = await fetch(`/api/session-items/search?q=${queryString}`);
   if (!res.ok) {
     throw new Error("Failed to search session item data");
   }
