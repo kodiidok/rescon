@@ -67,4 +67,30 @@ export class UserService {
       throw new Error(`Failed to delete user: ${error}`);
     }
   }
+
+  async searchUsers(query: string): Promise<UserEntity[]> {
+    const words = query.split(' ');
+
+    const queryBuilder = this.userRepository.createQueryBuilder('users');
+
+    // For other cases, perform a general search
+    queryBuilder.where(
+      words
+        .map(
+          (word, index) =>
+            `(LOWER(users.name) LIKE LOWER(:word${index}) OR users.email LIKE LOWER(:word${index}) OR :word${index} = ANY(STRING_TO_ARRAY(users.presenting_sessions, ',')) OR CAST(users.presenting_sessions AS TEXT) = :word${index})`,
+        )
+        .join(' OR '), // Use OR between the conditions
+      words.reduce(
+        (params, word, index) => ({
+          ...params,
+          [`word${index}`]: `%${word}%`,
+        }),
+        {},
+      ),
+    );
+
+    const results = await queryBuilder.getMany();
+    return results;
+  }
 }

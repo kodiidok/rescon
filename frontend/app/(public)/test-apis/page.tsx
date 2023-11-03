@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 
-export default async function Page() {
+export default function Page() {
   const [users, setUsers] = useState<any>([]);
 
   const data = {

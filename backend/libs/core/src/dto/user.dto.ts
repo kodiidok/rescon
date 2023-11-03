@@ -31,6 +31,12 @@ export class CreateUserDto {
 
   @ApiProperty({ nullable: true, default: false })
   registered?: boolean;
+
+  @ApiProperty({ nullable: true })
+  registeredAt: string;
+
+  @ApiProperty({ nullable: true })
+  studentRegNo: string;
 }
 
 export class UpdateUserDto {
@@ -63,4 +69,10 @@ export class UpdateUserDto {
 
   @ApiProperty({ nullable: true })
   registered?: boolean;
+
+  @ApiProperty({ nullable: true })
+  registeredAt: string;
+
+  @ApiProperty({ nullable: true })
+  studentRegNo: string;
 }

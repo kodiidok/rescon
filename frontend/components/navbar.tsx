@@ -101,6 +101,7 @@ export const Navbar = () => {
 					<GithubIcon className="text-default-500" />
 				</Link>
 				<ThemeSwitch /> */}
+				<p className="font-semibold">Menu</p>
 				<NavbarMenuToggle />
 			</NavbarContent>
 

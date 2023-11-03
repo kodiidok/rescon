@@ -58,7 +58,7 @@ export class UserEntity extends BaseEntity {
 
   @Column({ nullable: true })
   nic: string;
-  
+
   @Column({ name: 'presenting_sessions', type: 'simple-array', nullable: true })
   presentingSessionIds: string[];
 
@@ -67,6 +67,15 @@ export class UserEntity extends BaseEntity {
 
   @Column({ nullable: true })
   registered: boolean;
+
+  @Column({ nullable: true })
+  registeredAt: string;
+
+  @Column({ nullable: true })
+  studentRegNo: string;
+
+  // @Column({ type: 'simple-array', nullable: true })
+  // temp: string[];
 
   // @BeforeUpdate()
   // updateSessions() {

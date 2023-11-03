@@ -75,10 +75,10 @@ export const Search = () => {
           // If the search query has multiple words
           // Check if any part of searchQuery is included in title, presenter, or abstractId
           return searchWords.some((word) =>
-              isPartialWordIncluded(item.sessionId, word) ||
-              isPartialWordIncluded(item.title, word) ||
-              isPartialWordIncluded(String(item.abstractId), word)
-            );
+            isPartialWordIncluded(item.sessionId, word) ||
+            isPartialWordIncluded(item.title, word) ||
+            isPartialWordIncluded(String(item.abstractId), word)
+          );
         });
 
         setSearchResults(filteredResults);
@@ -90,6 +90,12 @@ export const Search = () => {
         }, 20000);
       }
     }, 1000); // Debounce time set to 1000 milliseconds
+  };
+
+  const handleKeyDown = (e: any) => {
+    if (e.code === "Enter") {
+      handleSearch();
+    }
   };
 
   useEffect(() => {
@@ -122,6 +128,7 @@ export const Search = () => {
           setSearchQuery(e.target.value);
           // handleSearch();
         }}
+        onKeyDown={handleKeyDown}
       />
       <Button style={{ width: '100%' }} className="hover:bg-lime-500 hover:text-gray-800 font-semibold text-xl" onClick={handleSearch}>Search</Button>
 

@@ -19,14 +19,14 @@ docker build -t rescon-ui:1.0 -f frontend/Dockerfile .
 docker-compose up -d
 
 
-docker build --no-cache -t rescon-server:3.0 -f Dockerfile .
-docker build -t rescon-server:3.0 -f Dockerfile .
-docker tag rescon-server:3.0 sahancrk/rescon-server:3.0
-docker push sahancrk/rescon-server:3.0
-docker pull sahancrk/rescon-server:3.0
+docker build --no-cache -t rescon-server:4.0 -f Dockerfile .
+docker build -t rescon-server:4.0 -f Dockerfile .
+docker tag rescon-server:4.0 sahancrk/rescon-server:4.0
+docker push sahancrk/rescon-server:4.0
+docker pull sahancrk/rescon-server:4.0
 
-docker build --no-cache -t rescon-ui:3.1 -f Dockerfile .
-docker build -t rescon-ui:3.1 -f Dockerfile .
-docker tag rescon-ui:3.1 sahancrk/rescon-ui:3.1
-docker push sahancrk/rescon-ui:3.1
-docker pull sahancrk/rescon-ui:3.1
+docker build --no-cache -t rescon-ui:4.0 -f Dockerfile .
+docker build -t rescon-ui:4.0 -f Dockerfile .
+docker tag rescon-ui:4.0 sahancrk/rescon-ui:4.0
+docker push sahancrk/rescon-ui:4.0
+docker pull sahancrk/rescon-ui:4.0
