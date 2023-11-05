@@ -3,7 +3,7 @@
 import { Input } from "@nextui-org/input";
 import { useState, useEffect } from "react";
 import { Button } from "@nextui-org/button";
-import { searchSessionItems } from "@/config/api";
+// import { searchSessionItems } from "@/config/api";
 import SearchCard from "./searchCard";
 // import mockdata from "@/components/mock/abstracts.json";
 
@@ -12,7 +12,7 @@ export interface SearchResult {
   time: string;
   abstractId: number;
   title: string;
-  presenter: string;
+  presenterId: string;
   day: string;
   sessionId: string;
   sessionChairs: any[];
@@ -44,31 +44,41 @@ export const Search = () => {
      */
     clearTimeout(debounceTimer);
 
+    async function searchSessionItems(query: string) {
+      const queryString = encodeURIComponent(query);
+      const res = await fetch(`/api/session-items/search?q=${queryString}`);
+      if (!res.ok) {
+        throw new Error("Failed to search session item data");
+      }
+      return res.json();
+    }
+
     debounceTimer = setTimeout(async () => {
       if (searchQuery) {
         const results = await searchSessionItems(searchQuery);
         const searchWords = searchQuery.toLowerCase().split(' ');
         // const results = mockdata;
+
+        // Check if the search query is a single number
+        const isSingleNumber = !isNaN(Number(searchQuery)) && searchWords.length === 1;
+
         const filteredResults = results.filter((item: any) => {
           // Function to check if any part of a word is included in another word
           const isPartialWordIncluded = (fullWord: string, partialWord: string) =>
             fullWord.toLowerCase().includes(partialWord.toLowerCase());
 
+          // If the search query is a single word, perform an exact match on the search words
+          if (searchWords.length === 1 && isSingleNumber) {
+            return searchWords.includes(String(item.abstractId));
+          }
+
+          // If the search query has multiple words
           // Check if any part of searchQuery is included in title, presenter, or abstractId
-          const isMatch =
-            searchWords.some((word) =>
-              isPartialWordIncluded(item.sessionId, word) ||
-              isPartialWordIncluded(item.title, word) ||
-              isPartialWordIncluded(String(item.abstractId), word) ||
-              isPartialWordIncluded(item.presenter, word)
-            );
-
-          // If searchQuery is a number, check if it's included in abstractId
-          const isNumberMatch =
-            !isNaN(Number(searchQuery)) &&
-            String(item.abstractId).includes(searchQuery);
-
-          return isMatch || isNumberMatch;
+          return searchWords.some((word) =>
+            isPartialWordIncluded(item.sessionId, word) ||
+            isPartialWordIncluded(item.title, word) ||
+            isPartialWordIncluded(String(item.abstractId), word)
+          );
         });
 
         setSearchResults(filteredResults);
@@ -80,6 +90,12 @@ export const Search = () => {
         }, 20000);
       }
     }, 1000); // Debounce time set to 1000 milliseconds
+  };
+
+  const handleKeyDown = (e: any) => {
+    if (e.code === "Enter") {
+      handleSearch();
+    }
   };
 
   useEffect(() => {
@@ -104,7 +120,7 @@ export const Search = () => {
   }, [showNoResults]);
 
   return (
-    <div style={{width: '90vw', maxWidth: '63rem'}} className="flex flex-col gap-3 px-5 items-center">
+    <div style={{ width: '90vw', maxWidth: '63rem' }} className="flex flex-col gap-3 px-5 items-center">
       <Input
         placeholder="Search by title, abstract id, or presenter"
         value={searchQuery}
@@ -112,8 +128,9 @@ export const Search = () => {
           setSearchQuery(e.target.value);
           // handleSearch();
         }}
+        onKeyDown={handleKeyDown}
       />
-      <Button style={{width: '100%'}} className="hover:bg-lime-500 hover:text-gray-800 font-semibold text-xl" onClick={handleSearch}>Search</Button>
+      <Button style={{ width: '100%' }} className="hover:bg-lime-500 hover:text-gray-800 font-semibold text-xl" onClick={handleSearch}>Search</Button>
 
       {/* Display search results or a message if no results */}
       {searchQuery && searchResults.length > 0

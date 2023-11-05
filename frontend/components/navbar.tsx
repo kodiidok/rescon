@@ -64,10 +64,10 @@ export const Navbar = () => {
 					{siteConfig.navItems.map((item) => (
 						<NavbarItem key={item.href}>
 							<NextLink
-								className={clsx(
-									linkStyles({ color: "foreground" }),
-									"data-[active=true]:text-primary data-[active=true]:font-medium"
-								)}
+								// className={clsx(
+								// 	linkStyles({ color: "foreground" }),
+								// 	"data-[active=true]:text-primary data-[active=true]:font-medium"
+								// )}
 								color="foreground"
 								href={item.href}
 							>
@@ -101,6 +101,7 @@ export const Navbar = () => {
 					<GithubIcon className="text-default-500" />
 				</Link>
 				<ThemeSwitch /> */}
+				<p className="font-semibold">Menu</p>
 				<NavbarMenuToggle />
 			</NavbarContent>
 
@@ -110,14 +111,16 @@ export const Navbar = () => {
 					{siteConfig.navMenuItems.map((item, index) => (
 						<NavbarMenuItem key={`${item}-${index}`}>
 							<Link
-								color={
-									index === 2
-										? "primary"
-										: index === siteConfig.navMenuItems.length - 1
-											? "danger"
-											: "foreground"
-								}
-								href="#"
+								// color={
+								// 	index === 2
+								// 		? "primary"
+								// 		: index === siteConfig.navMenuItems.length - 1
+								// 			? "danger"
+								// 			: "foreground"
+								// }
+								color="foreground"
+								style={{fontFamily: "inherit", fontWeight: "500"}}
+								href={item.href}
 								size="lg"
 							>
 								{item.label}

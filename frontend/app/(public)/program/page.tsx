@@ -1,8 +1,7 @@
-import Program from "@/components/common/table/Program";
 import React from "react";
-
+import TechnicalProgram from "@/components/common/table/TechnicalProgram";
 const page = () => {
-  return <Program />
+  return <TechnicalProgram />;
 };
 
 export default page;

@@ -36,6 +36,11 @@ export class UserController {
     }
   }
 
+  @Get('search')
+  async searchUsers(@Query('q') query: string) {
+    return this.userService.searchUsers(query);
+  }
+
   @Get(':id')
   async findOne(@Param('id') id: string): Promise<UserEntity | undefined> {
     try {
@@ -62,8 +67,8 @@ export class UserController {
       if (Array.isArray(createUserDto)) {
         // If an array is provided, create multiple entities
         const createdUsers = await Promise.all(
-          createUserDto.map((sessionDto) =>
-            this.userService.create(sessionDto),
+          createUserDto.map((userDto) =>
+            this.userService.create(userDto),
           ),
         );
         return createdUsers;

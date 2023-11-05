@@ -11,7 +11,7 @@ export class CreateSessionItemDto {
   title: string;
 
   @ApiProperty()
-  presenter: string;
+  presenterId: string;
 
   @ApiProperty({ required: true })
   abstractId: number;
@@ -34,7 +34,7 @@ export class UpdateSessionItemDto {
   title: string;
   
   @ApiProperty({ nullable: true })
-  presenter: string;
+  presenterId: string;
 
   @ApiProperty({ nullable: true })
   abstractId: number;

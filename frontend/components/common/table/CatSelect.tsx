@@ -30,17 +30,19 @@ const CatSelect: React.FC<CatSelectProps> = ({
 
   const handlePrev = () => {
     const currentIndex = categories.indexOf(selectedCat);
-    const newIndex = currentIndex - 1 >= 0 ? currentIndex - 1 : 0;
+    const newIndex = currentIndex === 0 ? currentIndex - 1 : categories.length - 1;
     const newCategory = categories[newIndex];
 
     onCategoryChange(newCategory);
+    console.log(newIndex);
   };
   const handleNext = () => {
     const currentIndex = categories.indexOf(selectedCat);
-    const newIndex = currentIndex + 1 >= categories.length ? categories.length - 1 : currentIndex + 1;
+    const newIndex = currentIndex === categories.length - 1 ? 0 : currentIndex + 1;
     const newCategory = categories[newIndex];
 
     onCategoryChange(newCategory);
+    console.log(newIndex);
   };
 
   return (

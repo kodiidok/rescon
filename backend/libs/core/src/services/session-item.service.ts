@@ -18,6 +18,9 @@ export class SessionItemService {
       const options: FindManyOptions<SessionItemEntity> = {
         take: pageSize,
         skip: (page - 1) * pageSize,
+        relations: {
+          presenter: true,
+        },
       };
 
       const [data, count] = await this.sessionItemRepository.findAndCount(
@@ -35,7 +38,12 @@ export class SessionItemService {
 
   async findOne(id: string): Promise<SessionItemEntity | undefined> {
     try {
-      return await this.sessionItemRepository.findOne({ where: { id } });
+      return await this.sessionItemRepository.findOne({
+        where: { id },
+        relations: {
+          presenter: true,
+        },
+      });
     } catch (error) {
       throw new Error(`Failed to fetch session item: ${error}`);
     }
@@ -78,6 +86,9 @@ export class SessionItemService {
     try {
       return await this.sessionItemRepository.find({
         where: { abstractId },
+        relations: {
+          presenter: true,
+        },
       });
     } catch (error) {
       throw new Error(`Failed to fetch session items: ${error}`);
@@ -88,6 +99,9 @@ export class SessionItemService {
     try {
       return await this.sessionItemRepository.find({
         where: { sessionId },
+        relations: {
+          presenter: true,
+        },
       });
     } catch (error) {
       throw new Error(`Failed to fetch session items: ${error}`);
@@ -105,7 +119,7 @@ export class SessionItemService {
         words
           .map(
             (word, index) =>
-              `(LOWER(sessions.title) LIKE LOWER(:word${index}) OR LOWER(sessions.presenter) LIKE LOWER(:word${index}) OR CAST(sessions.session_id AS TEXT) LIKE LOWER(:word${index}) OR CAST(sessions.abstract_id AS TEXT) LIKE LOWER(:word${index}))`,
+              `(LOWER(sessions.title) LIKE LOWER(:word${index}) OR CAST(sessions.session_id AS TEXT) LIKE LOWER(:word${index}) OR CAST(sessions.abstract_id AS TEXT) LIKE LOWER(:word${index}))`,
           )
           .join(' OR '), // Use OR between the conditions
         words.reduce(

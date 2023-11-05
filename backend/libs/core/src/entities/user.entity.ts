@@ -13,6 +13,7 @@ import * as bcrypt from 'bcrypt';
 import { VerificationCode } from './verification-codes.entity';
 import { BaseEntity } from './base.entity';
 import { SessionEntity } from './session.entity';
+import { SessionItemEntity } from './session-item.entity';
 
 @Entity('users')
 export class UserEntity extends BaseEntity {
@@ -20,7 +21,7 @@ export class UserEntity extends BaseEntity {
   username?: string;
 
   @Column()
-  email?: string;
+  email: string;
 
   @Column()
   password!: string;
@@ -30,24 +31,51 @@ export class UserEntity extends BaseEntity {
   }
 
   @Column({ nullable: true })
-  name?: string;
+  name: string;
 
   @ManyToOne((type) => RoleEntity)
   @JoinColumn({ name: 'role_name', referencedColumnName: 'name' })
-  role?: RoleEntity;
+  role: RoleEntity;
 
   @Column({ name: 'role_name', nullable: true })
-  roleName?: string;
+  roleName: string;
 
   @Column({ name: 'chairing_sessions', type: 'simple-array', nullable: true })
-  chairingSessionIds?: string[];
+  chairingSessionIds: string[];
 
   @ManyToMany(
     () => SessionEntity,
     (entity: SessionEntity) => entity.sessionChairs,
     { nullable: true, onDelete: 'SET NULL', onUpdate: 'CASCADE' },
   )
-  chairingSessions?: SessionEntity[];
+  chairingSessions: SessionEntity[];
+
+  @OneToMany(
+    () => SessionItemEntity,
+    (entity: SessionItemEntity) => entity.presenter,
+  )
+  presentingSessions: SessionItemEntity[];
+
+  @Column({ nullable: true })
+  nic: string;
+
+  @Column({ name: 'presenting_sessions', type: 'simple-array', nullable: true })
+  presentingSessionIds: string[];
+
+  @Column({ nullable: true })
+  institute: string;
+
+  @Column({ nullable: true })
+  registered: boolean;
+
+  @Column({ nullable: true })
+  registeredAt: string;
+
+  @Column({ nullable: true })
+  studentRegNo: string;
+
+  // @Column({ type: 'simple-array', nullable: true })
+  // temp: string[];
 
   // @BeforeUpdate()
   // updateSessions() {

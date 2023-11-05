@@ -1,7 +1,7 @@
 export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
-	name: "RESCON23",
+	name: "RESCON 23",
 	description: "The Premier Postgraduate Research Congress of Sri Lanka.",
 	navItems: [
 		{
@@ -46,6 +46,10 @@ export const siteConfig = {
 		// },
 	],
 	navMenuItems: [
+		{
+			label: "Home",
+			href: "/",
+		},
 		{
 			label: "Scan QR",
 			href: "/scan-qr",

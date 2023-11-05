@@ -1,14 +1,23 @@
 import * as fs from 'fs';
 import {
   convertTimeRange,
+  extractAbstractIds,
   mapChairPersonData,
   mapPanalDiscussionData,
+  mapParticipantData,
   mapPlenaryTalkData,
   mapSessionData,
   mapSessionItemData,
   splitZoom,
+  toReversed,
 } from './mapper';
-import { csv_panaldiscussions, csv_plenarytalks, csv_sessionitems, csv_sessions } from './filepaths';
+import {
+  csv_paidusers,
+  csv_panaldiscussions,
+  csv_plenarytalks,
+  csv_sessionitems,
+  csv_sessions,
+} from './filepaths';
 
 export function readFile<T>(
   filepath: string,
@@ -78,32 +87,32 @@ export function readFile<T>(
 //   });
 
 /** read session-items.csv file and parse data */
-readFile(csv_sessionitems, (lines) => {
-  const dataLines = lines.slice(1);
-  return dataLines;
-})
-  .then((dataLines) => {
-    for (const line of dataLines) {
-      let [sessionId, time, abstractId, ...rest] = line.split(',');
+// readFile(csv_sessionitems, (lines) => {
+//   const dataLines = lines.slice(1);
+//   return dataLines;
+// })
+//   .then((dataLines) => {
+//     for (const line of dataLines) {
+//       let [sessionId, time, abstractId, ...rest] = line.split(',');
 
-      const [startTime, endTime] = convertTimeRange(time, new Date());
-      const [title, presenter, via] = splitZoom(rest);
+//       const [startTime, endTime] = convertTimeRange(time, new Date());
+//       const [title, presenter, via] = splitZoom(rest);
 
-      // map data and save to json file
-      mapSessionItemData({
-        sessionId,
-        endTime,
-        startTime,
-        abstractId: parseInt(abstractId, 10),
-        title,
-        presenter,
-        via: via?.replace(/\r/g, ''),
-      });
-    }
-  })
-  .catch((error) => {
-    console.error('Error reading the file:', error.message);
-  });
+//       // map data and save to json file
+//       mapSessionItemData({
+//         sessionId,
+//         endTime,
+//         startTime,
+//         abstractId: parseInt(abstractId, 10),
+//         title,
+//         presenter,
+//         via: via?.replace(/\r/g, ''),
+//       });
+//     }
+//   })
+//   .catch((error) => {
+//     console.error('Error reading the file:', error.message);
+//   });
 
 /** read panal discussion.csv file and parse data */
 // readFile(csv_panaldiscussions, (lines) => {
@@ -152,4 +161,29 @@ readFile(csv_sessionitems, (lines) => {
 //   .catch((error) => {
 //     console.error('Error reading the file:', error.message);
 //   });
-  
+
+readFile(csv_paidusers, (lines) => {
+  const dataLines = lines.slice(1);
+  return dataLines;
+})
+  .then((dataLines) => {
+    // Title,Name with Initials,Participation, Abstract ID,Affiliated Organization/Institute,Email,National Identity Card No. (Sri Lanka) or Passport Number
+    for (const line of dataLines) {
+      const [title, name, role, ...rest] = line.split(',');
+      const abstractIds = extractAbstractIds(rest.join(', '));
+      const [nic, email, ...institute] = toReversed(rest);
+
+      // map data and save to json file
+      mapParticipantData({
+        name: [title, name].join(' '),
+        roleName: role,
+        presentingSessionIds: abstractIds,
+        nic: nic.replace(/\r/g, ''),
+        email,
+        institute: institute.join(' '),
+      });
+    }
+  })
+  .catch((error) => {
+    console.error('Error reading the file:', error.message);
+  });

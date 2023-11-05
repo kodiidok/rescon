@@ -4,6 +4,7 @@ import {
   PlenaryTalk,
   Session,
   SessionItem,
+  User,
 } from './interfaces';
 import * as crypto from 'crypto';
 import * as fs from 'fs';
@@ -13,6 +14,7 @@ import {
   json_sessionitems,
   json_panaldiscussions,
   json_plenarytalks,
+  json_paidusers,
 } from './filepaths';
 
 export function convertTimeRange(timeRange, date) {
@@ -47,22 +49,8 @@ export function mapChairPersonData({ email, name }: ChairPerson) {
     }
     if (name) {
       mappedData.name = name;
-
-      // Generate username based on initials and a random number
-      const [, ...names] = name.split('.');
-      const initials = names
-        .join(' ')
-        .split(' ')
-        .map((word) => word.charAt(0).toUpperCase())
-        .join('');
-
-      // Generate a random number
-      const randomBytes = crypto.randomBytes(3);
-      const randomHexString = randomBytes.toString('hex');
-      const randomNumber = randomHexString.substring(0, 6);
-
       // Combine initials and random string to form the username
-      mappedData.username = `${initials}${randomNumber}`;
+      mappedData.username = generateUsername(name);
     }
 
     // Read the existing JSON file
@@ -204,7 +192,9 @@ export function mapPlenaryTalkData({
     };
 
     // Read the existing JSON file
-    const existingData = JSON.parse(fs.readFileSync(json_plenarytalks, 'utf-8'));
+    const existingData = JSON.parse(
+      fs.readFileSync(json_plenarytalks, 'utf-8'),
+    );
 
     // Append the new data to the existing data
     existingData.push(mappedData);
@@ -212,6 +202,50 @@ export function mapPlenaryTalkData({
     // Save the updated data back to the file
     fs.writeFileSync(
       json_plenarytalks,
+      JSON.stringify(existingData, null, 2),
+      'utf-8',
+    );
+  } catch (error) {
+    throw new Error(error);
+  }
+}
+
+export function mapParticipantData({
+  name,
+  roleName,
+  presentingSessionIds,
+  nic,
+  email,
+  institute,
+  username,
+  password,
+}: User) {
+  try {
+    const mappedData: User = {
+      name,
+      presentingSessionIds,
+      nic,
+      institute,
+      username: generateUsername(name),
+      email: email ? email : 'default@email.com',
+      password: 'P@ssw0rd',
+      roleName:
+        roleName === 'Presenter'
+          ? 'presenter'
+          : roleName === 'Participant only'
+          ? 'paid_user'
+          : 'public_user',
+    };
+
+    // Read the existing JSON file
+    const existingData = JSON.parse(fs.readFileSync(json_paidusers, 'utf-8'));
+
+    // Append the new data to the existing data
+    existingData.push(mappedData);
+
+    // Save the updated data back to the file
+    fs.writeFileSync(
+      json_paidusers,
       JSON.stringify(existingData, null, 2),
       'utf-8',
     );
@@ -245,4 +279,55 @@ export function splitZoom(input: string[]) {
   }
 
   return splits;
+}
+
+export function toReversed(arr: any) {
+  return [...arr].reverse();
+}
+
+export function extractAbstractIds(data: string) {
+  // Define a regular expression to match the numbers inside quotations
+  const regex = /".*?"/g;
+
+  // Extract numbers inside quotations using match and map
+  let extractedNumbers = (data.match(regex) || []).map((match) => {
+    const numbersString = match.replace(/"/g, '');
+    const numbers = numbersString.split(',');
+    const filteredNumbers = numbers.map(Number).filter((part) => !isNaN(part));
+    return numbers.length === 1 ? filteredNumbers[0] : filteredNumbers;
+  });
+
+  // Check if extractedNumbers contains only empty arrays, return an empty array in that case
+  if (
+    extractedNumbers.every((item) => Array.isArray(item) && item.length === 0)
+  ) {
+    extractedNumbers = [];
+  }
+
+  // If there are no double-quoted numbers, return the number at the 4th position when the data is split
+  if (extractedNumbers.length === 0) {
+    const [extractedNumber, ...rest] = data.split(',');
+    extractedNumbers = [extractedNumber];
+  } else {
+    extractedNumbers = extractedNumbers[0].map((num) => `${num}`);
+  }
+  return extractedNumbers;
+}
+
+export function generateUsername(name: string) {
+  // Generate username based on initials and a random number
+  const [, ...names] = name.split('.');
+  const initials = names
+    .join(' ')
+    .split(' ')
+    .map((word) => word.charAt(0).toUpperCase())
+    .join('');
+
+  // Generate a random number
+  const randomBytes = crypto.randomBytes(3);
+  const randomHexString = randomBytes.toString('hex');
+  const randomNumber = randomHexString.substring(0, 6);
+
+  // Combine initials and random string to form the username
+  return `${initials}${randomNumber}`;
 }

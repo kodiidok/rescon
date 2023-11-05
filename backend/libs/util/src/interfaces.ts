@@ -38,3 +38,14 @@ export interface PanalDiscussion {
   endTime?: string;
   sessionId?: string;
 }
+
+export interface User {
+  name?: string;
+  username?: string;
+  password?: string;
+  roleName?: string;
+  presentingSessionIds?: number[];
+  nic?: string;
+  email?: string;
+  institute?: string;
+}

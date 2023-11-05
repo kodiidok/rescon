@@ -13,7 +13,7 @@ import {
   Tab,
 } from "@nextui-org/react";
 import { useState, useEffect } from "react";
-import { getSessionByDate } from "@/config/api";
+// import { getSessionByDate } from "@/config/api";
 // import { getSessionByCategory } from "@/config/api";
 import { button } from "@nextui-org/theme";
 import { SearchResult } from "../search/search";
@@ -42,7 +42,7 @@ interface Session {
   sessionItems: SearchResult[];
 }
 
-export default function ScheduleTable() {
+export default function TechnicalProgram() {
   const [category, setCategory] = useState("Life Sciences");
   const [date, setDate] = useState("2023-11-03");
   // const [sessionItems, setSessionItems] = useState<SearchResult[]>([]);
@@ -52,6 +52,14 @@ export default function ScheduleTable() {
 
 
   let debounceTimer: NodeJS.Timeout;
+
+  async function getSessionByDate(date: string) {
+    const res = await fetch(`/api/sessions/date/${date}`);
+    if (!res.ok) {
+      throw new Error("Failed to fetch session data");
+    }
+    return res.json();
+  }
 
   useEffect(() => {
     const fetchData = async () => {
@@ -95,8 +103,8 @@ export default function ScheduleTable() {
         onCategoryChange={handleCategorySelect}
       />
 
-      <div className="flex justify-between items-center">
-        <h1 className="text-5xl font-semibold my-4">Session Lineup</h1>
+      <div className="flex flex-col md:flex-row justify-between items-center">
+        <h1 className="text-5xl font-semibold my-4">Program</h1>
         <div className="flex gap-3 items-center">
           <Button className={`font-semibold text-lg ${btnActive ? 'bg-slate-300 text-gray-900' : ''}`} onClick={() => handleDateSelect("2023-11-03")}>3rd</Button>
           <Button className={`font-semibold text-lg ${!btnActive ? 'bg-slate-300 text-gray-900' : ''}`} onClick={() => handleDateSelect("2023-11-04")}>4th</Button>

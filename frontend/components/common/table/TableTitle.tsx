@@ -14,7 +14,7 @@ const TableTitle: React.FC<TableDetailsProps> = ({ sessionId, location, sessionC
 
   const catColor1 = cx(
     sessionId.replace(/\d/g, '') === 'EES' ? 'bg-green-400' :
-      sessionId.replace(/\d/g, '') === 'ICTMS, Mathematics and Statistics' ? 'bg-blue-400' :
+      sessionId.replace(/\d/g, '') === 'ICTMS' ? 'bg-blue-400' :
         sessionId.replace(/\d/g, '') === 'LS' ? 'bg-purple-400' :
           sessionId.replace(/\d/g, '') === 'PS' ? 'bg-pink-400' :
             sessionId.replace(/\d/g, '') === 'SE' ? 'bg-orange-400' : 'bg-zinc-700'
@@ -22,11 +22,26 @@ const TableTitle: React.FC<TableDetailsProps> = ({ sessionId, location, sessionC
 
   const catColor2 = cx(
     sessionId.replace(/\d/g, '') === 'EES' ? 'bg-green-500' :
-      sessionId.replace(/\d/g, '') === 'ICTMS, Mathematics and Statistics' ? 'bg-blue-500' :
+      sessionId.replace(/\d/g, '') === 'ICTMS' ? 'bg-blue-500' :
         sessionId.replace(/\d/g, '') === 'LS' ? 'bg-purple-500' :
           sessionId.replace(/\d/g, '') === 'PS' ? 'bg-pink-500' :
             sessionId.replace(/\d/g, '') === 'SE' ? 'bg-orange-500' : 'bg-zinc-700'
   );
+
+  // Function to format session IDs
+  function formatSessionId(sessionId: string) {
+    // Use regular expression to match the pattern "EES1" or "PS6"
+    const match = sessionId.match(/([A-Z]+)(\d+)/);
+
+    // If there is a match, format the session ID as "EES-1" or "PS-6"
+    if (match) {
+      const [, prefix, number] = match;
+      return `${prefix}-${number}`;
+    }
+
+    // If there is no match, return the original session ID
+    return sessionId;
+  }
 
   return (
     <div className="text-gray-900">
@@ -36,7 +51,7 @@ const TableTitle: React.FC<TableDetailsProps> = ({ sessionId, location, sessionC
       <div className={`flex text-center py-2 px-6 ${catColor1}`}>
         <div className="w-1/2 text-left">
           <h1 className="text-xs font-bold">{time}</h1>
-          <h1 className="font-bold">Session ID: {sessionId}</h1>
+          <h1 className="font-bold">Session ID: {formatSessionId(sessionId)}</h1>
         </div>
         <div className="w-1/2 text-right">
           <h1 className="text-xs font-bold">Location</h1>
