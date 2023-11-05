@@ -8,8 +8,7 @@ const handle = app.getRequestHandler();
 
 // Create a proxy instance with the target and other options
 const apiProxy = createProxyMiddleware('/api', {
-  target: 'http://139.59.24.47:3333',
-  // target: 'http://localhost:3333',
+  target: 'http://localhost:3333',
   changeOrigin: true, // needed for virtual hosted sites
   pathRewrite: {
     '^/api': '', // remove the /api prefix when forwarding the request
