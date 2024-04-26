@@ -1,0 +1,14 @@
+[
+    {
+        "name": "student"
+    },
+    {
+        "name": "paid_user"
+    },
+    {
+        "name": "presenter"
+    },
+    {
+        "name": "session_chair"
+    }
+]

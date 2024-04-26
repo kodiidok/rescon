@@ -2,7 +2,7 @@ import { DataSourceOptions } from 'typeorm';
 
 const baseconfig: any = {
   host: process.env['DB_HOST'] ?? 'localhost',
-  port: Number(process.env['DB_PORT']) || 5432,
+  port: Number(process.env['DB_PORT']) || 3003,
   username: process.env['DB_USER'] ?? 'rescon',
   password: process.env['DB_PASSWORD'] ?? 'rescon',
   database: process.env['DB_NAME'] ?? 'rescon',

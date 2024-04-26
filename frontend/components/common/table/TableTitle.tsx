@@ -63,10 +63,10 @@ const TableTitle: React.FC<TableDetailsProps> = ({ sessionId, location, sessionC
           <h1>Session Chairs</h1>
         </div>
         <div className="w-1/3">
-          <h1>{first.name}</h1>
+          <h1>{first?.name}</h1>
         </div>
         <div className="w-1/3">
-          <h1>{second.name}</h1>
+          <h1>{second?.name}</h1>
         </div>
       </div>
     </div>
